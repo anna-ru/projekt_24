@@ -2,17 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#6801EF21"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="218dp"
-        android:layout_height="219dp"
-        android:background="@mipmap/asd"
-        android:text="Press me!"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="303dp" />
+        android:id="@+id/button"
+        android:background="#a176ac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Button" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:background="#C81B2A76"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="CheckBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:background="#95EF010B"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="CheckBox" />
+
 
 </LinearLayout>
