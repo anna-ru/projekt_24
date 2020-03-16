@@ -2,6 +2,7 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#6801EF21"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:rowCount="10"
@@ -10,6 +11,7 @@
 
     <Button
         android:id="@+id/button"
+<<<<<<< HEAD
         android:layout_width="218dp"
         android:layout_height="219dp"
         android:background="@mipmap/asd"
@@ -17,6 +19,30 @@
         android:layout_columnSpan="2"
         android:layout_row="1"
         android:layout_column="1" />
+=======
+        android:background="#a176ac"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Button" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:background="#C81B2A76"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="CheckBox" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:background="#95EF010B"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="CheckBox" />
+
+>>>>>>> e754fb169aba2192db8a03852851c007bf27920b
 
     <CheckBox android:id="@+id/checkbox_Parameter1"
         android:layout_width="wrap_content"
