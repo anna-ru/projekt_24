@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/Project-app.iml" filepath="$PROJECT_DIR$/app/Project-app.iml" group="ProjectBored/app" />
       <module fileurl="file://$PROJECT_DIR$/ProjectBored.iml" filepath="$PROJECT_DIR$/ProjectBored.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/projekt_24-ProjectBored.iml" filepath="$PROJECT_DIR$/projekt_24-ProjectBored.iml" group="ProjectBored" />
       <module fileurl="file://$PROJECT_DIR$/projekt_24-develop-ProjectBored.iml" filepath="$PROJECT_DIR$/projekt_24-develop-ProjectBored.iml" group="ProjectBored" />
     </modules>
   </component>
