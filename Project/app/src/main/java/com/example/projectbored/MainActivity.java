@@ -16,8 +16,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,79 +34,15 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    List<EventClass> eventsList = new LinkedList<EventClass>();
-
-    private String selectedTimeOfDay;
-    private String selectedPrice;
-
-    public void fillEventsListWithSampleData(){
-        eventsList.add(new EventClass("Fergeteges esemény az Alle-ban","Alle",true, true,TimeOfDay.Morning,Price.Cheap));
-        eventsList.add(new EventClass("Fergeteges esemény otthon","",false,false,TimeOfDay.Morning,Price.Free));
-        eventsList.add(new EventClass("Közepesen jó esemény az egész családnak","Budapest",true,true,TimeOfDay.Evening,Price.Mediocre));
-        eventsList.add(new EventClass("Rendkívüli esemény egy főre","Toilet",true,false,TimeOfDay.Noon,Price.Cheap));
-    }
-
-    public EventClass getRandomElementOfEventsListByParameters(Boolean searchForGroup, String selectedTimeOfDay){
-        EventClass result;
-        Random rand = new Random();
-        List<EventClass> randomEventPool = new LinkedList<EventClass>(eventsList);
-
-        if(searchForGroup) {
-            for (int i = 0; i < eventsList.size(); i++) {
-                if (!eventsList.get(i).getGroup()) {
-                    randomEventPool.remove(eventsList.get(i));
-                }
-            }
-        }
-
-        FilterTimeOfDay(randomEventPool,TimeOfDay.Morning);
-        FilterTimeOfDay(randomEventPool,TimeOfDay.Noon);
-        FilterTimeOfDay(randomEventPool,TimeOfDay.Afternoon);
-        FilterTimeOfDay(randomEventPool,TimeOfDay.Evening);
-
-        FilterPrice(randomEventPool,Price.Free);
-        FilterPrice(randomEventPool,Price.Cheap);
-        FilterPrice(randomEventPool,Price.Mediocre);
-        FilterPrice(randomEventPool,Price.Expensive);
-
-
-        // Generate random integers in range 0 to size of List
-        if(randomEventPool.size() > 0) {
-            int randomNumber = rand.nextInt(randomEventPool.size());
-            result = randomEventPool.get(randomNumber);
-            return result;
-        }else{
-            result = new EventClass("Nem találtam a szürésnek megfelelő eseményt.","",false,false,null,null);
-            return result;
-        }
-    }
-
-    private void FilterTimeOfDay(List<EventClass> randomEventPool, TimeOfDay timeOfDay){
-        if(selectedTimeOfDay.equals(timeOfDay.toString())){
-            for (int i = 0; i < eventsList.size(); i++) {
-                if (!(eventsList.get(i).getTimeOfDay().toString().equals(timeOfDay.toString()))) {
-                    randomEventPool.remove(eventsList.get(i));
-                }
-            }
-        }
-    }
-
-    private void FilterPrice(List<EventClass> randomEventPool, Price price){
-        if(selectedPrice.equals(price.toString())){
-            for (int i = 0; i < eventsList.size(); i++) {
-                if (!(eventsList.get(i).getPrice().toString().equals(price.toString()))) {
-                    randomEventPool.remove(eventsList.get(i));
-                }
-            }
-        }
-    }
+    private EventManager eventManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fillEventsListWithSampleData();
+        eventManager = new EventManager();
+        eventManager.fillEventsListWithSampleData(); //ez addig kell csak amíg nincs adatbázis
 
         AppDatabase db = Room.databaseBuilder(getApplicationContext(),
                 AppDatabase.class, "event").createFromAsset("database/events.csv").build();
@@ -125,7 +64,9 @@ public class MainActivity extends AppCompatActivity {
         timeOfDaySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedTimeOfDay = timeOfDaySpinner.getSelectedItem().toString();
+                String selected = timeOfDaySpinner.getSelectedItem().toString();
+                Log.d("debug","selected TimeOfDay: " + selected);
+                eventManager.setSelectedTimeOfDay(eventManager.StringToTimeOfDay(selected));
             }
 
             @Override
@@ -137,7 +78,9 @@ public class MainActivity extends AppCompatActivity {
         priceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                selectedPrice = priceSpinner.getSelectedItem().toString();
+                String selected = priceSpinner.getSelectedItem().toString();
+                Log.d("debug","selected Price: " + selected);
+                eventManager.setSelectedPrice(eventManager.StringToPrice(selected));
             }
 
             @Override
@@ -146,15 +89,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        isGroupCheckBox.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                eventManager.setSearchForGroup(isGroupCheckBox.isChecked());
+            }
+        });
+
         //find idea button and set onclick event
         Button button = findViewById(R.id.ideaButton);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                Event randomEvent = new Event(); //TODO: switch out for database query
-                EventClass randomEventClass = getRandomElementOfEventsListByParameters(isGroupCheckBox.isChecked(),selectedTimeOfDay);
-                randomEvent.name = randomEventClass.getName();
-                onButtonShowPopupWindowClick(v, randomEvent.name, randomEventClass.getMapsData(), randomEventClass.getShowMap());
+                EventClass randomEventClass = eventManager.getRandomElementOfEventsListByParameters(); //TODO: switch out for database query
+                onButtonShowPopupWindowClick(v, randomEventClass.getName(), randomEventClass.getMapsData(), randomEventClass.getShowMap());
             }
         });
     }
