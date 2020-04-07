@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">ProjectBored</string>
+
+    <string-array name="timeOfDayArray">
+        <item>Anytime</item>
+        <item>Morning</item>
+        <item>Noon</item>
+        <item>Afternoon</item>
+        <item>Evening</item>
+    </string-array>
+
+    <string-array name="price">
+        <item>Any price</item>
+        <item>Free</item>
+        <item>Cheap</item>
+        <item>Mediocre</item>
+        <item>Expensive</item>
+    </string-array>
+
 </resources>
