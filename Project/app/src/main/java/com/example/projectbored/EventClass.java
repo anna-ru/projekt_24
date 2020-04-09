@@ -7,13 +7,13 @@ public class EventClass {
 
     private String name;
     private String mapsData;
-    private Boolean showMap;
-    private Boolean isGroup;
+    private boolean showMap;
+    private boolean isGroup;
     private TimeOfDay timeOfDay;
     private Price price;
     private List<Categories> categories;
 
-    public EventClass(String name, String mapsData, Boolean showMap, Boolean isGroup, TimeOfDay timeOfDay,Price price){
+    public EventClass(String name, String mapsData, boolean showMap, boolean isGroup, TimeOfDay timeOfDay,Price price){
         this.name = name;
         this.mapsData = mapsData;
         this.showMap = showMap;
@@ -26,8 +26,8 @@ public class EventClass {
 
     public String getName() { return name; }
     public String getMapsData() { return mapsData; }
-    public Boolean getShowMap() { return showMap; }
-    public Boolean getGroup() { return isGroup; }
+    public boolean getShowMap() { return showMap; }
+    public boolean getGroup() { return isGroup; }
     public TimeOfDay getTimeOfDay() { return timeOfDay; }
     public Price getPrice() { return price; }
     public List<Categories> getCategories() { return categories; }
@@ -35,8 +35,8 @@ public class EventClass {
 //setters
     public void setName(String name) { this.name = name; }
     public void setMapsData(String mapsData) { this.mapsData = mapsData; }
-    public void setShowMap(Boolean showMap) { this.showMap = showMap; }
-    public void setGroup(Boolean group) { isGroup = group; }
+    public void setShowMap(boolean showMap) { this.showMap = showMap; }
+    public void setGroup(boolean group) { isGroup = group; }
     public void setTimeOfDay(TimeOfDay timeOfDay) { this.timeOfDay = timeOfDay; }
     public void setPrice(Price price) { this.price = price; }
     public void setCategories(List<Categories> categories) { this.categories = categories; }
