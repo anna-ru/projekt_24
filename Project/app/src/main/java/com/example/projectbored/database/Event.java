@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 public class Event {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int eid;
 
     @ColumnInfo(name = "name")
@@ -20,18 +20,9 @@ public class Event {
     @ColumnInfo(name = "indoor")
     public boolean indoor;
 
-    @ColumnInfo(name = "morning")
-    public  boolean morning;
+    @ColumnInfo(name = "is_free")
+    public boolean is_free;
 
-    @ColumnInfo(name = "afternoon")
-    public  boolean afternoon;
-
-    @ColumnInfo(name = "evening")
-    public  boolean evening;
-
-    @ColumnInfo(name = "price")
-    public int price;
-
-    @ColumnInfo(name = "categories")
-    public String categories;
+    @ColumnInfo(name = "search_map")
+    public  String search_map;
 }
