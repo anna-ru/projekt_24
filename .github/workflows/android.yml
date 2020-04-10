@@ -21,7 +21,8 @@ jobs:
     - name: Make gradlew executable
       run: chmod +x ./Project/gradlew
     - name: Unit tests
-      run: ./Project/gradlew test --stacktrace
+      run: ./gradlew test --stacktrace
+      working-directory: ./Project
  
   build:
     name: Build Project
@@ -35,7 +36,8 @@ jobs:
     - name: Make gradlew executable
       run: chmod +x ./Project/gradlew
     - name: Build
-      run: ./Project/gradlew build --stacktrace
+      run: ./gradlew build --stacktrace
+      working-directory: ./Project
       
   apk:
     name: Generate APK
@@ -49,7 +51,8 @@ jobs:
     - name: Make gradlew executable
       run: chmod +x ./Project/gradlew
     - name: APK
-      run: ./Project/gradlew assemble --stacktrace
+      run: ./gradlew assemble --stacktrace
+      working-directory: ./Project
       
     - name: Upload APK
       uses: actions/upload-artifact@v1
