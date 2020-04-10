@@ -1,6 +1,6 @@
 package com.example.projectbored;
 
-public enum TimeOfDay {
+public enum Location {
     Any,
     Morning,
     Noon,

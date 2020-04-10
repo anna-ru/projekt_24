@@ -7,16 +7,16 @@ import java.util.Random;
 public class EventManager {
 
     private boolean searchForGroup;
-    private TimeOfDay selectedTimeOfDay = TimeOfDay.Any;
+    private Location selectedLocation = Location.Any;
     private Price selectedPrice = Price.Any;
     private List<EventClass> eventsList = new LinkedList<EventClass>();
 
     public void fillEventsListWithSampleData(){
         clearEventsList();
-        eventsList.add(new EventClass("Fergeteges esemény az Alle-ban","Alle",true, true,TimeOfDay.Morning,Price.Cheap));
-        eventsList.add(new EventClass("Fergeteges esemény otthon","",false,false,TimeOfDay.Morning,Price.Free));
-        eventsList.add(new EventClass("Közepesen jó esemény az egész családnak","Budapest",true,true,TimeOfDay.Evening,Price.Mediocre));
-        eventsList.add(new EventClass("Rendkívüli esemény egy főre","Toilet",true,false,TimeOfDay.Noon,Price.Cheap));
+        eventsList.add(new EventClass("Fergeteges esemény az Alle-ban","Alle",true, true, Location.Morning,Price.Cheap));
+        eventsList.add(new EventClass("Fergeteges esemény otthon","",false,false, Location.Morning,Price.Free));
+        eventsList.add(new EventClass("Közepesen jó esemény az egész családnak","Budapest",true,true, Location.Evening,Price.Mediocre));
+        eventsList.add(new EventClass("Rendkívüli esemény egy főre","Toilet",true,false, Location.Noon,Price.Cheap));
     }
 
     public EventClass getRandomElementOfEventsListByParameters(){
@@ -47,9 +47,9 @@ public class EventManager {
     }
 
     public void FilterTimeOfDay(List<EventClass> randomEventPool){
-        if(selectedTimeOfDay.equals(TimeOfDay.Any)) return;
+        if(selectedLocation.equals(Location.Any)) return;
         for (int i = 0; i < eventsList.size(); i++) {
-            if (!(eventsList.get(i).getTimeOfDay().equals(selectedTimeOfDay))) {
+            if (!(eventsList.get(i).getLocation().equals(selectedLocation))) {
                 randomEventPool.remove(eventsList.get(i));
             }
         }
@@ -64,9 +64,9 @@ public class EventManager {
         }
     }
 
-    public TimeOfDay StringToTimeOfDay(String selected) {
-        if(selected.equals("Anytime")) return TimeOfDay.Any; //if we change the TimeOfDay enums we need to be careful to see it this still works
-        return TimeOfDay.valueOf(selected);
+    public Location StringToTimeOfDay(String selected) {
+        if(selected.equals("Anytime")) return Location.Any; //if we change the TimeOfDay enums we need to be careful to see it this still works
+        return Location.valueOf(selected);
     }
 
     public Price StringToPrice(String selected) {
@@ -76,12 +76,13 @@ public class EventManager {
 
     //getters
     public boolean getSearchForGroup() {return searchForGroup;}
-    public TimeOfDay getSelectedTimeOfDay() {return selectedTimeOfDay;}
+    public Location getSelectedLocation() {return selectedLocation;}
     public Price getSelectedPrice() {return selectedPrice;}
     public List<EventClass> getEventsList() {return eventsList;}
     //setters
     public void setSearchForGroup(boolean selected) {searchForGroup = selected;}
-    public void setSelectedTimeOfDay(TimeOfDay selected) {selectedTimeOfDay = selected;}
+    public void setSelectedLocation(Location selected) {
+        selectedLocation = selected;}
     public void setSelectedPrice(Price selected) {selectedPrice = selected;}
     //other
     public void addEventToList(EventClass event) {eventsList.add(event);}
