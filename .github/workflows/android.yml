@@ -15,25 +15,28 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: set up JDK 1.8
-      uses: actions/setup-java@v1
+      
+    - name: Run Gradle test command
+      uses: Raul6469/android-gradle-action@2.0.0
       with:
-        java-version: 1.8
-    - name: Unit tests
-      run: bash ./gradlew test --stacktrace
+        # The gradle command you wish to run (required)
+        # Here, `./gradlew test` will be run
+        script: test
  
   build:
     name: Build Project
     runs-on: ubuntu-latest
 
     steps:
+    
     - uses: actions/checkout@v2
-    - name: set up JDK 1.8
-      uses: actions/setup-java@v1
+      
+    - name: Run Gradle build command
+      uses: Raul6469/android-gradle-action@2.0.0
       with:
-        java-version: 1.8
-    - name: Build with Gradle
-      run: bash ./gradlew build
+        # The gradle command you wish to run (required)
+        # Here, `./gradlew test` will be run
+        script: build
       
   apk:
     name: Generate APK
@@ -41,12 +44,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: set up JDK 1.8
-        uses: actions/setup-java@v1
+      
+      - name: Run Gradle assembleDebug command
+        uses: Raul6469/android-gradle-action@2.0.0
         with:
-          java-version: 1.8
-      - name: Build debug APK
-        run: bash ./gradlew assembleDebug --stacktrace
+          # The gradle command you wish to run (required)
+          # Here, `./gradlew test` will be run
+          script: assembleDebug
+      
       - name: Upload APK
         uses: actions/upload-artifact@v1
         with:
