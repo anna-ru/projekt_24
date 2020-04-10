@@ -18,9 +18,8 @@ jobs:
     - uses: actions/setup-java@v1
       with:
         java-version: 11
-    - uses: eskatos/gradle-command-action@v1
-      with:
-        arguments: test
+    - name: Unit tests
+      run: bash ./gradlew test --stacktrace
  
   build:
     name: Build Project
@@ -31,9 +30,8 @@ jobs:
     - uses: actions/setup-java@v1
       with:
         java-version: 11
-    - uses: eskatos/gradle-command-action@v1
-      with:
-        arguments: build
+    - name: Build
+      run: bash ./gradlew build --stacktrace
       
   apk:
     name: Generate APK
@@ -44,9 +42,8 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: 11
-      - uses: eskatos/gradle-command-action@v1
-        with:
-          arguments: assembleDebug
+      - name: APK
+        run: bash ./gradlew assembleDebug --stacktrace
       
       - name: Upload APK
         uses: actions/upload-artifact@v1
