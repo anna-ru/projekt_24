@@ -19,7 +19,7 @@ jobs:
       with:
         java-version: 11
     - name: Unit tests
-      run: bash ./gradlew test --stacktrace
+      run: bash ./Project/gradlew test --stacktrace
  
   build:
     name: Build Project
@@ -31,7 +31,7 @@ jobs:
       with:
         java-version: 11
     - name: Build
-      run: bash ./gradlew build --stacktrace
+      run: bash ./Project/gradlew build --stacktrace
       
   apk:
     name: Generate APK
@@ -43,10 +43,10 @@ jobs:
         with:
           java-version: 11
       - name: APK
-        run: bash ./gradlew assembleDebug --stacktrace
+        run: bash ./Project/gradlew assembleDebug --stacktrace
       
       - name: Upload APK
         uses: actions/upload-artifact@v1
         with:
           name: app
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: Project/app/build/outputs/apk/debug/app-debug.apk
