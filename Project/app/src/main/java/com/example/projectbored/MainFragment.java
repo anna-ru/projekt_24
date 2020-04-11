@@ -25,10 +25,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
+import java.util.Objects;
 
 public class MainFragment extends Fragment {
 
-    private EventManager eventManager;
+    public static EventManager eventManager = null;
 
     public MainFragment() {
         // Required empty public constructor
@@ -48,59 +51,11 @@ public class MainFragment extends Fragment {
 
         //Ez a tag-ekhez lett készítve, hátha jól jön még később, esetleg listázáshoz akár
         //createLayoutDynamically(5,getActivity());
-
-        eventManager = new EventManager();
-        eventManager.fillEventsListWithSampleData(); //ez addig kell csak amíg nincs adatbázis
-
-        final CheckBox isGroupCheckBox = view.findViewById(R.id.checkbox_isGroup);
-        final Spinner locationSpinner = view.findViewById(R.id.spinner_location);
-
-        ArrayAdapter<CharSequence> locationAdapter = ArrayAdapter.createFromResource(getContext(),
-                R.array.locationArray,android.R.layout.simple_spinner_item);
-        locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        locationSpinner.setAdapter(locationAdapter);
-
-        final Spinner priceSpinner = view.findViewById(R.id.spinner_price);
-
-        ArrayAdapter<CharSequence> priceAdapter = ArrayAdapter.createFromResource(getContext(),
-                R.array.price,android.R.layout.simple_spinner_item);
-        priceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        priceSpinner.setAdapter(priceAdapter);
-
-        //TODO: ez így nem biztos, hogy a legoptimálisabb
-        locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selected = locationSpinner.getSelectedItem().toString();
-                eventManager.setSelectedLocation(eventManager.StringToLocation(selected));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        priceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selected = priceSpinner.getSelectedItem().toString();
-                Log.d("debug","selected Price: " + selected);
-                eventManager.setSelectedPrice(eventManager.StringToPrice(selected));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        isGroupCheckBox.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                eventManager.setSearchForGroup(isGroupCheckBox.isChecked());
-            }
-        });
+        //TODO: az optionsben meg kell majd jeleníteni az aktuális filtereket mert most visszaállnak kezdetleges értékre
+        if(eventManager == null){
+            eventManager = new EventManager();
+            eventManager.fillEventsListWithSampleData();
+        }
 
         //find idea button and set onclick event
         Button button = view.findViewById(R.id.ideaButton);
@@ -119,6 +74,14 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 ((MainActivity)getActivity()).addEventListFragment();
+            }
+        });
+
+        Button options_button = view.findViewById(R.id.options_button);
+        options_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new OptionsFragment(),null).addToBackStack(null).commit();
             }
         });
     }
@@ -189,8 +152,8 @@ public class MainFragment extends Fragment {
             myButton.setId(i);
             final int id_ = myButton.getId();
 
-            LinearLayout layout = getActivity().findViewById(R.id.categories);
-            layout.addView(myButton);
+            //LinearLayout layout = getActivity().findViewById(R.id.categories);
+            //layout.addView(myButton);
 
             myButton.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
@@ -201,5 +164,4 @@ public class MainFragment extends Fragment {
             });
         }
     }
-
 }
