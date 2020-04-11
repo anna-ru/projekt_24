@@ -1,8 +1,10 @@
 package com.example.projectbored;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.DynamicLayout;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -15,8 +17,10 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -41,16 +45,20 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        //Ez a tag-ekhez lett készítve, hátha jól jön még később, esetleg listázáshoz akár
+        //createLayoutDynamically(5,getActivity());
+
         eventManager = new EventManager();
         eventManager.fillEventsListWithSampleData(); //ez addig kell csak amíg nincs adatbázis
 
         final CheckBox isGroupCheckBox = view.findViewById(R.id.checkbox_isGroup);
-        final Spinner timeOfDaySpinner = view.findViewById(R.id.spinner_timeOfDay);
+        final Spinner locationSpinner = view.findViewById(R.id.spinner_location);
 
-        ArrayAdapter<CharSequence> timeOfDayAdapter = ArrayAdapter.createFromResource(getContext(),
-                R.array.timeOfDayArray,android.R.layout.simple_spinner_item);
-        timeOfDayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        timeOfDaySpinner.setAdapter(timeOfDayAdapter);
+        ArrayAdapter<CharSequence> locationAdapter = ArrayAdapter.createFromResource(getContext(),
+                R.array.locationArray,android.R.layout.simple_spinner_item);
+        locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        locationSpinner.setAdapter(locationAdapter);
 
         final Spinner priceSpinner = view.findViewById(R.id.spinner_price);
 
@@ -60,12 +68,11 @@ public class MainFragment extends Fragment {
         priceSpinner.setAdapter(priceAdapter);
 
         //TODO: ez így nem biztos, hogy a legoptimálisabb
-        timeOfDaySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selected = timeOfDaySpinner.getSelectedItem().toString();
-                Log.d("debug","selected TimeOfDay: " + selected);
-                eventManager.setSelectedLocation(eventManager.StringToTimeOfDay(selected));
+                String selected = locationSpinner.getSelectedItem().toString();
+                eventManager.setSelectedLocation(eventManager.StringToLocation(selected));
             }
 
             @Override
@@ -173,4 +180,26 @@ public class MainFragment extends Fragment {
             showInMapButton.setVisibility(View.GONE);
         }
     }
+
+    private void createLayoutDynamically(int n,Context context){
+
+        for (int i = 0; i < n; i++) {
+            Button myButton = new Button(context);
+            myButton.setText("Button :"+i);
+            myButton.setId(i);
+            final int id_ = myButton.getId();
+
+            LinearLayout layout = getActivity().findViewById(R.id.categories);
+            layout.addView(myButton);
+
+            myButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    Toast.makeText(context,
+                            "Button clicked index = " + id_, Toast.LENGTH_SHORT)
+                            .show();
+                }
+            });
+        }
+    }
+
 }

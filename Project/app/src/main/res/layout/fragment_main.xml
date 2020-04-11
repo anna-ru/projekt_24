@@ -29,10 +29,10 @@
         android:id="@+id/checkbox_isGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Group activity" />
+        android:text="@string/group_activity" />
 
     <Spinner
-        android:id="@+id/spinner_timeOfDay"
+        android:id="@+id/spinner_location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -42,6 +42,14 @@
         android:layout_height="34dp" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/categories"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/options">
+    </LinearLayout>
+
     <Button
         android:id="@+id/all_ideas_button"
         android:layout_width="wrap_content"
@@ -49,6 +57,9 @@
         android:layout_below="@id/options"
         android:layout_centerHorizontal="true"
         android:text="@string/all_ideas" />
+
+
+
     <!--
     <CheckBox android:id="@+id/checkbox_Parameter4"
         android:layout_width="wrap_content"

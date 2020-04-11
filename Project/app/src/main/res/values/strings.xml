@@ -8,18 +8,30 @@
     <string-array name="price">
         <item>Any price</item>
         <item>Free</item>
-        <item>Cheap</item>
-        <item>Mediocre</item>
-        <item>Expensive</item>
+        <item>Paid</item>
     </string-array>
+    <string name="title_activity_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string-array name="timeOfDayArray">
-        <item>Anytime</item>
-        <item>Morning</item>
-        <item>Noon</item>
-        <item>Afternoon</item>
-        <item>Evening</item>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="group_activity">Group activity</string>
+
+    <string-array name="locationArray">
+        <item>Anywhere</item>
+        <item>Indoors</item>
+        <item>Outdoors</item>
     </string-array>
 
 </resources>

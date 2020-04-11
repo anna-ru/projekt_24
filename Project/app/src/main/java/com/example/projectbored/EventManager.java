@@ -13,10 +13,10 @@ public class EventManager {
 
     public void fillEventsListWithSampleData(){
         clearEventsList();
-        eventsList.add(new EventClass("Fergeteges esemény az Alle-ban","Alle",true, true, Location.Morning,Price.Cheap));
-        eventsList.add(new EventClass("Fergeteges esemény otthon","",false,false, Location.Morning,Price.Free));
-        eventsList.add(new EventClass("Közepesen jó esemény az egész családnak","Budapest",true,true, Location.Evening,Price.Mediocre));
-        eventsList.add(new EventClass("Rendkívüli esemény egy főre","Toilet",true,false, Location.Noon,Price.Cheap));
+        eventsList.add(new EventClass("Fergeteges esemény az Alle-ban","Alle",true, true, Location.Indoors,Price.Paid));
+        eventsList.add(new EventClass("Fergeteges esemény otthon","",false,false, Location.Indoors,Price.Free));
+        eventsList.add(new EventClass("Közepesen jó esemény az egész családnak","Budapest",true,true, Location.Outdoors,Price.Paid));
+        eventsList.add(new EventClass("Rendkívüli esemény egy főre","Toilet",true,false, Location.Indoors,Price.Free));
     }
 
     public EventClass getRandomElementOfEventsListByParameters(){
@@ -32,7 +32,7 @@ public class EventManager {
             }
         }
 
-        FilterTimeOfDay(randomEventPool);
+        FilterLocation(randomEventPool);
         FilterPrice(randomEventPool);
 
         // Generate random integers in range 0 to size of List
@@ -46,7 +46,7 @@ public class EventManager {
         }
     }
 
-    public void FilterTimeOfDay(List<EventClass> randomEventPool){
+    public void FilterLocation(List<EventClass> randomEventPool){
         if(selectedLocation.equals(Location.Any)) return;
         for (int i = 0; i < eventsList.size(); i++) {
             if (!(eventsList.get(i).getLocation().equals(selectedLocation))) {
@@ -64,8 +64,8 @@ public class EventManager {
         }
     }
 
-    public Location StringToTimeOfDay(String selected) {
-        if(selected.equals("Anytime")) return Location.Any; //if we change the TimeOfDay enums we need to be careful to see it this still works
+    public Location StringToLocation(String selected) {
+        if(selected.equals("Anywhere")) return Location.Any; //if we change the Location enums we need to be careful to see it this still works
         return Location.valueOf(selected);
     }
 
