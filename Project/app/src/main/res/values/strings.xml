@@ -1,13 +1,9 @@
 <resources>
     <string name="app_name">ProjectBored</string>
+    <string name="all_ideas">All ideas</string>
 
-    <string-array name="timeOfDayArray">
-        <item>Anytime</item>
-        <item>Morning</item>
-        <item>Noon</item>
-        <item>Afternoon</item>
-        <item>Evening</item>
-    </string-array>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="give_me_an_idea">Give me an idea</string>
 
     <string-array name="price">
         <item>Any price</item>
@@ -15,6 +11,15 @@
         <item>Cheap</item>
         <item>Mediocre</item>
         <item>Expensive</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="timeOfDayArray">
+        <item>Anytime</item>
+        <item>Morning</item>
+        <item>Noon</item>
+        <item>Afternoon</item>
+        <item>Evening</item>
     </string-array>
 
 </resources>
