@@ -30,6 +30,9 @@
     <string name="bored">Bored</string>
     <string name="options">Options</string>
     <string name="app_settings">App Settings</string>
+    <string name="Settings_sample_text">Here is going to be beautiful settings for this application including Dark Theme</string>
+    <string name="settings">Settings</string>
+    <string name="dark_theme">Dark Theme</string>
 
     <string-array name="locationArray">
         <item>Anywhere</item>

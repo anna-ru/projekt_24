@@ -49,6 +49,31 @@ public class OptionsFragment extends Fragment {
                 R.array.price,android.R.layout.simple_spinner_item);
         priceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         priceSpinner.setAdapter(priceAdapter);
+//set the default value of spinners and checkbox
+
+        if(MainFragment.eventManager.getSearchForGroup()){
+            isGroupCheckBox.setChecked(true);
+        }
+
+        if(MainFragment.eventManager.getSelectedLocation().toString().equals(Location.Any.toString())){
+            locationSpinner.setSelection(0);
+        }
+        if(MainFragment.eventManager.getSelectedLocation().toString().equals(Location.Indoors.toString())){
+            locationSpinner.setSelection(1);
+        }
+        if(MainFragment.eventManager.getSelectedLocation().toString().equals(Location.Outdoors.toString())){
+            locationSpinner.setSelection(2);
+        }
+
+        if(MainFragment.eventManager.getSelectedPrice().toString().equals(Price.Any.toString())){
+            priceSpinner.setSelection(0);
+        }
+        if(MainFragment.eventManager.getSelectedPrice().toString().equals(Price.Free.toString())){
+            priceSpinner.setSelection(1);
+        }
+        if(MainFragment.eventManager.getSelectedPrice().toString().equals(Price.Paid.toString())){
+            priceSpinner.setSelection(2);
+        }
 
         //TODO: ez így nem biztos, hogy a legoptimálisabb
         locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

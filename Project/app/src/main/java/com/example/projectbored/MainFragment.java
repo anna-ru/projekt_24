@@ -84,6 +84,15 @@ public class MainFragment extends Fragment {
                 MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new OptionsFragment(),null).addToBackStack(null).commit();
             }
         });
+
+        Button settings_button = view.findViewById(R.id.settings_button);
+        settings_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //((MainActivity)getActivity()).addSettingsFragment();
+                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new SettingsFragment(),null).addToBackStack(null).commit();
+            }
+        });
     }
 
     //https://stackoverflow.com/questions/5944987/how-to-create-a-popup-window-popupwindow-in-android

@@ -41,6 +41,13 @@ public class MainActivity extends AppCompatActivity {
                 .addToBackStack("options").commit();
     }
 
+    public void addSettingsFragment() {
+        getSupportFragmentManager().popBackStackImmediate(null,POP_BACK_STACK_INCLUSIVE );
+        SettingsFragment settingsFragment = new SettingsFragment();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, settingsFragment,null)
+                .addToBackStack(null).commit();
+    }
+
     public void addEventListFragment() {
         getSupportFragmentManager().popBackStackImmediate(null,POP_BACK_STACK_INCLUSIVE );
         EventListFragment eventListFragment = new EventListFragment();
