@@ -25,6 +25,12 @@ jobs:
     - name: Run all unit tests
       run: ./gradlew test --stacktrace
       working-directory: ./Project
+    
+    - name: Upload unit test results to artifacts
+      uses: actions/upload-artifact@v1
+      with:
+        name: unit-tests-results
+        path: Project/app/build/reports/tests/testDebugUnitTest/index.html
  
   build:
     name: Build Project
