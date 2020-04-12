@@ -1,10 +1,14 @@
 package com.example.projectbored;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -42,6 +46,10 @@ public class EventListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        createLayoutDynamically(MainFragment.eventManager.getEventsList().size(),getActivity());
+
+        /*
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
         final EventAdapter adapter = new EventAdapter(getContext());
         recyclerView.setAdapter(adapter);
@@ -56,7 +64,6 @@ public class EventListFragment extends Fragment {
             }
         });
     }
-
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -72,5 +79,34 @@ public class EventListFragment extends Fragment {
                     "Can't save data",
                     Toast.LENGTH_LONG).show();
         }
+     */
     }
+
+    private void createLayoutDynamically(int n, Context context){
+
+        for (int i = 0; i < n; i++) {
+            Button myButton = new Button(context);
+            myButton.setText(i+1 + ". " + MainFragment.eventManager.getEventsList().get(i).getName());
+            myButton.setId(i);
+            final int id_ = myButton.getId();
+
+            LinearLayout layout = getActivity().findViewById(R.id.all_ideas_list);
+
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.setMargins(20, 0, 20, 20); // (left, top, right, bottom)
+            myButton.setLayoutParams(params);
+
+            myButton.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    Toast.makeText(context,
+                            "Button clicked index = " + id_, Toast.LENGTH_SHORT)
+                            .show();
+                }
+            });
+
+            layout.addView(myButton);
+        }
+    }
+
 }
