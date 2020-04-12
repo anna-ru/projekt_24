@@ -11,19 +11,10 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e531c97-9d11-4e31-a863-cb68fd4f552b" name="Default Changelist" comment="-Added sample &quot;database&quot; in form of a List of Events. Created the required Classes and Enums for this.&#10;-Added filtering for group activity, Time of day and price category.&#10;-Changed some Checkboxes into Spinners for functionality.">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/EventManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/test/java/com/example/projectbored/EventManagerUnitTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_13_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="5e531c97-9d11-4e31-a863-cb68fd4f552b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/EventClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/EventClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/Price.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/Price.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/TimeOfDay.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/TimeOfDay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/projectbored/ExampleUnitTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/EventListFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/EventListFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_event_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_event_list.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +26,7 @@
     <option name="testRunner" value="GRADLE" />
     <option name="delegatedBuild" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CTLGAP18A3112434" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="RF8MA345BDX" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -71,9 +62,9 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-04-01T12:22:31.764Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="C:/AndroidStudio" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
   </component>
   <component name="RecentsManager">
@@ -96,7 +87,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android JUnit.EventManagerUnitTest">
+  <component name="RunManager" selected="Android App.Project-app">
     <configuration name="EventManagerUnitTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="projekt_24-Project-app" />
       <extension name="coverage">
@@ -273,6 +264,12 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Android App.projekt_24-Project-app" />
+      <item itemvalue="Android App.app" />
+      <item itemvalue="Android App.Project-app" />
+      <item itemvalue="Android JUnit.EventManagerUnitTest" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Android JUnit.EventManagerUnitTest" />
@@ -290,11 +287,58 @@
       <option name="presentableId" value="Default" />
       <updated>1583158147201</updated>
     </task>
+    <task id="LOCAL-00001" summary="-Changed TimeOfDay Spinner to Location Spinner, reduced options to&#10;Any/Indoors/Outdoors.&#10;-Reduced options of Price Spinner to Any/Free/Paid.&#10;-Updated corresponding tests and methods.">
+      <created>1586629899982</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586629899983</updated>
+    </task>
+    <task id="LOCAL-00002" summary="-Fixed functionality for Back button.&#10;-Added Options Fragment.&#10;-Improved UI.">
+      <created>1586641392660</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1586641392693</updated>
+    </task>
+    <task id="LOCAL-00003" summary="-Options fragment now remembers the previously set values&#10;-Added Sample Settings fragment without function&#10;-Minor fixes">
+      <created>1586681475364</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1586681475364</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$/.." />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
@@ -307,17 +351,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="-Added sample &quot;database&quot; in form of a List of Events. Created the required Classes and Enums for this.&#10;-Added filtering for group activity, Time of day and price category.&#10;-Changed some Checkboxes into Spinners for functionality." />
-    <option name="LAST_COMMIT_MESSAGE" value="-Added sample &quot;database&quot; in form of a List of Events. Created the required Classes and Enums for this.&#10;-Added filtering for group activity, Time of day and price category.&#10;-Changed some Checkboxes into Spinners for functionality." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/test/java/com/example/projectbored/EventManagerUnitTest.java</url>
-          <line>117</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="-Changed TimeOfDay Spinner to Location Spinner, reduced options to&#10;Any/Indoors/Outdoors.&#10;-Reduced options of Price Spinner to Any/Free/Paid.&#10;-Updated corresponding tests and methods." />
+    <MESSAGE value="-Fixed functionality for Back button.&#10;-Added Options Fragment.&#10;-Improved UI." />
+    <MESSAGE value="-Options fragment now remembers the previously set values&#10;-Added Sample Settings fragment without function&#10;-Minor fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="-Options fragment now remembers the previously set values&#10;-Added Sample Settings fragment without function&#10;-Minor fixes" />
   </component>
 </project>

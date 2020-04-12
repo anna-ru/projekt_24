@@ -27,10 +27,10 @@ public class EventManagerUnitTest {
     @Test
     public void getRandomElementOfEventsListByParametersTestIsGroup() {
         eventManager.clearEventsList();
-        eventManager.addEventToList(new EventClass("test1","",false, true, TimeOfDay.Morning, Price.Cheap));
-        eventManager.addEventToList(new EventClass("test2","",false, false, TimeOfDay.Afternoon, Price.Expensive));
+        eventManager.addEventToList(new EventClass("test1","",false, true, Location.Indoors, Price.Free));
+        eventManager.addEventToList(new EventClass("test2","",false, false, Location.Outdoors, Price.Paid));
 
-        eventManager.setSelectedTimeOfDay(TimeOfDay.Any);
+        eventManager.setSelectedLocation(Location.Any);
         eventManager.setSelectedPrice(Price.Any);
         eventManager.setSearchForGroup(true);
 
@@ -39,57 +39,57 @@ public class EventManagerUnitTest {
     }
 
     @Test
-    public void getRandomElementOfEventsListByParametersTestTimeOfDay() {
+    public void getRandomElementOfEventsListByParametersTestLocation() {
         eventManager.clearEventsList();
-        eventManager.addEventToList(new EventClass("test1","",false, true, TimeOfDay.Morning, Price.Cheap));
-        eventManager.addEventToList(new EventClass("test2","",false, false, TimeOfDay.Afternoon, Price.Expensive));
+        eventManager.addEventToList(new EventClass("test1","",false, true, Location.Indoors, Price.Free));
+        eventManager.addEventToList(new EventClass("test2","",false, false, Location.Outdoors, Price.Paid));
 
-        eventManager.setSelectedTimeOfDay(TimeOfDay.Morning);
+        eventManager.setSelectedLocation(Location.Indoors);
         eventManager.setSelectedPrice(Price.Any);
         eventManager.setSearchForGroup(false);
 
         EventClass random = eventManager.getRandomElementOfEventsListByParameters();
-        assertEquals("TimeOfDay property not checked properly",TimeOfDay.Morning, random.getTimeOfDay());
+        assertEquals("Location property not checked properly",Location.Indoors, random.getLocation());
     }
 
     @Test
     public void getRandomElementOfEventsListByParametersTestPrice() {
         eventManager.clearEventsList();
-        eventManager.addEventToList(new EventClass("test1","",false, true, TimeOfDay.Morning, Price.Cheap));
-        eventManager.addEventToList(new EventClass("test2","",false, false, TimeOfDay.Afternoon, Price.Expensive));
+        eventManager.addEventToList(new EventClass("test1","",false, true, Location.Indoors, Price.Free));
+        eventManager.addEventToList(new EventClass("test2","",false, false, Location.Outdoors, Price.Paid));
 
-        eventManager.setSelectedTimeOfDay(TimeOfDay.Any);
-        eventManager.setSelectedPrice(Price.Expensive);
+        eventManager.setSelectedLocation(Location.Any);
+        eventManager.setSelectedPrice(Price.Paid);
         eventManager.setSearchForGroup(false);
 
         EventClass random = eventManager.getRandomElementOfEventsListByParameters();
-        assertEquals("Price property not checked properly",Price.Expensive, random.getPrice());
+        assertEquals("Price property not checked properly",Price.Paid, random.getPrice());
     }
 
     @Test
-    public void FilterTimeOfDayTestAny() {
+    public void FilterLocationTestAny() {
         eventManager.fillEventsListWithSampleData();
-        eventManager.setSelectedTimeOfDay(TimeOfDay.Any);
+        eventManager.setSelectedLocation(Location.Any);
 
         int lengthBefore = eventManager.getEventsList().size();
-        eventManager.FilterTimeOfDay(eventManager.getEventsList());
+        eventManager.FilterLocation(eventManager.getEventsList());
         int lengthAfter = eventManager.getEventsList().size();
 
-        assertEquals("TimeOfDay filtering when set to any removed items from list",lengthBefore, lengthAfter);
+        assertEquals("Location filtering when set to any removed items from list",lengthBefore, lengthAfter);
     }
 
     @Test
-    public void FilterTimeOfDayTestNormal() {
+    public void FilterLocationTestNormal() {
         eventManager.clearEventsList();
-        eventManager.addEventToList(new EventClass("test1","",false, true, TimeOfDay.Morning, Price.Cheap));
-        eventManager.addEventToList(new EventClass("test2","",false, false, TimeOfDay.Afternoon, Price.Expensive));
-        eventManager.setSelectedTimeOfDay(TimeOfDay.Morning);
+        eventManager.addEventToList(new EventClass("test1","",false, true, Location.Indoors, Price.Free));
+        eventManager.addEventToList(new EventClass("test2","",false, false, Location.Outdoors, Price.Paid));
+        eventManager.setSelectedLocation(Location.Indoors);
 
         int lengthBefore = eventManager.getEventsList().size();
-        eventManager.FilterTimeOfDay(eventManager.getEventsList());
+        eventManager.FilterLocation(eventManager.getEventsList());
         int lengthAfter = eventManager.getEventsList().size();
 
-        assertNotEquals("TimeOfDay filtering didn't remove item from list",lengthBefore, lengthAfter);
+        assertNotEquals("Location filtering didn't remove item from list",lengthBefore, lengthAfter);
     }
 
     @Test
@@ -98,7 +98,7 @@ public class EventManagerUnitTest {
         eventManager.setSelectedPrice(Price.Any);
 
         int lengthBefore = eventManager.getEventsList().size();
-        eventManager.FilterTimeOfDay(eventManager.getEventsList());
+        eventManager.FilterLocation(eventManager.getEventsList());
         int lengthAfter = eventManager.getEventsList().size();
 
         assertEquals("Price filtering when set to any removed items from list",lengthBefore, lengthAfter);
@@ -107,9 +107,9 @@ public class EventManagerUnitTest {
     @Test
     public void FilterPriceTestNormal() {
         eventManager.clearEventsList();
-        eventManager.addEventToList(new EventClass("test1","",false, true, TimeOfDay.Morning, Price.Cheap));
-        eventManager.addEventToList(new EventClass("test2","",false, false, TimeOfDay.Afternoon, Price.Expensive));
-        eventManager.setSelectedPrice(Price.Cheap);
+        eventManager.addEventToList(new EventClass("test1","",false, true, Location.Indoors, Price.Free));
+        eventManager.addEventToList(new EventClass("test2","",false, false, Location.Outdoors, Price.Paid));
+        eventManager.setSelectedPrice(Price.Free);
 
         int lengthBefore = eventManager.getEventsList().size();
         eventManager.FilterPrice(eventManager.getEventsList());

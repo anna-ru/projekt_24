@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainFragment">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="260dp"
+        android:layout_height="100dp"
+        android:text="@string/bored"
+        android:textSize="64sp"
+        android:textAlignment="center"
+        android:lineSpacingExtra="10sp"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true" />
+
+    <View
+        android:id="@+id/separator_under_title"
+        android:layout_width="260dp"
+        android:layout_height="2dp"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/ideaButton"
+        android:layout_width="218dp"
+        android:layout_height="219dp"
+        android:background="@mipmap/asd"
+        android:lineSpacingExtra="10sp"
+        android:text="@string/give_me_an_idea"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:typeface="normal" />
+
+    <Button
+        android:id="@+id/options_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ideaButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/options" />
+    <!--
+    <LinearLayout
+        android:id="@+id/options"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/ideaButton">
+
+    <CheckBox
+        android:id="@+id/checkbox_isGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/group_activity" />
+
+    <Spinner
+        android:id="@+id/spinner_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Spinner
+        android:id="@+id/spinner_price"
+        android:layout_width="187dp"
+        android:layout_height="34dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/categories"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/options">
+    </LinearLayout>
+-->
+    <View
+        android:id="@+id/separator_under_idea_button"
+        android:layout_width="260dp"
+        android:layout_height="2dp"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/options_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"/>
+    <Button
+        android:id="@+id/all_ideas_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/separator_under_idea_button"
+        android:layout_centerHorizontal="true"
+        android:text="@string/all_ideas" />
+
+    <Button
+        android:id="@+id/settings_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/all_ideas_button"
+        android:layout_centerHorizontal="true"
+        android:text="@string/app_settings" />
+
+
+
+    <!--
+    <CheckBox android:id="@+id/checkbox_Parameter4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="3"
+        android:layout_column="0"
+        android:text="Parameter4"/>
+
+    <CheckBox android:id="@+id/checkbox_Parameter5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_row="3"
+        android:layout_column="1"
+        android:text="Parameter5"/>
+    -->
+</RelativeLayout>
