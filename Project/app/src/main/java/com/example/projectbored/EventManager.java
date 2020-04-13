@@ -1,5 +1,8 @@
 package com.example.projectbored;
 
+import android.util.Log;
+
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -9,20 +12,35 @@ public class EventManager {
     private boolean searchForGroup;
     private Location selectedLocation = Location.Any;
     private Price selectedPrice = Price.Any;
-    private List<EventClass> eventsList = new LinkedList<EventClass>();
+    private LinkedList<EventClass> eventsList = new LinkedList<EventClass>();
 
     public void fillEventsListWithSampleData(){
-        clearEventsList();
-        eventsList.add(new EventClass("Fergeteges esemény az Alle-ban","Alle",true, true, Location.Indoors,Price.Paid));
-        eventsList.add(new EventClass("Fergeteges esemény otthon","",false,false, Location.Indoors,Price.Free));
-        eventsList.add(new EventClass("Közepesen jó esemény az egész családnak","Budapest",true,true, Location.Outdoors,Price.Paid));
-        eventsList.add(new EventClass("Rendkívüli esemény egy főre","Toilet",true,false, Location.Indoors,Price.Free));
+        ArrayList<String> titleList = new ArrayList<String>();
+        for(int i=0;i<eventsList.size();i++){
+            titleList.add(eventsList.get(i).getName());
+        }
+        EventClass newEvent = new EventClass("Fergeteges esemény az Alle-ban","Alle",true, true, Location.Indoors,Price.Paid);
+        if(!titleList.contains(newEvent.getName())){
+            eventsList.add(newEvent);
+        }
+        newEvent = new EventClass("Fergeteges esemény otthon","",false,false, Location.Indoors,Price.Free);
+        if(!titleList.contains(newEvent.getName())){
+            eventsList.add(newEvent);
+        }
+        newEvent = new EventClass("Közepesen jó esemény az egész családnak","Budapest",true,true, Location.Outdoors,Price.Paid);
+        if(!titleList.contains(newEvent.getName())){
+            eventsList.add(newEvent);
+        }
+        newEvent = new EventClass("Rendkívüli esemény egy főre","Toilet",true,false, Location.Indoors,Price.Free);
+        if(!titleList.contains(newEvent.getName())){
+            eventsList.add(newEvent);
+        }
     }
 
     public EventClass getRandomElementOfEventsListByParameters(){
         EventClass result;
         Random rand = new Random();
-        List<EventClass> randomEventPool = new LinkedList<EventClass>(eventsList);
+        LinkedList<EventClass> randomEventPool = new LinkedList<EventClass>(eventsList);
 
         if(searchForGroup) {
             for (int i = 0; i < eventsList.size(); i++) {

@@ -33,6 +33,10 @@
     <string name="Settings_sample_text">Here is going to be beautiful settings for this application including Dark Theme</string>
     <string name="settings">Settings</string>
     <string name="dark_theme">Dark Theme</string>
+    <string name="write_your_own_idea">Write your own idea</string>
+    <string name="title">Title</string>
+    <string name="back">Back</string>
+    <string name="save">Save</string>
 
     <string-array name="locationArray">
         <item>Anywhere</item>

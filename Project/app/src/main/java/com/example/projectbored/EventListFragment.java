@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -22,7 +23,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.projectbored.adapters.EventAdapter;
 import com.example.projectbored.database.Event;
 import com.example.projectbored.viewmodel.EventViewModel;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
@@ -47,7 +51,18 @@ public class EventListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        createLayoutDynamically(MainFragment.eventManager.getEventsList().size(),getActivity());
+        AllIdeasListAdapter adapter = new AllIdeasListAdapter((LinkedList<EventClass>) MainFragment.eventManager.getEventsList(), this.getActivity());
+
+        ListView lView = (ListView)getActivity().findViewById(R.id.all_ideas_list);
+        lView.setAdapter(adapter);
+
+        FloatingActionButton add_new_event_button = view.findViewById(R.id.add_new_idea_fabutton);
+        add_new_event_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new AddNewEventFragment(),null).addToBackStack(null).commit();
+            }
+        });
 
         /*
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
@@ -80,33 +95,6 @@ public class EventListFragment extends Fragment {
                     Toast.LENGTH_LONG).show();
         }
      */
-    }
-
-    private void createLayoutDynamically(int n, Context context){
-
-        for (int i = 0; i < n; i++) {
-            Button myButton = new Button(context);
-            myButton.setText(i+1 + ". " + MainFragment.eventManager.getEventsList().get(i).getName());
-            myButton.setId(i);
-            final int id_ = myButton.getId();
-
-            LinearLayout layout = getActivity().findViewById(R.id.all_ideas_list);
-
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            params.setMargins(20, 0, 20, 20); // (left, top, right, bottom)
-            myButton.setLayoutParams(params);
-
-            myButton.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View view) {
-                    Toast.makeText(context,
-                            "Button clicked index = " + id_, Toast.LENGTH_SHORT)
-                            .show();
-                }
-            });
-
-            layout.addView(myButton);
-        }
     }
 
 }
