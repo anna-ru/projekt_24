@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="?attr/backgroundColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OptionsFragment">
 
     <TextView
         android:id="@+id/options_title"
+        android:textColor="?attr/textColor"
         android:layout_width="260dp"
         android:layout_height="100dp"
         android:text="@string/options"
@@ -21,12 +23,14 @@
         android:id="@+id/separator_under_title"
         android:layout_width="260dp"
         android:layout_height="2dp"
-        android:background="@color/colorPrimary"
+        android:background="?attr/separatorColor"
         android:layout_below="@id/options_title"
         android:layout_centerHorizontal="true"/>
 
         <CheckBox
             android:id="@+id/checkbox_isGroup"
+            android:textColor="?attr/textColor"
+            android:buttonTint="?attr/checkboxColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/options_title"
@@ -36,6 +40,8 @@
 
         <Spinner
             android:id="@+id/spinner_location"
+            android:textColor="?attr/textColor"
+            android:backgroundTint="?attr/textColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -44,8 +50,10 @@
 
         <Spinner
             android:id="@+id/spinner_price"
-            android:layout_width="187dp"
-            android:layout_height="34dp"
+            android:textColor="?attr/textColor"
+            android:backgroundTint="?attr/textColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:layout_below="@id/spinner_location"/>

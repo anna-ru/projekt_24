@@ -51,15 +51,15 @@ public class AddNewEventFragment extends Fragment {
         final Spinner locationSpinner = view.findViewById(R.id.spinner_location);
 
         ArrayAdapter<CharSequence> locationAdapter = ArrayAdapter.createFromResource(getContext(),
-                R.array.locationArray,android.R.layout.simple_spinner_item);
-        locationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                R.array.locationArray,R.layout.color_spinner_layout);
+        locationAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         locationSpinner.setAdapter(locationAdapter);
 
         final Spinner priceSpinner = view.findViewById(R.id.spinner_price);
 
         ArrayAdapter<CharSequence> priceAdapter = ArrayAdapter.createFromResource(getContext(),
-                R.array.price,android.R.layout.simple_spinner_item);
-        priceAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                R.array.price,R.layout.color_spinner_layout);
+        priceAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         priceSpinner.setAdapter(priceAdapter);
 
         locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -99,11 +99,20 @@ public class AddNewEventFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 newEvent.setName(titleInputField.getText().toString());
+                Log.d("debug","new event: " + newEvent.getName() + ", " + newEvent.getGroup() + ", " + newEvent.getLocation() + ", " + newEvent.getPrice());
                 MainFragment.eventManager.getEventsList().add(newEvent);
                 titleInputField.setText("");
                 isGroupCheckBox.setChecked(false);
                 locationSpinner.setSelection(0);
                 priceSpinner.setSelection(0);
+                ((MainActivity)getActivity()).onBackPressed();
+            }
+        });
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivity)getActivity()).onBackPressed();
             }
         });
 

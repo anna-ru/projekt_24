@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="?attr/backgroundColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddNewEventFragment">
 
     <TextView
         android:id="@+id/add_new_idea_title"
+        android:textColor="?attr/textColor"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:text="@string/write_your_own_idea"
@@ -19,15 +21,18 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/event_name_input_field_layout"
+        android:textColorHint="?attr/textColor"
         android:layout_below="@+id/add_new_idea_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
+        android:theme="@style/TextInputEditTextTheme"
         android:hint="@string/title">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/event_name_input_field"
+            android:textColor="?attr/textColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
@@ -36,6 +41,7 @@
 
     <TextView
         android:id="@+id/options_title"
+        android:textColor="?attr/textColor"
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:text="@string/options"
@@ -52,12 +58,14 @@
         android:layout_width="260dp"
         android:layout_height="2dp"
         android:layout_marginTop="10dp"
-        android:background="@color/colorPrimary"
+        android:background="?attr/separatorColor"
         android:layout_below="@id/options_title"
         android:layout_centerHorizontal="true"/>
 
     <CheckBox
         android:id="@+id/checkbox_isGroup"
+        android:textColor="?attr/textColor"
+        android:buttonTint="?attr/checkboxColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/options_title"
@@ -67,6 +75,8 @@
 
     <Spinner
         android:id="@+id/spinner_location"
+        android:textColor="?attr/textColor"
+        android:backgroundTint="?attr/textColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -75,14 +85,18 @@
 
     <Spinner
         android:id="@+id/spinner_price"
-        android:layout_width="187dp"
-        android:layout_height="34dp"
+        android:textColor="?attr/textColor"
+        android:backgroundTint="?attr/textColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_below="@id/spinner_location"/>
 
     <Button
         android:id="@+id/back_button"
+        android:background="?attr/buttonColor"
+        android:textColor="#FFFFFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -95,6 +109,8 @@
 
     <Button
         android:id="@+id/save_button"
+        android:background="?attr/buttonColor"
+        android:textColor="#FFFFFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="?attr/backgroundColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/list_item_string"
+        android:textColor="?attr/textColor"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -16,11 +18,14 @@
 
     <Button
         android:id="@+id/delete_btn"
+        android:background="?attr/buttonColor"
+        android:textColor="#FFFFFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="5dp"
-        android:text="X" />
+        android:text="X"
+        android:textSize="22dp"/>
 
 </RelativeLayout>

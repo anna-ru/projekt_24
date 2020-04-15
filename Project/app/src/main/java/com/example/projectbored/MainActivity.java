@@ -1,20 +1,33 @@
 package com.example.projectbored;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.example.projectbored.viewmodel.SharedPref;
 
 import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
 
 public class MainActivity extends AppCompatActivity {
 
     public static FragmentManager fragmentManager;
+    SharedPref sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sharedPrefs = new SharedPref(this);
+        if(sharedPrefs.getNightModeState()) {
+            setTheme(R.style.DarkTheme); //setTheme needs to be called before setContentView
+        } else setTheme(R.style.AppTheme);
+
         setContentView(R.layout.activity_main);
 
         fragmentManager = getSupportFragmentManager();
@@ -53,6 +66,12 @@ public class MainActivity extends AppCompatActivity {
         EventListFragment eventListFragment = new EventListFragment();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, eventListFragment,null)
                 .addToBackStack(null).commit();
+    }
+
+    public void restartApp() {
+        Intent i = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(i);
+        finish();
     }
 
 
