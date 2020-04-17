@@ -89,7 +89,7 @@ jobs:
         run: ./gradlew lint
         working-directory: ./Project
       - name: Generate annotations from lint results
-      - uses: yutailang0119/action-android-lint@v1.0.1
+        uses: yutailang0119/action-android-lint@v1.0.1
         with:
           xml_path: Project/app/build/reports/lint-results.xml
       
