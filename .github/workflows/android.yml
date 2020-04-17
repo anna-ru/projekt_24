@@ -83,6 +83,12 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
+      - name: Make gradlew executable
+        run: chmod +x ./Project/gradlew
+      - name: Run lint
+        run: ./gradlew lint
+        working-directory: ./Project
+      
       - name: Upload Lint results to artifacts
         uses: actions/upload-artifact@v1
         with:
