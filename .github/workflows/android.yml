@@ -88,6 +88,10 @@ jobs:
       - name: Run lint
         run: ./gradlew lint
         working-directory: ./Project
+      - name: Generate annotations from lint results
+      - uses: yutailang0119/action-android-lint@v1.0.1
+        with:
+          xml_path: Project/app/build/reports/lint-results.xml
       
       - name: Upload Lint results to artifacts
         uses: actions/upload-artifact@v1
