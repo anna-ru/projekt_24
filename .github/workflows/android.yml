@@ -71,3 +71,20 @@ jobs:
       with:
         name: app
         path: Project/app/build/outputs/apk/debug/app-debug.apk
+  
+  extra_tools:
+    name: Extra Tools
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v1
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Upload Lint results to artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: lint-results
+          path: Project/app/build/reports/lint-results.html
