@@ -31,6 +31,13 @@ import androidx.fragment.app.FragmentManager;
 
 import java.util.Objects;
 
+/**
+ * This is the main page of the app, it sets listeners to buttons, creates popups
+ *
+ * @author  Rusznyák Anna
+ * @version 1.0
+ * @since   2020-04-10
+ */
 public class MainFragment extends Fragment {
 
     public static EventManager eventManager = null;
@@ -38,7 +45,6 @@ public class MainFragment extends Fragment {
     public MainFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,6 +54,12 @@ public class MainFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_main, container, false);
     }
 
+    /**
+     * This is the method that gets called after this fragment has been created. It handles setting
+     * listeners for the buttons on this page
+     *
+     * @param view The current view that is in part used to find the buttons on the page
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -98,7 +110,16 @@ public class MainFragment extends Fragment {
         });
     }
 
-    //https://stackoverflow.com/questions/5944987/how-to-create-a-popup-window-popupwindow-in-android
+    /**
+     * This shows a popup to the user with the randomly chosen event
+     *
+     * code originally from: https://stackoverflow.com/questions/5944987/how-to-create-a-popup-window-popupwindow-in-android
+     *
+     * @param view The current view that is used to position the popup
+     * @param event The name of the event that was randomly chosen. This will be shown on the popup
+     * @param mapsData The string that will be passed to the Google Maps app to try and find the chosen event
+     * @param showMap A boolean flag that determines whether to display the "show in map" button or not
+     */
     public void onButtonShowPopupWindowClick(View view, String event, final String mapsData, final Boolean showMap) {
 
         // inflate the layout of the popup window

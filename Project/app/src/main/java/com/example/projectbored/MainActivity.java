@@ -2,6 +2,7 @@ package com.example.projectbored;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Window;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
@@ -27,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         if(sharedPrefs.getNightModeState()) {
             setTheme(R.style.DarkTheme); //setTheme needs to be called before setContentView
         } else setTheme(R.style.AppTheme);
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title
+        getSupportActionBar().hide(); //hide the title bar
 
         setContentView(R.layout.activity_main);
 

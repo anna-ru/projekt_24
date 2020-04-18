@@ -17,6 +17,13 @@ import android.widget.Switch;
 
 import com.example.projectbored.viewmodel.SharedPref;
 
+/**
+ * This is the settings page of the app, it sets listeners to two switches
+ *
+ * @author  Osbáth Gergely
+ * @version 1.1
+ * @since   2020-04-12
+ */
 public class SettingsFragment extends Fragment {
 
     public SettingsFragment() {
@@ -30,6 +37,12 @@ public class SettingsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_settings, container, false);
     }
 
+    /**
+     * This is the method that gets called after this fragment has been created. It handles setting
+     * listeners for the two switches on this page
+     *
+     * @param view The current view that is in part used to find the switches on the page
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

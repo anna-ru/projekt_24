@@ -16,6 +16,13 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 
+/**
+ * This is the options page of the app, it sets listeners to spinners and a checkbox
+ *
+ * @author  Osbáth Gergely
+ * @version 1.0
+ * @since   2020-04-11
+ */
 public class OptionsFragment extends Fragment {
 
     public OptionsFragment() {
@@ -29,6 +36,12 @@ public class OptionsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_options, container, false);
     }
 
+    /**
+     * This is the method that gets called after this fragment has been created. It handles setting
+     * listeners for the spinners and the checkbox on this page
+     *
+     * @param view The current view that is in part used to find the spinners and checkbox on the page
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -49,29 +62,27 @@ public class OptionsFragment extends Fragment {
                 R.array.price, R.layout.color_spinner_layout);
         priceAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         priceSpinner.setAdapter(priceAdapter);
-//set the default value of spinners and checkbox
 
-        if(MainFragment.eventManager.getSearchForGroup()){
-            isGroupCheckBox.setChecked(true);
-        }
+        //set the default value of spinners and checkbox
+        isGroupCheckBox.setChecked(MainFragment.eventManager.getSearchForGroup());
 
-        if(MainFragment.eventManager.getSelectedLocation().toString().equals(Location.Any.toString())){
+        if(MainFragment.eventManager.getSelectedLocation().equals(Location.Any)){
             locationSpinner.setSelection(0);
         }
-        if(MainFragment.eventManager.getSelectedLocation().toString().equals(Location.Indoors.toString())){
+        if(MainFragment.eventManager.getSelectedLocation().equals(Location.Indoors)){
             locationSpinner.setSelection(1);
         }
-        if(MainFragment.eventManager.getSelectedLocation().toString().equals(Location.Outdoors.toString())){
+        if(MainFragment.eventManager.getSelectedLocation().equals(Location.Outdoors)){
             locationSpinner.setSelection(2);
         }
 
-        if(MainFragment.eventManager.getSelectedPrice().toString().equals(Price.Any.toString())){
+        if(MainFragment.eventManager.getSelectedPrice().equals(Price.Any)){
             priceSpinner.setSelection(0);
         }
-        if(MainFragment.eventManager.getSelectedPrice().toString().equals(Price.Free.toString())){
+        if(MainFragment.eventManager.getSelectedPrice().equals(Price.Free)){
             priceSpinner.setSelection(1);
         }
-        if(MainFragment.eventManager.getSelectedPrice().toString().equals(Price.Paid.toString())){
+        if(MainFragment.eventManager.getSelectedPrice().equals(Price.Paid)){
             priceSpinner.setSelection(2);
         }
 

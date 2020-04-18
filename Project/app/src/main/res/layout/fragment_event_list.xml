@@ -33,7 +33,8 @@
         android:background="?attr/buttonColor"
         android:backgroundTint="?attr/buttonColor"
         android:contentDescription="Add idea"
-        app:backgroundTint="#FFFFFF"
+        app:backgroundTint="#00FFFFFF"
+        android:tint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_add_black_24dp" />
