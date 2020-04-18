@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="?attr/backgroundColor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddNewEventFragment">
+
+    <TextView
+        android:id="@+id/add_new_idea_title"
+        android:textColor="?attr/textColor"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:text="@string/write_your_own_idea"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:lineSpacingExtra="10sp"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/event_name_input_field_layout"
+        android:textColorHint="?attr/textColor"
+        android:layout_below="@+id/add_new_idea_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:theme="@style/TextInputEditTextTheme"
+        android:hint="@string/title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/event_name_input_field"
+            android:textColor="?attr/textColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/options_title"
+        android:textColor="?attr/textColor"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:text="@string/options"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:lineSpacingExtra="10sp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/event_name_input_field_layout"
+        android:layout_centerHorizontal="true" />
+
+    <View
+        android:id="@+id/separator_under_title"
+        android:layout_width="260dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="10dp"
+        android:background="?attr/separatorColor"
+        android:layout_below="@id/options_title"
+        android:layout_centerHorizontal="true"/>
+
+    <CheckBox
+        android:id="@+id/checkbox_isGroup"
+        android:textColor="?attr/textColor"
+        android:buttonTint="?attr/checkboxColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/options_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/group_activity" />
+
+    <Spinner
+        android:id="@+id/spinner_location"
+        android:textColor="?attr/textColor"
+        android:backgroundTint="?attr/textColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/checkbox_isGroup"/>
+
+    <Spinner
+        android:id="@+id/spinner_price"
+        android:textColor="?attr/textColor"
+        android:backgroundTint="?attr/textColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/spinner_location"/>
+
+    <Button
+        android:id="@+id/back_button"
+        android:background="?attr/buttonColor"
+        android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="40dp"
+        android:text="@string/back"
+        android:layout_marginStart="40dp" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:background="?attr/buttonColor"
+        android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="40dp"
+        android:layout_marginRight="40dp"
+        android:text="@string/save"
+        android:layout_marginEnd="40dp"
+         />
+
+</RelativeLayout>
+

@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="?attr/backgroundColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingsFragment">
 
     <TextView
         android:id="@+id/settings_title"
+        android:textColor="?attr/textColor"
         android:layout_width="260dp"
         android:layout_height="100dp"
         android:text="@string/settings"
@@ -19,23 +21,40 @@
 
     <TextView
         android:id="@+id/settings_sample_text"
+        android:textColor="?attr/textColor"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="@string/Settings_sample_text"
-        android:layout_gravity="center_horizontal"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/settings_title"
-        android:justificationMode="inter_word" />
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:justificationMode="inter_word"
+        android:text="@string/Settings_sample_text"
+        android:textAlignment="center"/>
 
     <Switch
         android:id="@+id/dark_theme_switch"
+        android:textColor="?attr/textColor"
+        android:theme="@style/SwitchCompatTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/settings_sample_text"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
+        android:switchPadding="8dp"
         android:text="@string/dark_theme"
+        android:layout_marginStart="30dp" />
+
+    <Switch
+        android:id="@+id/power_user_switch"
+        android:textColor="?attr/textColor"
+        android:theme="@style/SwitchCompatTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dark_theme_switch"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:switchPadding="8dp"
+        android:text="Power User"
         android:layout_marginStart="30dp" />
 
 

@@ -1,15 +1,29 @@
 package com.example.projectbored;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
+import com.example.projectbored.viewmodel.SharedPref;
+
+/**
+ * This is the settings page of the app, it sets listeners to two switches
+ *
+ * @author  Osbáth Gergely
+ * @version 1.1
+ * @since   2020-04-12
+ */
 public class SettingsFragment extends Fragment {
 
     public SettingsFragment() {
@@ -23,11 +37,45 @@ public class SettingsFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_settings, container, false);
     }
 
+    /**
+     * This is the method that gets called after this fragment has been created. It handles setting
+     * listeners for the two switches on this page
+     *
+     * @param view The current view that is in part used to find the switches on the page
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        Switch darkThemeSwitch = view.findViewById(R.id.dark_theme_switch);
+        darkThemeSwitch.setChecked(((MainActivity)getActivity()).sharedPrefs.getNightModeState());
+        darkThemeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+                    ((MainActivity)getActivity()).sharedPrefs.setNightModeState(true);
+                    ((MainActivity)getActivity()).restartApp();
+                }
+                else {
+                    ((MainActivity)getActivity()).sharedPrefs.setNightModeState(false);
+                    ((MainActivity)getActivity()).restartApp();
+                }
+            }
+        });
 
+        Switch powerUserSwitch = view.findViewById(R.id.power_user_switch);
+        powerUserSwitch.setChecked(((MainActivity)getActivity()).sharedPrefs.getPowerUserState());
+        powerUserSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked) {
+                    ((MainActivity)getActivity()).sharedPrefs.setPowerUserState(true);
+                }
+                else {
+                    ((MainActivity)getActivity()).sharedPrefs.setPowerUserState(false);
+                }
+            }
+        });
 
     }
 }

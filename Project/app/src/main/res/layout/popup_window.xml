@@ -8,6 +8,7 @@
 
     <TextView
         android:id="@+id/chosenIdea"
+        android:textColor="#FFFFFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -18,7 +19,6 @@
         android:layout_marginBottom="50dp"
         android:layout_gravity="center"
         android:text="Test Idea"
-        android:textColor="@android:color/white"
         android:textSize="30sp" />
 
     <RelativeLayout
@@ -28,28 +28,28 @@
 
         <Button
             android:id="@+id/popupBackButton"
+            android:background="@drawable/abc_vector_test"
+            android:textColor="#FFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
-            android:background="@drawable/abc_vector_test"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
             android:text=""
-            android:textColor="@android:color/white"
             android:typeface="normal" />
 
         <Button
             android:id="@+id/showInMapButton"
+            android:background="#00000000"
+            android:textColor="#FFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
             android:layout_gravity="center_vertical"
             android:layout_alignParentRight="true"
-            android:background="@android:color/transparent"
             android:text="Show in Map"
-            android:textColor="@android:color/white"
             android:typeface="normal" />
 
     </RelativeLayout>
