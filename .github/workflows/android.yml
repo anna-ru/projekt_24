@@ -115,8 +115,6 @@ jobs:
       - name: Run javadoc
         run: ./gradlew javadoc
         working-directory: ./Project
-      - name: Print out files in javadoc folder
-        run: echo | ls Project/app/build/docs/javadoc
       - name: Upload Javadoc results to artifacts
         uses: actions/upload-artifact@v1
         with:
