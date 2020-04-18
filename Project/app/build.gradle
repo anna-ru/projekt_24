@@ -57,6 +57,5 @@ dependencies {
 task javadoc(type: Javadoc) {
     source = android.sourceSets.main.java.srcDirs
     classpath = files(((Object) android.bootClasspath.join(File.pathSeparator)))
-    destinationDir = file("../javadoc/")
     failOnError false
 }
