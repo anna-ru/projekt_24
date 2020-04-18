@@ -72,8 +72,8 @@ jobs:
         name: app
         path: Project/app/build/outputs/apk/debug/app-debug.apk
   
-  extra_tools:
-    name: Extra Tools
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     
     steps:
@@ -98,14 +98,28 @@ jobs:
         with:
           name: lint-results
           path: Project/app/build/reports/lint-results.html
+
+  javadoc:
+    name: Javadoc
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v1
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: Make gradlew executable
+        run: chmod +x ./Project/gradlew
       - name: Run javadoc
         run: ./gradlew javadoc
         working-directory: ./Project
       - name: Print out files in javadoc folder
-        run: ls
-        working-directory: ./Project/app/build/docs/javadoc
+        run: ls Project/app/build/docs/javadoc
       - name: Upload Javadoc results to artifacts
         uses: actions/upload-artifact@v1
         with:
           name: javadoc
           path: Project/app/build/docs/javadoc/
+
