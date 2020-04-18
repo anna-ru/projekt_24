@@ -105,4 +105,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: javadoc
-          path: Project/javadoc
+          path: Project/app/build/docs/javadoc
