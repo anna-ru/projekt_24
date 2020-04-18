@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'java'
 
 android {
     compileSdkVersion 29
@@ -56,9 +55,7 @@ dependencies {
 }
 
 task javadoc(type: Javadoc) {
-    source = sourceSets.main.allJava
+    source = android.sourceSets.main.java.srcDirs
+    classpath = files(((Object) android.bootClasspath.join(File.pathSeparator)))
     destinationDir = file("../javadoc/")
-}
-afterEvaluate {
-  javadocs.classpath += files(android.plugin.runtimeJarList)
 }
