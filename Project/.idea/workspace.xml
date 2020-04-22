@@ -13,10 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5e531c97-9d11-4e31-a863-cb68fd4f552b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/AddNewEventFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/AddNewEventFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/EventManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/EventManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/UpdateEventFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/UpdateEventFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/projectbored/EventManagerUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/projectbored/EventManagerUnitTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -89,7 +86,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android App.Project-app">
+  <component name="RunManager" selected="Android JUnit.EventManagerUnitTest (1)">
     <configuration name="EventManagerUnitTest (1)" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="Project-app" />
       <extension name="coverage">
@@ -377,7 +374,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587567651398</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="-Fixed issue with filtering Any values&#10;-Removed Maps data input if not Power user">
+      <created>1587580632229</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1587580632229</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -430,6 +434,7 @@
     <MESSAGE value="-Minor fix in tests" />
     <MESSAGE value="-Added Google maps search InputField and functionality" />
     <MESSAGE value="-Added the Update functionality&#10;-Fixed the Issues stated on github." />
-    <option name="LAST_COMMIT_MESSAGE" value="-Added the Update functionality&#10;-Fixed the Issues stated on github." />
+    <MESSAGE value="-Fixed issue with filtering Any values&#10;-Removed Maps data input if not Power user" />
+    <option name="LAST_COMMIT_MESSAGE" value="-Fixed issue with filtering Any values&#10;-Removed Maps data input if not Power user" />
   </component>
 </project>

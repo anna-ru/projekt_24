@@ -1,5 +1,7 @@
 package com.example.projectbored;
 
+import android.util.Log;
+
 import com.example.projectbored.database.Event;
 
 import org.junit.Before;
@@ -37,32 +39,40 @@ public class EventManagerUnitTest {
         assertEquals("isGroup property not checked properly",true, random.isIs_group());
     }
 
+    // TODO: we could use fail() method here instead of this check
+
     @Test
-    public void getRandomElementOfEventsListByParametersTestLocation() {
+    public void getRandomElementOfEventsListByParametersTestLocationIndoors() {
         eventManager.clearEventsList();
-        eventManager.addEventToList(new Event("test1",false,1, 1, null, false));
-        eventManager.addEventToList(new Event("test2",false,0, 0, null, false));
+        eventManager.addEventToList(new Event("test1",false,Location.Indoors.ordinal(), Price.Free.ordinal(), null, false));
+        eventManager.addEventToList(new Event("test2",false,Location.Any.ordinal(), Price.Any.ordinal(), null, false));
 
         eventManager.setSelectedLocation(Location.Indoors);
         eventManager.setSelectedPrice(Price.Any);
         eventManager.setSearchForGroup(false);
 
         Event random = eventManager.getRandomElementOfEventsListByParameters();
-        assertEquals("Location property not checked properly",Location.Indoors, Location.values()[random.getIs_indoor()]);
+
+        if(random.getIs_indoor() != Location.Any.ordinal() && random.getIs_indoor() != Location.Indoors.ordinal()){
+            fail("Expected: Indoors or Any, but actual was something else");
+        }
     }
 
     @Test
     public void getRandomElementOfEventsListByParametersTestPrice() {
         eventManager.clearEventsList();
-        eventManager.addEventToList(new Event("test1",true,Location.Indoors.ordinal(), Price.Free.ordinal(), null, false));
-        eventManager.addEventToList(new Event("test2",false,Location.Outdoors.ordinal(), Price.Paid.ordinal(), null, false));
+        eventManager.addEventToList(new Event("test1",true,Location.Any.ordinal(), Price.Any.ordinal(), null, false));
+        eventManager.addEventToList(new Event("test2",false,Location.Any.ordinal(), Price.Free.ordinal(), null, false));
 
         eventManager.setSelectedLocation(Location.Any);
-        eventManager.setSelectedPrice(Price.Paid);
+        eventManager.setSelectedPrice(Price.Free);
         eventManager.setSearchForGroup(false);
 
         Event random = eventManager.getRandomElementOfEventsListByParameters();
-        assertEquals("Price property not checked properly",Price.Paid, Price.values()[random.getIs_free()]);
+
+        if(random.getIs_free() != Price.Any.ordinal() && random.getIs_free() != Price.Free.ordinal()){
+            fail("Expected: Free or Any, but actual was something else");
+        }
     }
 
     @Test
