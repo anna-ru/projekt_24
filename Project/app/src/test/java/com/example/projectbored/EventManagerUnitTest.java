@@ -26,7 +26,7 @@ public class EventManagerUnitTest {
     @Test
     public void getRandomElementOfEventsListByParametersTestIsGroup() {
         eventManager.clearEventsList();
-        eventManager.addEventToList(new Event("test1",false,1, 1, null, false));
+        eventManager.addEventToList(new Event("test1",true,1, 1, null, false));
         eventManager.addEventToList(new Event("test2",false,0, 0, null, false));
 
         eventManager.setSelectedLocation(Location.Any);
@@ -54,8 +54,8 @@ public class EventManagerUnitTest {
     @Test
     public void getRandomElementOfEventsListByParametersTestPrice() {
         eventManager.clearEventsList();
-        eventManager.addEventToList(new Event("test1",false,1, 1, null, false));
-        eventManager.addEventToList(new Event("test2",false,0, 0, null, false));
+        eventManager.addEventToList(new Event("test1",true,Location.Indoors.ordinal(), Price.Free.ordinal(), null, false));
+        eventManager.addEventToList(new Event("test2",false,Location.Outdoors.ordinal(), Price.Paid.ordinal(), null, false));
 
         eventManager.setSelectedLocation(Location.Any);
         eventManager.setSelectedPrice(Price.Paid);
