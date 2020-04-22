@@ -67,6 +67,12 @@ public class UpdateEventFragment extends Fragment {
         priceSpinner.setSelection(currentEvent.getIs_free());
         mapsDataInputField.setText(currentEvent.getSearch_map());
 
+        if(((MainActivity) getActivity()).sharedPrefs.getPowerUserState()){
+            mapsDataInputField.setVisibility(View.VISIBLE);
+        }else{
+            mapsDataInputField.setVisibility(View.GONE);
+        }
+
         titleInputField.addTextChangedListener(new TextWatcher() {
 
             @Override

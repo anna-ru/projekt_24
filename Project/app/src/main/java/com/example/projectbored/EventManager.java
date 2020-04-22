@@ -106,8 +106,7 @@ public class EventManager {
     public void FilterLocation(List<Event> randomEventPool){
         if(selectedLocation.equals(Location.Any)) return;
         for (int i = 0; i < eventsList.size(); i++) {
-
-            if (!(eventsList.get(i).getIs_indoor() == selectedLocation.ordinal())) {
+            if (eventsList.get(i).getIs_indoor() != selectedLocation.ordinal() && eventsList.get(i).getIs_indoor() != Location.Any.ordinal()) {
                 randomEventPool.remove(eventsList.get(i));
             }
         }
@@ -122,7 +121,7 @@ public class EventManager {
     public void FilterPrice(List<Event> randomEventPool){
         if(selectedPrice.equals(Price.Any)) return;
         for (int i = 0; i < eventsList.size(); i++) {
-            if (!(eventsList.get(i).getIs_free() == selectedPrice.ordinal())) {
+            if (!(eventsList.get(i).getIs_free() == selectedPrice.ordinal()) && !(eventsList.get(i).getIs_free() == Price.Any.ordinal())) {
                 randomEventPool.remove(eventsList.get(i));
             }
         }

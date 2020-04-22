@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static FragmentManager fragmentManager;
     public static AppDatabase appDatabase;
-    SharedPref sharedPrefs;
+    public SharedPref sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
         finish();
     }
-
 
     @Override
     public void onBackPressed() {

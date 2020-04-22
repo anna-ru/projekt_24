@@ -67,6 +67,13 @@ public class AddNewEventFragment extends Fragment {
 
         TextInputEditText mapsDataInputField = getActivity().findViewById(R.id.google_maps_search_input_field);
 
+        if(((MainActivity) getActivity()).sharedPrefs.getPowerUserState()){
+            mapsDataInputField.setVisibility(View.VISIBLE);
+        }else{
+            mapsDataInputField.setVisibility(View.GONE);
+        }
+
+
         titleInputField.addTextChangedListener(new TextWatcher() {
 
             @Override
