@@ -1,25 +1,40 @@
 package com.example.projectbored.database;
 
 import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.example.projectbored.Location;
+import com.example.projectbored.Price;
+
 @Entity(tableName = "events")
 public class Event {
+
     @PrimaryKey(autoGenerate = true)
     private int id;
 
-    @NonNull
+    @ColumnInfo(name = "eventName")
     private String name;
+
+    @ColumnInfo(name = "eventIsGroup")
     private boolean is_group;
-    private boolean is_indoor;
-    private boolean is_free;
+
+    @ColumnInfo(name = "eventIsIndoor")
+    private int is_indoor;
+
+    @ColumnInfo(name = "eventIsFree")
+    private int is_free;
+
+    @ColumnInfo(name = "eventSearchMap")
     private  String search_map;
+
+    @ColumnInfo(name = "eventShowMap")
     private boolean show_map;
 
-    public Event(int id, String name, boolean is_group, boolean is_indoor, boolean is_free,
+    public Event(String name, boolean is_group, int is_indoor, int is_free,
                  String search_map, boolean show_map) {
-        this.id = id;
+        //this.id = id;
         this.name = name;
         this.is_group = is_group;
         this.is_free = is_free;
@@ -52,19 +67,27 @@ public class Event {
         this.is_group = is_group;
     }
 
-    public boolean isIs_indoor() {
+    public int getIs_indoor() {
         return is_indoor;
     }
 
-    public void setIs_indoor(boolean is_indoor) {
-        this.is_indoor = is_indoor;
-    }
-
-    public boolean isIs_free() {
+    public int getIs_free() {
         return is_free;
     }
 
-    public void setIs_free(boolean is_free) {
+    public int isIs_indoor() {
+        return is_indoor;
+    }
+
+    public void setIs_indoor(int is_indoor) {
+        this.is_indoor = is_indoor;
+    }
+
+    public int isIs_free() {
+        return is_free;
+    }
+
+    public void setIs_free(int is_free) {
         this.is_free = is_free;
     }
 

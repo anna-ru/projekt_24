@@ -7,9 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,6 +26,8 @@ import com.example.projectbored.adapters.EventAdapter;
 import com.example.projectbored.database.Event;
 import com.example.projectbored.viewmodel.EventViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -51,7 +55,8 @@ public class EventListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        AllIdeasListAdapter adapter = new AllIdeasListAdapter((LinkedList<EventClass>) MainFragment.eventManager.getEventsList(), this.getActivity());
+        //AllIdeasListAdapter adapter = new AllIdeasListAdapter((LinkedList<EventClass>) MainFragment.eventManager.getEventsList(), this.getActivity());
+        AllIdeasListAdapter adapter = new AllIdeasListAdapter(MainActivity.appDatabase.eventDao().getEvents(),this.getActivity());
 
         ListView lView = (ListView)getActivity().findViewById(R.id.all_ideas_list);
         lView.setAdapter(adapter);
@@ -63,7 +68,6 @@ public class EventListFragment extends Fragment {
                 MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new AddNewEventFragment(),null).addToBackStack(null).commit();
             }
         });
-
         /*
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
         final EventAdapter adapter = new EventAdapter(getContext());

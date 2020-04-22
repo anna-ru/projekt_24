@@ -9,14 +9,26 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
+import com.example.projectbored.database.Event;
+
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class AllIdeasListAdapter extends BaseAdapter implements ListAdapter {
-    private LinkedList<EventClass> list;
-    private Context context;
+    //private LinkedList<EventClass> list;
+    private ArrayList<Event> list;
 
+    private Context context;
+/*
     public AllIdeasListAdapter(LinkedList<EventClass> list, Context context) {
         this.list = list;
+        this.context = context;
+    }
+*/
+    public AllIdeasListAdapter(List<Event> list, Context context) {
+        this.list = new ArrayList<>();
+        this.list.addAll(list);
         this.context = context;
     }
 
@@ -52,7 +64,9 @@ public class AllIdeasListAdapter extends BaseAdapter implements ListAdapter {
             @Override
             public void onClick(View v) {
                 notifyDataSetChanged();
+                MainActivity.appDatabase.eventDao().deleteEvent(list.get(position));
                 list.remove(position);
+
             }
         });
 

@@ -2,6 +2,9 @@ package com.example.projectbored;
 
 import android.util.Log;
 
+import com.example.projectbored.database.Event;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -48,13 +51,21 @@ public class EventManager {
         }
     }
 
+    public void getDataFromDatabase(ArrayList<Event> dbEventList){
+        EventClass newEvent;
+        for(Event event : dbEventList){
+            newEvent = new EventClass(event.getName(),event.getSearch_map(),event.isShow_map(),event.isIs_group(), Location.values()[event.getIs_indoor()],Price.values()[event.getIs_free()]);
+            eventsList.add(newEvent);
+        }
+    }
+
     /**
      * Gets a random event from the list of events. If any filters are set
      * (price, location, isGroup) then it chooses accordingly
      *
      * @return EventClass The random event that didn't get filtered out
      */
-    public EventClass getRandomElementOfEventsListByParameters(){
+    public Event getRandomElementOfEventsListByParameters(){
         EventClass result;
         Random rand = new Random();
         LinkedList<EventClass> randomEventPool = new LinkedList<EventClass>(eventsList);
@@ -74,10 +85,11 @@ public class EventManager {
         if(randomEventPool.size() > 0) {
             int randomNumber = rand.nextInt(randomEventPool.size());
             result = randomEventPool.get(randomNumber);
-            return result;
+
+            return new Event(result.getName(),result.getGroup(),result.getLocation().ordinal(),result.getPrice().ordinal(),result.getMapsData(),result.getShowMap());
         }else{
             result = new EventClass("No idea found.","",false,false,null,null);
-            return result;
+            return new Event(result.getName(),result.getGroup(),result.getLocation().ordinal(),result.getPrice().ordinal(),result.getMapsData(),result.getShowMap());
         }
     }
 

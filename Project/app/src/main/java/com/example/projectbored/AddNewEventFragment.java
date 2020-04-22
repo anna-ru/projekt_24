@@ -17,7 +17,9 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import com.example.projectbored.database.Event;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -101,6 +103,12 @@ public class AddNewEventFragment extends Fragment {
                 newEvent.setName(titleInputField.getText().toString());
                 Log.d("debug","new event: " + newEvent.getName() + ", " + newEvent.getGroup() + ", " + newEvent.getLocation() + ", " + newEvent.getPrice());
                 MainFragment.eventManager.getEventsList().add(newEvent);
+
+
+                Event dbEvent = new Event(newEvent.getName(),newEvent.getGroup(),newEvent.getLocation().ordinal(),newEvent.getPrice().ordinal(),newEvent.getMapsData(),newEvent.getShowMap());
+                Toast.makeText(getActivity(),"Event added successfully" + dbEvent.getName() + ", " + dbEvent.isIs_group() + ", " + dbEvent.getIs_indoor() + ", " + dbEvent.getIs_free() + ", " + dbEvent.getSearch_map(),Toast.LENGTH_SHORT).show();
+
+                MainActivity.appDatabase.eventDao().addEvent(dbEvent);
                 titleInputField.setText("");
                 isGroupCheckBox.setChecked(false);
                 locationSpinner.setSelection(0);

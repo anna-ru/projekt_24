@@ -29,6 +29,9 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.projectbored.database.Event;
+
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -69,7 +72,8 @@ public class MainFragment extends Fragment {
         //TODO: az optionsben meg kell majd jeleníteni az aktuális filtereket mert most visszaállnak kezdetleges értékre
         if(eventManager == null){
             eventManager = new EventManager();
-            eventManager.fillEventsListWithSampleData();
+            ArrayList<Event> eventsArrayList= new ArrayList<>(MainActivity.appDatabase.eventDao().getEvents());
+            eventManager.getDataFromDatabase(eventsArrayList);
         }
 
         //find idea button and set onclick event
@@ -77,10 +81,11 @@ public class MainFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                EventClass randomEventClass = eventManager.getRandomElementOfEventsListByParameters();
+                //EventClass randomEventClass = eventManager.getRandomElementOfEventsListByParameters();
+                Event randomEvent = eventManager.getRandomElementOfEventsListByParameters();
                 //TODO: switch out for database query
-                onButtonShowPopupWindowClick(v, randomEventClass.getName(), randomEventClass.getMapsData(),
-                        randomEventClass.getShowMap());
+                onButtonShowPopupWindowClick(v, randomEvent.getName(), randomEvent.getSearch_map(),
+                        randomEvent.isShow_map());
             }
         });
 

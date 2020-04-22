@@ -8,10 +8,24 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import java.util.LinkedList;
 import java.util.List;
 
 @Dao
 public interface EventDao {
+
+    @Insert
+    public void addEvent(Event event);
+
+    @Query("SELECT * FROM events")
+    public List<Event> getEvents();
+
+    @Delete
+    public void deleteEvent(Event event);
+
+    @Insert
+    public void populateDatabase(Event[] events);
+
     @Query("SELECT * FROM events")
     LiveData<List<Event>> getAll();
 

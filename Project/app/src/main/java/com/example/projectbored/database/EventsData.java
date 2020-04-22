@@ -1,15 +1,18 @@
 package com.example.projectbored.database;
 
+import com.example.projectbored.Location;
+import com.example.projectbored.Price;
+
 public class EventsData {
     public static Event[] populateEventsData(){
         return new Event[]{
-                new Event(1, "Fergeteges esemény az Allee-ban", true, true, false,
+                new Event( "Fergeteges esemény az Allee-ban",true, Location.Indoors.ordinal(), Price.Paid.ordinal(),
                         "Allee", true),
-                new Event(2, "Fergeteges esemény otthon", false, true, true,
+                new Event( "Fergeteges esemény otthon", false, Location.Indoors.ordinal(), Price.Free.ordinal(),
                         "", false),
-                new Event(3, "Közepesen jó esemény az egész családnak", true, false, true,
+                new Event("Közepesen jó esemény az egész családnak", true, Location.Outdoors.ordinal(), Price.Free.ordinal(),
                         "Normafa", true),
-                new Event(3, "Rendkívüli esemény egy főre", false, true, true,
+                new Event("Rendkívüli esemény egy főre", false, Location.Indoors.ordinal(), Price.Free.ordinal(),
                         "Toilet", true)
 
         };
