@@ -64,6 +64,8 @@ public class AddNewEventFragment extends Fragment {
         priceAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         priceSpinner.setAdapter(priceAdapter);
 
+        TextInputEditText mapsDataInputField = getActivity().findViewById(R.id.google_maps_search_input_field);
+
         locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -101,9 +103,13 @@ public class AddNewEventFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 newEvent.setName(titleInputField.getText().toString());
+                newEvent.setSearch_map(mapsDataInputField.getText().toString());
+
+                if(!newEvent.getSearch_map().equals("")){
+                    newEvent.setShow_map(true);
+                }
+
                 MainFragment.eventManager.getEventsList().add(newEvent);
-
-
                 Toast.makeText(getActivity(),"Event added successfully" + newEvent.getName() + ", " + newEvent.isIs_group() + ", " + newEvent.getIs_indoor() + ", " + newEvent.getIs_free() + ", " + newEvent.getSearch_map(),Toast.LENGTH_SHORT).show();
 
                 MainActivity.appDatabase.eventDao().addEvent(newEvent);

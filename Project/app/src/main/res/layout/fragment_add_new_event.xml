@@ -93,6 +93,25 @@
         android:layout_marginTop="20dp"
         android:layout_below="@id/spinner_location"/>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/google_maps_search_input_layout"
+        android:textColorHint="?attr/textColor"
+        android:layout_below="@+id/spinner_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:theme="@style/TextInputEditTextTheme"
+        android:hint="@string/maps_search">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/google_maps_search_input_field"
+            android:textColor="?attr/textColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:id="@+id/back_button"
         android:background="?attr/buttonColor"
