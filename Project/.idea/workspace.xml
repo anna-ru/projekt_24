@@ -12,18 +12,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e531c97-9d11-4e31-a863-cb68fd4f552b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/AddNewEventFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/AddNewEventFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/AllIdeasListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/AllIdeasListAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/EventListFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/EventListFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/EventManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/EventManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/MainFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/MainFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/database/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/database/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/database/EventDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/database/EventDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/database/EventsData.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/database/EventsData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_event_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_event_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/projectbored/EventManagerUnitTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/example/projectbored/EventManagerUnitTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -331,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586778707674</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="-Database is now working correctly.&#10;-In progress of cleaning up EventClass and switching to Event.&#10;-There are still useless leftover codes.">
+      <created>1587557553779</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587557553779</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -379,6 +378,7 @@
     <MESSAGE value="-Options fragment now remembers the previously set values&#10;-Added Sample Settings fragment without function&#10;-Minor fixes" />
     <MESSAGE value="-Added dynamically generated Buttons to All Ideas fragment" />
     <MESSAGE value="-Reworked All Ideas List&#10;-Can Delete now from All Ideas List&#10;-Added Add New Event function with layout and fragments" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Reworked All Ideas List&#10;-Can Delete now from All Ideas List&#10;-Added Add New Event function with layout and fragments" />
+    <MESSAGE value="-Database is now working correctly.&#10;-In progress of cleaning up EventClass and switching to Event.&#10;-There are still useless leftover codes." />
+    <option name="LAST_COMMIT_MESSAGE" value="-Database is now working correctly.&#10;-In progress of cleaning up EventClass and switching to Event.&#10;-There are still useless leftover codes." />
   </component>
 </project>

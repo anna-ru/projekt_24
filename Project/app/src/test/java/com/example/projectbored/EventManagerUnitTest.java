@@ -1,6 +1,6 @@
 package com.example.projectbored;
 
-import android.util.Log;
+import com.example.projectbored.database.Event;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,47 +23,46 @@ public class EventManagerUnitTest {
         int length = eventManager.getEventsList().size();
         assertNotEquals("List of events was 0", 0, length);
     }
-
     @Test
     public void getRandomElementOfEventsListByParametersTestIsGroup() {
         eventManager.clearEventsList();
-        eventManager.addEventToList(new EventClass("test1","",false, true, Location.Indoors, Price.Free));
-        eventManager.addEventToList(new EventClass("test2","",false, false, Location.Outdoors, Price.Paid));
+        eventManager.addEventToList(new Event("test1",false,1, 1, null, false));
+        eventManager.addEventToList(new Event("test2",false,0, 0, null, false));
 
         eventManager.setSelectedLocation(Location.Any);
         eventManager.setSelectedPrice(Price.Any);
         eventManager.setSearchForGroup(true);
 
-        EventClass random = eventManager.getRandomElementOfEventsListByParameters();
-        assertEquals("isGroup property not checked properly",true, random.getGroup());
+        Event random = eventManager.getRandomElementOfEventsListByParameters();
+        assertEquals("isGroup property not checked properly",true, random.isIs_group());
     }
 
     @Test
     public void getRandomElementOfEventsListByParametersTestLocation() {
         eventManager.clearEventsList();
-        eventManager.addEventToList(new EventClass("test1","",false, true, Location.Indoors, Price.Free));
-        eventManager.addEventToList(new EventClass("test2","",false, false, Location.Outdoors, Price.Paid));
+        eventManager.addEventToList(new Event("test1",false,1, 1, null, false));
+        eventManager.addEventToList(new Event("test2",false,0, 0, null, false));
 
         eventManager.setSelectedLocation(Location.Indoors);
         eventManager.setSelectedPrice(Price.Any);
         eventManager.setSearchForGroup(false);
 
-        EventClass random = eventManager.getRandomElementOfEventsListByParameters();
-        assertEquals("Location property not checked properly",Location.Indoors, random.getLocation());
+        Event random = eventManager.getRandomElementOfEventsListByParameters();
+        assertEquals("Location property not checked properly",Location.Indoors, Location.values()[random.getIs_indoor()]);
     }
 
     @Test
     public void getRandomElementOfEventsListByParametersTestPrice() {
         eventManager.clearEventsList();
-        eventManager.addEventToList(new EventClass("test1","",false, true, Location.Indoors, Price.Free));
-        eventManager.addEventToList(new EventClass("test2","",false, false, Location.Outdoors, Price.Paid));
+        eventManager.addEventToList(new Event("test1",false,1, 1, null, false));
+        eventManager.addEventToList(new Event("test2",false,0, 0, null, false));
 
         eventManager.setSelectedLocation(Location.Any);
         eventManager.setSelectedPrice(Price.Paid);
         eventManager.setSearchForGroup(false);
 
-        EventClass random = eventManager.getRandomElementOfEventsListByParameters();
-        assertEquals("Price property not checked properly",Price.Paid, random.getPrice());
+        Event random = eventManager.getRandomElementOfEventsListByParameters();
+        assertEquals("Price property not checked properly",Price.Paid, Price.values()[random.getIs_free()]);
     }
 
     @Test
@@ -81,8 +80,8 @@ public class EventManagerUnitTest {
     @Test
     public void FilterLocationTestNormal() {
         eventManager.clearEventsList();
-        eventManager.addEventToList(new EventClass("test1","",false, true, Location.Indoors, Price.Free));
-        eventManager.addEventToList(new EventClass("test2","",false, false, Location.Outdoors, Price.Paid));
+        eventManager.addEventToList(new Event("test1",true,Location.Indoors.ordinal(), Price.Any.ordinal(), null, false));
+        eventManager.addEventToList(new Event("test2",false,Location.Outdoors.ordinal(), Price.Any.ordinal(), null, false));
         eventManager.setSelectedLocation(Location.Indoors);
 
         int lengthBefore = eventManager.getEventsList().size();
@@ -107,8 +106,8 @@ public class EventManagerUnitTest {
     @Test
     public void FilterPriceTestNormal() {
         eventManager.clearEventsList();
-        eventManager.addEventToList(new EventClass("test1","",false, true, Location.Indoors, Price.Free));
-        eventManager.addEventToList(new EventClass("test2","",false, false, Location.Outdoors, Price.Paid));
+        eventManager.addEventToList(new Event("test1",true,Location.Indoors.ordinal(), Price.Free.ordinal(), null, false));
+        eventManager.addEventToList(new Event("test2",false,Location.Outdoors.ordinal(), Price.Paid.ordinal(), null, false));
         eventManager.setSelectedPrice(Price.Free);
 
         int lengthBefore = eventManager.getEventsList().size();

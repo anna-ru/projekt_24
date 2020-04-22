@@ -28,7 +28,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 public class AddNewEventFragment extends Fragment {
 
-    private EventClass newEvent = new EventClass("","",false,false,null,null);
+    private Event newEvent = new Event("",false,0,0,null,false);
 
     public AddNewEventFragment() {
         // Required empty public constructor
@@ -68,7 +68,7 @@ public class AddNewEventFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selected = locationSpinner.getSelectedItem().toString();
-                newEvent.setLocation(MainFragment.eventManager.StringToLocation(selected));
+                newEvent.setIs_indoor(MainFragment.eventManager.StringToLocation(selected).ordinal());
             }
 
             @Override
@@ -81,7 +81,7 @@ public class AddNewEventFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selected = priceSpinner.getSelectedItem().toString();
-                newEvent.setPrice(MainFragment.eventManager.StringToPrice(selected));
+                newEvent.setIs_free(MainFragment.eventManager.StringToPrice(selected).ordinal());
             }
 
             @Override
@@ -93,7 +93,7 @@ public class AddNewEventFragment extends Fragment {
         isGroupCheckBox.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                newEvent.setGroup(isGroupCheckBox.isChecked());
+                newEvent.setIs_group(isGroupCheckBox.isChecked());
             }
         });
 
@@ -101,14 +101,12 @@ public class AddNewEventFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 newEvent.setName(titleInputField.getText().toString());
-                Log.d("debug","new event: " + newEvent.getName() + ", " + newEvent.getGroup() + ", " + newEvent.getLocation() + ", " + newEvent.getPrice());
                 MainFragment.eventManager.getEventsList().add(newEvent);
 
 
-                Event dbEvent = new Event(newEvent.getName(),newEvent.getGroup(),newEvent.getLocation().ordinal(),newEvent.getPrice().ordinal(),newEvent.getMapsData(),newEvent.getShowMap());
-                Toast.makeText(getActivity(),"Event added successfully" + dbEvent.getName() + ", " + dbEvent.isIs_group() + ", " + dbEvent.getIs_indoor() + ", " + dbEvent.getIs_free() + ", " + dbEvent.getSearch_map(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"Event added successfully" + newEvent.getName() + ", " + newEvent.isIs_group() + ", " + newEvent.getIs_indoor() + ", " + newEvent.getIs_free() + ", " + newEvent.getSearch_map(),Toast.LENGTH_SHORT).show();
 
-                MainActivity.appDatabase.eventDao().addEvent(dbEvent);
+                MainActivity.appDatabase.eventDao().addEvent(newEvent);
                 titleInputField.setText("");
                 isGroupCheckBox.setChecked(false);
                 locationSpinner.setSelection(0);
