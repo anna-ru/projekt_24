@@ -56,8 +56,7 @@ public class EventManager {
     }
 
     public void getDataFromDatabase(ArrayList<Event> dbEventList){
-        EventClass newEvent;
-        //newEvent = new EventClass(event.getName(),event.getSearch_map(),event.isShow_map(),event.isIs_group(), Location.values()[event.getIs_indoor()],Price.values()[event.getIs_free()]);
+        eventsList.clear();
         eventsList.addAll(dbEventList);
     }
 

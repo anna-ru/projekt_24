@@ -58,6 +58,16 @@ public class AllIdeasListAdapter extends BaseAdapter implements ListAdapter {
         TextView listItemText = (TextView)view.findViewById(R.id.list_item_string);
         listItemText.setText(list.get(position).getName());
 
+        listItemText.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                notifyDataSetChanged();
+                MainFragment.currentId = list.get(position).getId();
+                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new UpdateEventFragment(),null).addToBackStack(null).commit();
+
+            }
+        });
+
         Button deleteBtn = (Button)view.findViewById(R.id.delete_btn);
 
         deleteBtn.setOnClickListener(new View.OnClickListener(){

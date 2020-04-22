@@ -44,6 +44,7 @@ import java.util.Objects;
 public class MainFragment extends Fragment {
 
     public static EventManager eventManager = null;
+    public static int currentId;
 
     public MainFragment() {
         // Required empty public constructor
@@ -69,9 +70,11 @@ public class MainFragment extends Fragment {
 
         //Ez a tag-ekhez lett készítve, hátha jól jön még később, esetleg listázáshoz akár
         //createLayoutDynamically(5,getActivity());
-        //TODO: az optionsben meg kell majd jeleníteni az aktuális filtereket mert most visszaállnak kezdetleges értékre
         if(eventManager == null){
             eventManager = new EventManager();
+            ArrayList<Event> eventsArrayList= new ArrayList<>(MainActivity.appDatabase.eventDao().getEvents());
+            eventManager.getDataFromDatabase(eventsArrayList);
+        }else{
             ArrayList<Event> eventsArrayList= new ArrayList<>(MainActivity.appDatabase.eventDao().getEvents());
             eventManager.getDataFromDatabase(eventsArrayList);
         }

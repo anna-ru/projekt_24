@@ -12,13 +12,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e531c97-9d11-4e31-a863-cb68fd4f552b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/UpdateEventFragment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/AddNewEventFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/AddNewEventFragment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/NewEventActivity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_new_event.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_new_event.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_new_event.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/AllIdeasListAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/AllIdeasListAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/EventListFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/EventListFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/EventManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/EventManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/MainFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/MainFragment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/database/EventDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/database/EventDao.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -365,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587562290617</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="-Added Google maps search InputField and functionality">
+      <created>1587563135533</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1587563135533</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -416,6 +424,7 @@
     <MESSAGE value="-Database is now working correctly.&#10;-In progress of cleaning up EventClass and switching to Event.&#10;-There are still useless leftover codes." />
     <MESSAGE value="-EventClass complete cleanup&#10;-Updated UnitTests" />
     <MESSAGE value="-Minor fix in tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Minor fix in tests" />
+    <MESSAGE value="-Added Google maps search InputField and functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="-Added Google maps search InputField and functionality" />
   </component>
 </project>
