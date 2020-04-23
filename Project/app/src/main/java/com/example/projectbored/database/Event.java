@@ -1,12 +1,8 @@
 package com.example.projectbored.database;
 
-import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-
-import com.example.projectbored.Location;
-import com.example.projectbored.Price;
 
 @Entity(tableName = "events")
 public class Event {

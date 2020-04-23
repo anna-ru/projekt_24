@@ -13,17 +13,19 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.projectbored.R;
 import com.example.projectbored.database.Event;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
 
-    private List<Event> eventList = new ArrayList<>(); // Cached copy of events
+    private final LayoutInflater mInflater;
+    private List<Event> eventList; // Cached copy of events
+
+    public EventAdapter(Context context) { mInflater = LayoutInflater.from(context); }
 
     @NonNull
     @Override
     public EventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_item, parent, false);
+        View view = mInflater.inflate(R.layout.event_item, parent, false);
         return new EventViewHolder(view);
     }
 
@@ -32,12 +34,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         Event event = eventList.get(position);
         if(event != null){
             holder.event_name.setText(event.getName());
-           /* holder.delete_button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    delete(event);
-                }
-            });*/
         } else {
             holder.event_name.setText("Null");
         }

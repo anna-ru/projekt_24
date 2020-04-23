@@ -8,7 +8,6 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import java.util.LinkedList;
 import java.util.List;
 
 @Dao
@@ -38,8 +37,8 @@ public interface EventDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insert(Event... events);
 
-    /*@Insert
-    public void insertAll(Event[] events);*/
+    @Insert
+    public void insertAll(Event[] events);
 
     @Update
     public void updateEvents(Event... events);
