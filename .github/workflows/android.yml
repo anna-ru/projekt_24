@@ -117,15 +117,9 @@ jobs:
         working-directory: ./Project
       - name: Zipping Javadoc results
         run: zip -r javadoc.zip Project/app/build/docs/javadoc/
-      - name: Where am I
-        run: ls
-      - name: LS on docs
-        run: ls Project/app/build/docs
-      - name: LS on javadoc
-        run: ls Project/app/build/docs/javadoc
       - name: Upload javadoc.zip to artifacts
         uses: actions/upload-artifact@v1
         with:
           name: javadoc
-          path: Project/app/build/docs/javadoc.zip
+          path: javadoc.zip
 
