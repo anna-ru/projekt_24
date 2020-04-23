@@ -96,7 +96,7 @@ public class MainFragment extends Fragment {
         all_ideas_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((MainActivity)getActivity()).addEventListFragment();
+                ((MainActivity)getActivity()).addEventListActivity();
             }
         });
 

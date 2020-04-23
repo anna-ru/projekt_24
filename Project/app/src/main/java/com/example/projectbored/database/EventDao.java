@@ -38,8 +38,8 @@ public interface EventDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insert(Event... events);
 
-    @Insert
-    public void insertAll(Event[] events);
+    /*@Insert
+    public void insertAll(Event[] events);*/
 
     @Update
     public void updateEvents(Event... events);
