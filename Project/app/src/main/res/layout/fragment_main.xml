@@ -8,132 +8,110 @@
 
     <TextView
         android:id="@+id/title"
-        android:textColor="?attr/textColor"
-        android:layout_width="260dp"
-        android:layout_height="100dp"
+        android:textColor="?attr/colorAccent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/bored"
-        android:textSize="64sp"
-        android:textAlignment="center"
+        android:fontFamily="@font/gruppo_regular"
+        android:textSize="60sp"
+        android:shadowRadius="3"
+        android:shadowDy="3"
         android:lineSpacingExtra="10sp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center_horizontal"
         android:layout_centerHorizontal="true" />
 
     <View
         android:id="@+id/separator_under_title"
         android:layout_width="260dp"
-        android:layout_height="2dp"
-        android:background="?attr/separatorColor"
+        android:layout_height="1dp"
+        android:layout_centerHorizontal="true"
         android:layout_below="@id/title"
-        android:layout_centerHorizontal="true"/>
+        android:background="@color/light_grey"
+        android:shadowColor="@color/grey"
+        android:shadowRadius="4"
+        android:shadowDy="5"
+        android:shadowDx="3"/>
+
 
     <Button
         android:id="@+id/ideaButton"
         android:background="@drawable/round_button"
         android:textColor="@android:color/white"
+        android:shadowColor="@color/grey"
+        android:shadowRadius="4"
+        android:shadowDy="4"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_width="218dp"
-        android:layout_height="219dp"
+        android:layout_width="178dp"
+        android:layout_height="179dp"
         android:lineSpacingExtra="10sp"
         android:text="@string/give_me_an_idea"
+        android:fontFamily="@font/gruppo_regular"
         android:paddingLeft="25dp"
         android:paddingStart="25dp"
         android:paddingRight="25dp"
         android:paddingEnd="25dp"
         android:paddingTop="25dp"
         android:paddingBottom="25dp"
-        android:textSize="35sp"
-        android:typeface="normal" />
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/options_button"
-        android:background="?attr/buttonColor"
-        android:textColor="#FFFFFF"
+        android:background="?android:attr/selectableItemBackground"
+        android:textColor="?attr/colorAccent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/ideaButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="@string/options" />
-    <!--
-    <LinearLayout
-        android:id="@+id/options"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:layout_below="@id/ideaButton">
+        android:text="@string/options"
+        android:fontFamily="@font/gruppo_regular"
+        android:shadowRadius="4"
+        android:shadowDy="4"
+        android:textSize="25sp"/>
 
-    <CheckBox
-        android:id="@+id/checkbox_isGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/group_activity" />
-
-    <Spinner
-        android:id="@+id/spinner_location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <Spinner
-        android:id="@+id/spinner_price"
-        android:layout_width="187dp"
-        android:layout_height="34dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/categories"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        android:layout_below="@id/options">
-    </LinearLayout>
--->
     <View
         android:id="@+id/separator_under_idea_button"
         android:layout_width="260dp"
-        android:layout_height="2dp"
-        android:background="?attr/separatorColor"
-        android:layout_below="@id/options_button"
+        android:layout_height="1dp"
+        android:background="@color/light_grey"
+        android:layout_above="@id/all_ideas_button"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"/>
+        android:shadowRadius="4"
+        android:shadowDy="5"
+        android:shadowDx="3"/>
+
     <Button
         android:id="@+id/all_ideas_button"
-        android:background="?attr/buttonColor"
-        android:textColor="#FFFFFF"
+        android:textColor="?attr/textColor"
+        android:background="?android:attr/selectableItemBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/separator_under_idea_button"
+        android:layout_above="@id/settings_button"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:text="@string/all_ideas" />
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="@string/all_ideas"
+        android:fontFamily="@font/gruppo_regular"
+        android:shadowRadius="3"
+        android:shadowDy="3"
+        android:textSize="20sp"/>
 
     <Button
         android:id="@+id/settings_button"
-        android:background="?attr/buttonColor"
-        android:textColor="#FFFFFF"
+        android:textColor="?attr/textColor"
+        android:background="?android:attr/selectableItemBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/all_ideas_button"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
-        android:text="@string/app_settings" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:text="@string/app_settings"
+        android:fontFamily="@font/gruppo_regular"
+        android:shadowRadius="3"
+        android:shadowDy="3"
+        android:textSize="20sp"/>
 
-
-
-    <!--
-    <CheckBox android:id="@+id/checkbox_Parameter4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_row="3"
-        android:layout_column="0"
-        android:text="Parameter4"/>
-
-    <CheckBox android:id="@+id/checkbox_Parameter5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_row="3"
-        android:layout_column="1"
-        android:text="Parameter5"/>
-    -->
 </RelativeLayout>

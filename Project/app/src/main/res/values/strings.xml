@@ -38,6 +38,7 @@
     <string name="back">Back</string>
     <string name="save">Save</string>
     <string name="maps_search">Maps Search</string>
+    <string name="x">X</string>
 
     <string-array name="locationArray">
         <item>Anywhere</item>
