@@ -1,18 +1,20 @@
 package com.example.projectbored;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.projectbored.database.Event;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class AllIdeasListAdapter extends BaseAdapter implements ListAdapter {
@@ -63,23 +65,49 @@ public class AllIdeasListAdapter extends BaseAdapter implements ListAdapter {
             public void onClick(View v) {
                 notifyDataSetChanged();
                 MainFragment.currentId = list.get(position).getId();
-                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new UpdateEventFragment(),null).addToBackStack(null).commit();
+                MainActivity.fragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, new UpdateEventFragment(),null).addToBackStack(null).commit();
 
             }
         });
 
-        Button deleteBtn = (Button)view.findViewById(R.id.delete_btn);
+        Button deleteBtn = view.findViewById(R.id.delete_btn);
 
         deleteBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                notifyDataSetChanged();
-                MainActivity.appDatabase.eventDao().deleteEvent(list.get(position));
-                list.remove(position);
-
+                onButtonShowPopupWindowClick(v, list.get(position), position);
             }
         });
 
         return view;
+    }
+
+    public void onButtonShowPopupWindowClick(View view, Event ev, int position){
+        final View popupView = LayoutInflater.from(context).inflate(R.layout.popup_dialog, null);
+
+        int width = LinearLayout.LayoutParams.MATCH_PARENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, true);
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        Button noButton = popupView.findViewById(R.id.no_button);
+        noButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
+
+        Button yesButton = popupView.findViewById((R.id.yes_button));
+        yesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                notifyDataSetChanged();
+                MainActivity.appDatabase.eventDao().deleteEvent(ev);
+                list.remove(position);
+                popupWindow.dismiss();
+            }
+        });
     }
 }

@@ -41,6 +41,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gruppo_regular"
+            android:maxLength="150"
+            android:maxLines="2"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -124,6 +126,8 @@
             android:fontFamily="@font/gruppo_regular"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLength="100"
+            android:maxLines="2"
             />
     </com.google.android.material.textfield.TextInputLayout>
 

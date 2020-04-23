@@ -1,37 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="?attr/backgroundColor"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="9dp">
-        <TextView
-            android:id="@+id/list_item_string"
-            android:textColor="?attr/textColor"
-            android:fontFamily="@font/gruppo_regular"
-            android:layout_toStartOf="@id/delete_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:text="1. Fergeteges rendezvénysorozat a Millenáris Parkban"
-            android:textSize="18sp"
-            android:layout_toLeftOf="@id/delete_btn"
-            android:textStyle="bold"
-            android:ellipsize="end"/>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
 
-        <Button
-            android:id="@+id/delete_btn"
-            android:background="?attr/buttonColor"
-            android:textColor="#FFFFFF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:text="@string/x"
-            android:textSize="22sp"
-            android:layout_alignParentEnd="true" />
+    <RelativeLayout
+        android:background="?attr/backgroundColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="9dp">
+            <TextView
+                android:id="@+id/list_item_string"
+                android:textColor="?attr/textColor"
+                android:fontFamily="@font/gruppo_regular"
+                android:layout_toStartOf="@id/delete_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:text="1. Fergeteges rendezvénysorozat a Millenáris Parkban"
+                android:textSize="18sp"
+                android:layout_toLeftOf="@id/delete_btn"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:layout_alignParentStart="true" />
+
+            <Button
+                android:id="@+id/delete_btn"
+                android:background="?android:attr/selectableItemBackground"
+                android:textColor="?attr/colorAccent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="@string/x"
+                android:textSize="22sp"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
     </RelativeLayout>
-</RelativeLayout>
+</ScrollView>
