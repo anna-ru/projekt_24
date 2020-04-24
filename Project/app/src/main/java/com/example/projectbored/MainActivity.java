@@ -10,7 +10,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.room.Room;
 
+import com.example.projectbored.database.AppDatabase;
+
+import com.example.projectbored.database.EventsData;
 import com.example.projectbored.viewmodel.SharedPref;
 
 import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
@@ -18,7 +22,8 @@ import static androidx.fragment.app.FragmentManager.POP_BACK_STACK_INCLUSIVE;
 public class MainActivity extends AppCompatActivity {
 
     public static FragmentManager fragmentManager;
-    SharedPref sharedPrefs;
+    public static AppDatabase appDatabase;
+    public SharedPref sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         fragmentManager = getSupportFragmentManager();
+        appDatabase = Room.databaseBuilder(getApplicationContext(),AppDatabase.class,"eventdb").allowMainThreadQueries().build();
+        if(appDatabase.eventDao().getEvents().size() == 0){
+            appDatabase.eventDao().populateDatabase(EventsData.populateEventsData());
+        }
 
         if (findViewById(R.id.fragment_container) != null) {
             if (savedInstanceState != null) {
@@ -77,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
         finish();
     }
-
 
     @Override
     public void onBackPressed() {

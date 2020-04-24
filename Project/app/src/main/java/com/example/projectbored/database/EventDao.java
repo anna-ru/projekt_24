@@ -12,6 +12,25 @@ import java.util.List;
 
 @Dao
 public interface EventDao {
+
+    @Insert
+    public void addEvent(Event event);
+
+    @Query("SELECT * FROM events WHERE id=:id")
+    public Event getEvent(int id);
+
+    @Query("SELECT * FROM events")
+    public List<Event> getEvents();
+
+    @Delete
+    public void deleteEvent(Event event);
+
+    @Update
+    public void updateEvent(Event event);
+
+    @Insert
+    public void populateDatabase(Event[] events);
+
     @Query("SELECT * FROM events")
     LiveData<List<Event>> getAll();
 

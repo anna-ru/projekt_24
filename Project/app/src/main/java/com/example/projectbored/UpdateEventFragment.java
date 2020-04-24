@@ -21,14 +21,11 @@ import androidx.fragment.app.Fragment;
 import com.example.projectbored.database.Event;
 import com.google.android.material.textfield.TextInputEditText;
 
+public class UpdateEventFragment extends Fragment {
 
-//TODO: A google maps dolgot meg kell még oldani itt, ha újat akarunk addolni a user hogyan tudja megadni
+    private Event currentEvent = MainActivity.appDatabase.eventDao().getEvent(MainFragment.currentId);
 
-public class AddNewEventFragment extends Fragment {
-
-    private Event newEvent = new Event("",false,0,0,null,false);
-
-    public AddNewEventFragment() {
+    public UpdateEventFragment() {
         // Required empty public constructor
     }
 
@@ -46,8 +43,6 @@ public class AddNewEventFragment extends Fragment {
 
         Button backButton = getActivity().findViewById(R.id.back_button);
         Button saveButton = getActivity().findViewById(R.id.save_button);
-        saveButton.setEnabled(false);
-        saveButton.setAlpha(0.5f);
 
         final CheckBox isGroupCheckBox = view.findViewById(R.id.checkbox_isGroup);
         final Spinner locationSpinner = view.findViewById(R.id.spinner_location);
@@ -66,12 +61,17 @@ public class AddNewEventFragment extends Fragment {
 
         TextInputEditText mapsDataInputField = getActivity().findViewById(R.id.google_maps_search_input_field);
 
+        titleInputField.setText(currentEvent.getName());
+        isGroupCheckBox.setChecked(currentEvent.isIs_group());
+        locationSpinner.setSelection(currentEvent.getIs_indoor());
+        priceSpinner.setSelection(currentEvent.getIs_free());
+        mapsDataInputField.setText(currentEvent.getSearch_map());
+
         if(((MainActivity) getActivity()).sharedPrefs.getPowerUserState()){
             mapsDataInputField.setVisibility(View.VISIBLE);
         }else{
             mapsDataInputField.setVisibility(View.GONE);
         }
-
 
         titleInputField.addTextChangedListener(new TextWatcher() {
 
@@ -101,7 +101,7 @@ public class AddNewEventFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selected = locationSpinner.getSelectedItem().toString();
-                newEvent.setIs_indoor(MainFragment.eventManager.StringToLocation(selected).ordinal());
+                currentEvent.setIs_indoor(MainFragment.eventManager.StringToLocation(selected).ordinal());
             }
 
             @Override
@@ -114,7 +114,7 @@ public class AddNewEventFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selected = priceSpinner.getSelectedItem().toString();
-                newEvent.setIs_free(MainFragment.eventManager.StringToPrice(selected).ordinal());
+                currentEvent.setIs_free(MainFragment.eventManager.StringToPrice(selected).ordinal());
             }
 
             @Override
@@ -126,7 +126,7 @@ public class AddNewEventFragment extends Fragment {
         isGroupCheckBox.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                newEvent.setIs_group(isGroupCheckBox.isChecked());
+                currentEvent.setIs_group(isGroupCheckBox.isChecked());
             }
         });
 
@@ -136,17 +136,17 @@ public class AddNewEventFragment extends Fragment {
                 if(titleInputField.getText().toString().equals("")){
 
                 }
-                newEvent.setName(titleInputField.getText().toString());
-                newEvent.setSearch_map(mapsDataInputField.getText().toString());
+                currentEvent.setName(titleInputField.getText().toString());
+                currentEvent.setSearch_map(mapsDataInputField.getText().toString());
 
-                if(!newEvent.getSearch_map().equals("")){
-                    newEvent.setShow_map(true);
+                if(!currentEvent.getSearch_map().equals("")){
+                    currentEvent.setShow_map(true);
                 }
 
-                MainFragment.eventManager.getEventsList().add(newEvent);
-                Toast.makeText(getActivity(),"Event added successfully" + newEvent.getName() + ", " + newEvent.isIs_group() + ", " + newEvent.getIs_indoor() + ", " + newEvent.getIs_free() + ", " + newEvent.getSearch_map(),Toast.LENGTH_SHORT).show();
+                MainFragment.eventManager.getEventsList().add(currentEvent);
+                Toast.makeText(getActivity(),"Event added successfully" + currentEvent.getName() + ", " + currentEvent.isIs_group() + ", " + currentEvent.getIs_indoor() + ", " + currentEvent.getIs_free() + ", " + currentEvent.getSearch_map(),Toast.LENGTH_SHORT).show();
 
-                MainActivity.appDatabase.eventDao().addEvent(newEvent);
+                MainActivity.appDatabase.eventDao().updateEvent(currentEvent);
                 titleInputField.setText("");
                 isGroupCheckBox.setChecked(false);
                 locationSpinner.setSelection(0);
@@ -155,12 +155,13 @@ public class AddNewEventFragment extends Fragment {
             }
         });
 
-       backButton.setOnClickListener(new View.OnClickListener() {
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ((MainActivity)getActivity()).onBackPressed();
             }
         });
+
     }
 
 }

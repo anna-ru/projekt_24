@@ -4,32 +4,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.DynamicLayout;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
-import android.widget.Spinner;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
-import java.util.Objects;
+import com.example.projectbored.database.Event;
+
+import java.util.ArrayList;
 
 /**
  * This is the main page of the app, it sets listeners to buttons, creates popups
@@ -41,6 +33,7 @@ import java.util.Objects;
 public class MainFragment extends Fragment {
 
     public static EventManager eventManager = null;
+    public static int currentId;
 
     public MainFragment() {
         // Required empty public constructor
@@ -66,10 +59,13 @@ public class MainFragment extends Fragment {
 
         //Ez a tag-ekhez lett készítve, hátha jól jön még később, esetleg listázáshoz akár
         //createLayoutDynamically(5,getActivity());
-        //TODO: az optionsben meg kell majd jeleníteni az aktuális filtereket mert most visszaállnak kezdetleges értékre
         if(eventManager == null){
             eventManager = new EventManager();
-            eventManager.fillEventsListWithSampleData();
+            ArrayList<Event> eventsArrayList= new ArrayList<>(MainActivity.appDatabase.eventDao().getEvents());
+            eventManager.getDataFromDatabase(eventsArrayList);
+        }else{
+            ArrayList<Event> eventsArrayList= new ArrayList<>(MainActivity.appDatabase.eventDao().getEvents());
+            eventManager.getDataFromDatabase(eventsArrayList);
         }
 
         //find idea button and set onclick event
@@ -77,10 +73,11 @@ public class MainFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Code here executes on main thread after user presses button
-                EventClass randomEventClass = eventManager.getRandomElementOfEventsListByParameters();
+                //EventClass randomEventClass = eventManager.getRandomElementOfEventsListByParameters();
+                Event randomEvent = eventManager.getRandomElementOfEventsListByParameters();
                 //TODO: switch out for database query
-                onButtonShowPopupWindowClick(v, randomEventClass.getName(), randomEventClass.getMapsData(),
-                        randomEventClass.getShowMap());
+                onButtonShowPopupWindowClick(v, randomEvent.getName(), randomEvent.getSearch_map(),
+                        randomEvent.isShow_map());
             }
         });
 
@@ -105,7 +102,8 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 //((MainActivity)getActivity()).addSettingsFragment();
-                MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new SettingsFragment(),null).addToBackStack(null).commit();
+                MainActivity.fragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, new SettingsFragment(),null).addToBackStack(null).commit();
             }
         });
     }
@@ -129,7 +127,7 @@ public class MainFragment extends Fragment {
         //View popupView = inflater.inflate(R.layout.popup_window, null);
 
         // create the popup window
-        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
+        int width = LinearLayout.LayoutParams.MATCH_PARENT;
         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
         boolean focusable = true; // lets taps outside the popup also dismiss it
         final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);

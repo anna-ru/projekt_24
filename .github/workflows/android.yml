@@ -112,10 +112,13 @@ jobs:
           java-version: 11
       - name: Make gradlew executable
         run: chmod +x ./Project/gradlew
+      - name: Building Gradle
+        run: ./gradlew build --stacktrace
+        working-directory: ./Project
       - name: Run javadoc
         run: ./gradlew javadoc
         working-directory: ./Project
-      - name: Upload Javadoc results to artifacts
+      - name: Upload javadoc to artifacts
         uses: actions/upload-artifact@v1
         with:
           name: javadoc

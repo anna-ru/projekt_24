@@ -2,6 +2,9 @@ package com.example.projectbored;
 
 import android.util.Log;
 
+import com.example.projectbored.database.Event;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,37 +18,46 @@ import java.util.Random;
  * @version 1.1
  * @since   2020-04-07
  */
+
+// TODO: Change everything to work with Event instead of EventClass
 public class EventManager {
 
     private boolean searchForGroup;
     private Location selectedLocation = Location.Any;
     private Price selectedPrice = Price.Any;
-    private LinkedList<EventClass> eventsList = new LinkedList<EventClass>();
+    //private LinkedList<EventClass> eventsList = new LinkedList<EventClass>();
+    private ArrayList<Event> eventsList = new ArrayList<Event>();
 
     /**
      * Fills the eventsList with sample data (temporary function until database gets setup)
      */
+//TODO: this is now just for unitTests.
     public void fillEventsListWithSampleData(){
         ArrayList<String> titleList = new ArrayList<String>();
         for(int i=0;i<eventsList.size();i++){
             titleList.add(eventsList.get(i).getName());
         }
-        EventClass newEvent = new EventClass("Fergeteges esemény az Alle-ban","Alle",true, true, Location.Indoors,Price.Paid);
+        Event newEvent = new Event("Fergeteges esemény az Alle-ban",true,Location.Indoors.ordinal(), Price.Free.ordinal(), "Alle",true);
         if(!titleList.contains(newEvent.getName())){
             eventsList.add(newEvent);
         }
-        newEvent = new EventClass("Fergeteges esemény otthon","",false,false, Location.Indoors,Price.Free);
+        newEvent = new Event("Fergeteges esemény otthon",false,Location.Indoors.ordinal(),Price.Free.ordinal(), "",false);
         if(!titleList.contains(newEvent.getName())){
             eventsList.add(newEvent);
         }
-        newEvent = new EventClass("Közepesen jó esemény az egész családnak","Budapest",true,true, Location.Outdoors,Price.Paid);
+        newEvent = new Event("Közepesen jó esemény az egész családnak",true,Location.Outdoors.ordinal(),Price.Paid.ordinal(), "Budapest",true);
         if(!titleList.contains(newEvent.getName())){
             eventsList.add(newEvent);
         }
-        newEvent = new EventClass("Rendkívüli esemény egy főre","Toilet",true,false, Location.Indoors,Price.Free);
+        newEvent = new Event("Rendkívüli esemény egy főre",false,Location.Indoors.ordinal(),Price.Free.ordinal(), "Toilet",true);
         if(!titleList.contains(newEvent.getName())){
             eventsList.add(newEvent);
         }
+    }
+
+    public void getDataFromDatabase(ArrayList<Event> dbEventList){
+        eventsList.clear();
+        eventsList.addAll(dbEventList);
     }
 
     /**
@@ -54,14 +66,15 @@ public class EventManager {
      *
      * @return EventClass The random event that didn't get filtered out
      */
-    public EventClass getRandomElementOfEventsListByParameters(){
-        EventClass result;
+    public Event getRandomElementOfEventsListByParameters(){
+        Event result;
         Random rand = new Random();
-        LinkedList<EventClass> randomEventPool = new LinkedList<EventClass>(eventsList);
+        //LinkedList<EventClass> randomEventPool = new LinkedList<EventClass>(eventsList);
+        LinkedList<Event> randomEventPool = new LinkedList<Event>(eventsList);
 
         if(searchForGroup) {
             for (int i = 0; i < eventsList.size(); i++) {
-                if (!eventsList.get(i).getGroup()) {
+                if (!eventsList.get(i).isIs_group()) {
                     randomEventPool.remove(eventsList.get(i));
                 }
             }
@@ -74,9 +87,12 @@ public class EventManager {
         if(randomEventPool.size() > 0) {
             int randomNumber = rand.nextInt(randomEventPool.size());
             result = randomEventPool.get(randomNumber);
+
+            //return new Event(result.getName(),result.getGroup(),result.getLocation().ordinal(),result.getPrice().ordinal(),result.getMapsData(),result.getShowMap());
             return result;
         }else{
-            result = new EventClass("No idea found.","",false,false,null,null);
+            result = new Event("No idea found.",false,0,0,null,false);
+            //return new Event(result.getName(),result.getGroup(),result.getLocation().ordinal(),result.getPrice().ordinal(),result.getMapsData(),result.getShowMap());
             return result;
         }
     }
@@ -87,10 +103,10 @@ public class EventManager {
      *
      * @param randomEventPool This list of events will be filtered
      */
-    public void FilterLocation(List<EventClass> randomEventPool){
+    public void FilterLocation(List<Event> randomEventPool){
         if(selectedLocation.equals(Location.Any)) return;
         for (int i = 0; i < eventsList.size(); i++) {
-            if (!(eventsList.get(i).getLocation().equals(selectedLocation))) {
+            if (eventsList.get(i).getIs_indoor() != selectedLocation.ordinal() && eventsList.get(i).getIs_indoor() != Location.Any.ordinal()) {
                 randomEventPool.remove(eventsList.get(i));
             }
         }
@@ -102,10 +118,10 @@ public class EventManager {
      *
      * @param randomEventPool This list of events will be filtered
      */
-    public void FilterPrice(List<EventClass> randomEventPool){
+    public void FilterPrice(List<Event> randomEventPool){
         if(selectedPrice.equals(Price.Any)) return;
         for (int i = 0; i < eventsList.size(); i++) {
-            if (!(eventsList.get(i).getPrice().equals(selectedPrice))) {
+            if (!(eventsList.get(i).getIs_free() == selectedPrice.ordinal()) && !(eventsList.get(i).getIs_free() == Price.Any.ordinal())) {
                 randomEventPool.remove(eventsList.get(i));
             }
         }
@@ -139,7 +155,7 @@ public class EventManager {
     public boolean getSearchForGroup() {return searchForGroup;}
     public Location getSelectedLocation() {return selectedLocation;}
     public Price getSelectedPrice() {return selectedPrice;}
-    public List<EventClass> getEventsList() {return eventsList;}
+    public List<Event> getEventsList() {return eventsList;}
     //setters
     public void setSearchForGroup(boolean selected) {searchForGroup = selected;}
     public void setSelectedLocation(Location selected) {
@@ -151,7 +167,7 @@ public class EventManager {
      *
      * @param event This is the event that will be added to the list
      */
-    public void addEventToList(EventClass event) {eventsList.add(event);}
+    public void addEventToList(Event event) {eventsList.add(event);}
 
     /**
      * Clears the list of events

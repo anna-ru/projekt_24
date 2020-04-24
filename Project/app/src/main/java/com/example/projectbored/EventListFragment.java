@@ -3,13 +3,17 @@ package com.example.projectbored;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Debug;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,6 +29,8 @@ import com.example.projectbored.database.Event;
 import com.example.projectbored.viewmodel.EventViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -35,6 +41,7 @@ public class EventListFragment extends Fragment {
 
     private EventViewModel mEventViewModel;
     public static final int NEW_EVENT_ACTIVITY_REQUEST_CODE = 1;
+    private ArrayList<Event> eventsList = (ArrayList<Event>) MainActivity.appDatabase.eventDao().getEvents();
 
     public EventListFragment() {
         // Required empty public constructor
@@ -51,7 +58,18 @@ public class EventListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        AllIdeasListAdapter adapter = new AllIdeasListAdapter((LinkedList<EventClass>) MainFragment.eventManager.getEventsList(), this.getActivity());
+        for(Event event : eventsList){
+            Log.d("id","" + event.getId());
+            Log.d("name","" + event.getName());
+            Log.d("group","" + event.isIs_group());
+            Log.d("location","" + event.getIs_indoor());
+            Log.d("price","" + event.getIs_free());
+            Log.d("mapsdata","" + event.getSearch_map());
+            Log.d("showmap","" + event.isShow_map());
+            Log.d("separator","----------------------------------------------------------------------------");
+        }
+        //AllIdeasListAdapter adapter = new AllIdeasListAdapter((LinkedList<EventClass>) MainFragment.eventManager.getEventsList(), this.getActivity());
+        AllIdeasListAdapter adapter = new AllIdeasListAdapter(MainActivity.appDatabase.eventDao().getEvents(),this.getActivity());
 
         ListView lView = (ListView)getActivity().findViewById(R.id.all_ideas_list);
         lView.setAdapter(adapter);
@@ -63,7 +81,6 @@ public class EventListFragment extends Fragment {
                 MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new AddNewEventFragment(),null).addToBackStack(null).commit();
             }
         });
-
         /*
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
         final EventAdapter adapter = new EventAdapter(getContext());

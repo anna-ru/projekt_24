@@ -9,15 +9,16 @@
     <TextView
         android:id="@+id/settings_title"
         android:textColor="?attr/textColor"
-        android:layout_width="260dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/settings"
-        android:textSize="64sp"
+        android:textSize="50sp"
         android:textAlignment="center"
         android:lineSpacingExtra="10sp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:gravity="center_horizontal"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/gruppo_regular"/>
 
     <TextView
         android:id="@+id/settings_sample_text"
@@ -25,11 +26,14 @@
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/settings_title"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center_horizontal"
         android:justificationMode="inter_word"
         android:text="@string/Settings_sample_text"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:fontFamily="@font/gruppo_regular"/>
 
     <Switch
         android:id="@+id/dark_theme_switch"
@@ -42,7 +46,9 @@
         android:layout_marginLeft="30dp"
         android:switchPadding="8dp"
         android:text="@string/dark_theme"
-        android:layout_marginStart="30dp" />
+        android:layout_marginStart="30dp"
+        android:fontFamily="@font/gruppo_regular"
+        android:textSize="15sp"/>
 
     <Switch
         android:id="@+id/power_user_switch"
@@ -55,7 +61,9 @@
         android:layout_marginLeft="30dp"
         android:switchPadding="8dp"
         android:text="Power User"
-        android:layout_marginStart="30dp" />
+        android:layout_marginStart="30dp"
+        android:fontFamily="@font/gruppo_regular"
+        android:textSize="15sp"/>
 
 
 </RelativeLayout>

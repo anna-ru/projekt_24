@@ -9,23 +9,30 @@
     <TextView
         android:id="@+id/options_title"
         android:textColor="?attr/textColor"
-        android:layout_width="260dp"
-        android:layout_height="100dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/options"
-        android:textSize="64sp"
+        android:fontFamily="@font/gruppo_regular"
+        android:shadowRadius="2"
+        android:shadowDy="2"
+        android:textSize="40sp"
         android:textAlignment="center"
         android:lineSpacingExtra="10sp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:gravity="center_horizontal"
         android:layout_centerHorizontal="true" />
 
     <View
         android:id="@+id/separator_under_title"
         android:layout_width="260dp"
-        android:layout_height="2dp"
+        android:layout_height="1dp"
         android:background="?attr/separatorColor"
         android:layout_below="@id/options_title"
-        android:layout_centerHorizontal="true"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:shadowRadius="2"
+        android:shadowDy="2"
+        />
 
         <CheckBox
             android:id="@+id/checkbox_isGroup"
@@ -33,9 +40,11 @@
             android:buttonTint="?attr/checkboxColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/options_title"
+            android:layout_below="@id/separator_under_title"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
+            android:fontFamily="@font/gruppo_regular"
+            android:textSize="20sp"
             android:text="@string/group_activity" />
 
         <Spinner
@@ -46,7 +55,8 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:layout_below="@id/checkbox_isGroup"/>
+            android:layout_below="@id/checkbox_isGroup"
+            android:fontFamily="@font/gruppo_regular"/>
 
         <Spinner
             android:id="@+id/spinner_price"
@@ -55,7 +65,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/spinner_location"/>
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/spinner_location"
+            android:fontFamily="@font/gruppo_regular"/>
 
 </RelativeLayout>
