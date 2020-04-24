@@ -118,11 +118,9 @@ jobs:
       - name: Run javadoc
         run: ./gradlew javadoc
         working-directory: ./Project
-      - name: Zipping Javadoc results
-        run: zip -r javadoc.zip Project/app/build/docs/javadoc/
-      - name: Upload javadoc.zip to artifacts
+      - name: Upload javadoc to artifacts
         uses: actions/upload-artifact@v1
         with:
           name: javadoc
-          path: javadoc.zip
+          path: Project/app/build/docs/javadoc
 
