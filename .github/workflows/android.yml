@@ -112,6 +112,8 @@ jobs:
           java-version: 11
       - name: Make gradlew executable
         run: chmod +x ./Project/gradlew
+      - name: Building Gradle
+        run: ./gradlew build
       - name: Run javadoc
         run: ./gradlew javadoc
         working-directory: ./Project
