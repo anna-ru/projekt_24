@@ -2,37 +2,23 @@
     <string name="app_name">ProjectBored</string>
     <string name="all_ideas">All ideas</string>
 
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="give_me_an_idea">Give me an idea</string>
+    <string name="show_in_map">Show in Map</string>
 
     <string-array name="price">
         <item>Any price</item>
         <item>Free</item>
         <item>Paid</item>
     </string-array>
-    <string name="title_activity_settings">Settings</string>
 
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
-
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="group_activity">Group activity</string>
     <string name="bored">Bored</string>
     <string name="options">Options</string>
     <string name="app_settings">App Settings</string>
-    <string name="Settings_sample_text">Here you can change the application\'s settings, like Dark mode \nand \"Power User\" mode.</string>
+    <string name="Settings_sample_text">Here you can change the application\'s settings, like Dark mode and\n\"Power User\" mode.</string>
     <string name="settings">Settings</string>
     <string name="dark_theme">Dark Theme</string>
+    <string name="power_user">Power User</string>
     <string name="write_your_own_idea">Write your own idea</string>
     <string name="title">Title</string>
     <string name="back">Back</string>
@@ -40,7 +26,10 @@
     <string name="maps_search">Maps Search</string>
     <string name="x">X</string>
     <string name="are_you_sure_you_want_to_delete_this_idea">Are you sure you want to delete this idea?</string>
-    <string name="cancel">Cancel</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="delete">Delete</string>
+    <string name="Add_idea">Add idea</string>
 
     <string-array name="locationArray">
         <item>Anywhere</item>

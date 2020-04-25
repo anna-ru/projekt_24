@@ -1,5 +1,6 @@
 package com.example.projectbored;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -118,6 +119,7 @@ public class MainFragment extends Fragment {
      * @param mapsData The string that will be passed to the Google Maps app to try and find the chosen event
      * @param showMap A boolean flag that determines whether to display the "show in map" button or not
      */
+    @SuppressLint("InflateParams")
     public void onButtonShowPopupWindowClick(View view, String event, final String mapsData, final Boolean showMap) {
 
         // inflate the layout of the popup window
@@ -172,27 +174,6 @@ public class MainFragment extends Fragment {
             });
         }else{
             showInMapButton.setVisibility(View.GONE);
-        }
-    }
-
-    private void createLayoutDynamically(int n,Context context){
-
-        for (int i = 0; i < n; i++) {
-            Button myButton = new Button(context);
-            myButton.setText("Button :"+i);
-            myButton.setId(i);
-            final int id_ = myButton.getId();
-
-            //LinearLayout layout = getActivity().findViewById(R.id.categories);
-            //layout.addView(myButton);
-
-            myButton.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View view) {
-                    Toast.makeText(context,
-                            "Button clicked index = " + id_, Toast.LENGTH_SHORT)
-                            .show();
-                }
-            });
         }
     }
 }

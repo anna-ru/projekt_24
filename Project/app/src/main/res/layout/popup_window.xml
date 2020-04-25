@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_gravity="center"
     android:background="@drawable/layout_bg">
@@ -18,7 +19,6 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="50dp"
         android:layout_gravity="center"
-        android:text="Test Idea"
         android:textSize="30sp" />
 
     <RelativeLayout
@@ -28,15 +28,16 @@
 
         <Button
             android:id="@+id/popupBackButton"
-            android:background="@drawable/abc_vector_test"
-            android:textColor="#FFFFFF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
+            android:background="@drawable/ic_arrow_back_white_18dp"
             android:text=""
+            android:textColor="#FFFFFF"
             android:typeface="normal" />
 
         <Button
@@ -48,9 +49,11 @@
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
             android:layout_gravity="center_vertical"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:text="Show in Map"
-            android:typeface="normal" />
+            android:text="@string/show_in_map"
+            android:typeface="normal"
+            tools:ignore="RelativeOverlap"/>
 
     </RelativeLayout>
 

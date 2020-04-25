@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/backgroundColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddNewEventFragment">
+    tools:context=".AddNewEventFragment"
+    tools:ignore="Overdraw">
 
     <TextView
         android:id="@+id/add_new_idea_title"
@@ -12,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/write_your_own_idea"
-        android:fontFamily="@font/gruppo_regular"
+        app:fontFamily="@font/dual_300"
         android:textSize="30sp"
         android:shadowColor="@color/grey"
         android:shadowRadius="2"
@@ -40,7 +42,7 @@
             android:textColor="?attr/textColor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/gruppo_regular"
+            app:fontFamily="@font/dual_300"
             android:maxLength="150"
             android:maxLines="2"
             />
@@ -50,7 +52,7 @@
     <TextView
         android:id="@+id/options_title"
         android:textColor="?attr/textColor"
-        android:fontFamily="@font/gruppo_regular"
+        app:fontFamily="@font/dual_300"
         android:shadowColor="@color/grey"
         android:shadowRadius="2"
         android:shadowDy="2"
@@ -78,40 +80,42 @@
         android:id="@+id/checkbox_isGroup"
         android:textColor="?attr/textColor"
         android:buttonTint="?attr/checkboxColor"
-        android:fontFamily="@font/gruppo_regular"
+        android:fontFamily="@font/dual_300"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/separator_under_title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="@string/group_activity" />
+        android:text="@string/group_activity"
+        tools:ignore="UnusedAttribute"/>
 
     <Spinner
         android:id="@+id/spinner_location"
-        android:fontFamily="@font/gruppo_regular"
+        app:fontFamily="@font/dual_300"
         android:textColor="?attr/textColor"
         android:backgroundTint="?attr/textColor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/checkbox_isGroup"/>
+        android:layout_below="@id/checkbox_isGroup"
+        tools:ignore="UnusedAttribute"/>
 
     <Spinner
         android:id="@+id/spinner_price"
+        app:fontFamily="@font/dual_300"
         android:textColor="?attr/textColor"
         android:backgroundTint="?attr/textColor"
-        android:fontFamily="@font/gruppo_regular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:layout_below="@id/spinner_location"/>
+        android:layout_below="@id/spinner_location"
+        tools:ignore="UnusedAttribute"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/google_maps_search_input_layout"
         android:textColorHint="?attr/textColor"
-        android:fontFamily="@font/gruppo_regular"
         android:layout_below="@+id/spinner_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -123,7 +127,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/google_maps_search_input_field"
             android:textColor="?attr/textColor"
-            android:fontFamily="@font/gruppo_regular"
+            app:fontFamily="@font/dual_300"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="100"
@@ -143,8 +147,9 @@
         android:layout_marginBottom="40dp"
         android:layout_marginLeft="40dp"
         android:text="@string/back"
-        android:fontFamily="@font/gruppo_regular"
-        android:layout_marginStart="40dp" />
+        app:fontFamily="@font/dual_300"
+        android:layout_marginStart="40dp"
+        tools:ignore="RelativeOverlap"/>
 
     <Button
         android:id="@+id/save_button"
@@ -159,8 +164,8 @@
         android:layout_marginRight="40dp"
         android:text="@string/save"
         android:layout_marginEnd="40dp"
-        android:fontFamily="@font/gruppo_regular"
-         />
+        app:fontFamily="@font/dual_300"
+        tools:ignore="RelativeOverlap"/>
 
 </RelativeLayout>
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fillViewport="true">
     <RelativeLayout xmlns:tools="http://schemas.android.com/tools"
         android:background="?attr/backgroundColor"
@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/bored"
-            android:fontFamily="@font/gruppo_regular"
+            app:fontFamily="@font/dual_300"
             android:textSize="60sp"
             android:shadowRadius="3"
             android:shadowDy="3"
@@ -52,7 +52,7 @@
             android:layout_height="179dp"
             android:lineSpacingExtra="10sp"
             android:text="@string/give_me_an_idea"
-            android:fontFamily="@font/gruppo_regular"
+            app:fontFamily="@font/dual_300"
             android:paddingLeft="25dp"
             android:paddingStart="25dp"
             android:paddingRight="25dp"
@@ -71,7 +71,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:text="@string/options"
-            android:fontFamily="@font/gruppo_regular"
+            app:fontFamily="@font/dual_300"
             android:shadowRadius="4"
             android:shadowDy="4"
             android:textSize="25sp"/>
@@ -98,7 +98,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:text="@string/all_ideas"
-            android:fontFamily="@font/gruppo_regular"
+            app:fontFamily="@font/dual_300"
             android:shadowRadius="3"
             android:shadowDy="3"
             android:textSize="20sp"/>
@@ -113,7 +113,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="15dp"
             android:text="@string/app_settings"
-            android:fontFamily="@font/gruppo_regular"
+            app:fontFamily="@font/dual_300"
             android:shadowRadius="3"
             android:shadowDy="3"
             android:textSize="20sp"/>

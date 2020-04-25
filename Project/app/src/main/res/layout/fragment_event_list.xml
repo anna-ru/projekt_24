@@ -5,7 +5,8 @@
     android:background="?attr/backgroundColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EventListFragment">
+    tools:context=".EventListFragment"
+    tools:ignore="Overdraw">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
@@ -32,12 +33,13 @@
         android:layout_margin="16dp"
         android:background="?attr/buttonColor"
         android:backgroundTint="?attr/buttonColor"
-        android:contentDescription="Add idea"
+        android:contentDescription="@string/Add_idea"
         app:backgroundTint="#00FFFFFF"
         android:tint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_add_black_24dp" />
+        app:srcCompat="@drawable/ic_add_black_24dp"
+        tools:ignore="UnusedAttribute"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
