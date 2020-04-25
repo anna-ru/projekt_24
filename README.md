@@ -33,4 +33,4 @@ Ha saját tevékenységeket szeretne hozzáadni a programhoz, vagy törölni/mó
 
 Ez az applikáció 2020 első felében készült az ELTE IK Projekt eszközök tantárgy elvégzése közben, projekt feladat gyanánt.
 
-Készítette: Hock Gergely, Osbáth Gergely, Rusznyák Anna, Szabó Bence
+Készítette: Hock Gergő, Osbáth Gergely, Rusznyák Anna, Szabó Bence
