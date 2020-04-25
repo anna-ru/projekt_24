@@ -31,7 +31,7 @@ public class SharedPref {
     public void setNightModeState(boolean state) {
         SharedPreferences.Editor editor = sharedPrefs.edit();
         editor.putBoolean("NightMode", state);
-        editor.commit();
+        editor.apply();
     }
 
     /**
@@ -51,7 +51,7 @@ public class SharedPref {
     public void setPowerUserState(boolean state) {
         SharedPreferences.Editor editor = sharedPrefs.edit();
         editor.putBoolean("PowerUser", state);
-        editor.commit();
+        editor.apply();
     }
 
     /**

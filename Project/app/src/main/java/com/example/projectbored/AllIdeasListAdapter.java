@@ -1,6 +1,8 @@
 package com.example.projectbored;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.text.Layout;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +51,7 @@ public class AllIdeasListAdapter extends BaseAdapter implements ListAdapter {
         return 0;
     }
 
+    @SuppressLint("InflateParams")
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         View view = convertView;
@@ -83,6 +86,7 @@ public class AllIdeasListAdapter extends BaseAdapter implements ListAdapter {
         return view;
     }
 
+    @SuppressLint("InflateParams")
     public void onButtonShowPopupWindowClick(View view, Event ev, int position){
         final View popupView = LayoutInflater.from(context).inflate(R.layout.popup_dialog, null);
 

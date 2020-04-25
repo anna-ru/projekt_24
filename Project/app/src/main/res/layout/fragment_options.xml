@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/backgroundColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OptionsFragment">
+    tools:context=".OptionsFragment"
+    tools:ignore="Overdraw">
 
     <TextView
         android:id="@+id/options_title"
@@ -12,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/options"
-        android:fontFamily="@font/gruppo_regular"
+        app:fontFamily="@font/dual_300"
         android:shadowRadius="2"
         android:shadowDy="2"
         android:textSize="40sp"
@@ -43,9 +45,10 @@
             android:layout_below="@id/separator_under_title"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:fontFamily="@font/gruppo_regular"
+            app:fontFamily="@font/dual_300"
             android:textSize="20sp"
-            android:text="@string/group_activity" />
+            android:text="@string/group_activity"
+            tools:ignore="UnusedAttribute"/>
 
         <Spinner
             android:id="@+id/spinner_location"
@@ -56,7 +59,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:layout_below="@id/checkbox_isGroup"
-            android:fontFamily="@font/gruppo_regular"/>
+            app:fontFamily="@font/dual_300"
+            tools:ignore="UnusedAttribute"/>
 
         <Spinner
             android:id="@+id/spinner_price"
@@ -67,6 +71,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
             android:layout_below="@id/spinner_location"
-            android:fontFamily="@font/gruppo_regular"/>
+            app:fontFamily="@font/dual_300"
+            tools:ignore="UnusedAttribute"/>
 
 </RelativeLayout>

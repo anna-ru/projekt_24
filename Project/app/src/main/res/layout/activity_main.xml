@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:rowCount="10"
     android:columnCount="3"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="Overdraw">
 
     <FrameLayout
         android:layout_width="match_parent"
