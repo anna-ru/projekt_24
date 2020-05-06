@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -26,7 +24,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class AddNewEventFragment extends Fragment {
 
-    private Event newEvent = new Event("",false,0,0,null,false);
+    private Event newEvent = new Event("",0,0,0,null,false);
 
     public AddNewEventFragment() {
         // Required empty public constructor
@@ -49,7 +47,13 @@ public class AddNewEventFragment extends Fragment {
         saveButton.setEnabled(false);
         saveButton.setAlpha(0.5f);
 
-        final CheckBox isGroupCheckBox = view.findViewById(R.id.checkbox_isGroup);
+        final Spinner isGroupSpinner = view.findViewById(R.id.spinner_isGroup);
+
+        ArrayAdapter<CharSequence> isGroupAdapter = ArrayAdapter.createFromResource(getContext(),
+                R.array.isGroupArray,R.layout.color_spinner_layout);
+        isGroupAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        isGroupSpinner.setAdapter(isGroupAdapter);
+
         final Spinner locationSpinner = view.findViewById(R.id.spinner_location);
 
         ArrayAdapter<CharSequence> locationAdapter = ArrayAdapter.createFromResource(getContext(),
@@ -123,10 +127,16 @@ public class AddNewEventFragment extends Fragment {
             }
         });
 
-        isGroupCheckBox.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
+        isGroupSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                newEvent.setIs_group(isGroupCheckBox.isChecked());
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selected = isGroupSpinner.getSelectedItem().toString();
+                newEvent.setIs_group(MainFragment.eventManager.StringToPrice(selected).ordinal());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 
@@ -148,7 +158,7 @@ public class AddNewEventFragment extends Fragment {
 
                 MainActivity.appDatabase.eventDao().addEvent(newEvent);
                 titleInputField.setText("");
-                isGroupCheckBox.setChecked(false);
+                isGroupSpinner.setSelection(0);
                 locationSpinner.setSelection(0);
                 priceSpinner.setSelection(0);
                 ((MainActivity)getActivity()).onBackPressed();

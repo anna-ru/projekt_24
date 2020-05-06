@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -44,7 +42,13 @@ public class UpdateEventFragment extends Fragment {
         Button backButton = getActivity().findViewById(R.id.back_button);
         Button saveButton = getActivity().findViewById(R.id.save_button);
 
-        final CheckBox isGroupCheckBox = view.findViewById(R.id.checkbox_isGroup);
+        final Spinner isGroupSpinner = view.findViewById(R.id.spinner_isGroup);
+
+        ArrayAdapter<CharSequence> isGroupAdapter = ArrayAdapter.createFromResource(getContext(),
+                R.array.isGroupArray,R.layout.color_spinner_layout);
+        isGroupAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        isGroupSpinner.setAdapter(isGroupAdapter);
+
         final Spinner locationSpinner = view.findViewById(R.id.spinner_location);
 
         ArrayAdapter<CharSequence> locationAdapter = ArrayAdapter.createFromResource(getContext(),
@@ -62,7 +66,7 @@ public class UpdateEventFragment extends Fragment {
         TextInputEditText mapsDataInputField = getActivity().findViewById(R.id.google_maps_search_input_field);
 
         titleInputField.setText(currentEvent.getName());
-        isGroupCheckBox.setChecked(currentEvent.isIs_group());
+        isGroupSpinner.setSelection(currentEvent.isIs_group());
         locationSpinner.setSelection(currentEvent.getIs_indoor());
         priceSpinner.setSelection(currentEvent.getIs_free());
         mapsDataInputField.setText(currentEvent.getSearch_map());
@@ -123,10 +127,16 @@ public class UpdateEventFragment extends Fragment {
             }
         });
 
-        isGroupCheckBox.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
+        isGroupSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                currentEvent.setIs_group(isGroupCheckBox.isChecked());
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selected = isGroupSpinner.getSelectedItem().toString();
+                currentEvent.setIs_group(MainFragment.eventManager.StringToPrice(selected).ordinal());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 
@@ -148,7 +158,7 @@ public class UpdateEventFragment extends Fragment {
 
                 MainActivity.appDatabase.eventDao().updateEvent(currentEvent);
                 titleInputField.setText("");
-                isGroupCheckBox.setChecked(false);
+                isGroupSpinner.setSelection(0);
                 locationSpinner.setSelection(0);
                 priceSpinner.setSelection(0);
                 ((MainActivity)getActivity()).onBackPressed();

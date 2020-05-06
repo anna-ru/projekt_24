@@ -1,10 +1,7 @@
 package com.example.projectbored;
 
-import android.util.Log;
-
 import com.example.projectbored.database.Event;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,9 +19,9 @@ import java.util.Random;
 // TODO: Change everything to work with Event instead of EventClass
 public class EventManager {
 
-    private boolean searchForGroup;
     private Location selectedLocation = Location.Any;
     private Price selectedPrice = Price.Any;
+    private Group selectedGroup = Group.Any;
     //private LinkedList<EventClass> eventsList = new LinkedList<EventClass>();
     private ArrayList<Event> eventsList = new ArrayList<Event>();
 
@@ -37,19 +34,19 @@ public class EventManager {
         for(int i=0;i<eventsList.size();i++){
             titleList.add(eventsList.get(i).getName());
         }
-        Event newEvent = new Event("Fergeteges esemény az Alle-ban",true,Location.Indoors.ordinal(), Price.Free.ordinal(), "Alle",true);
+        Event newEvent = new Event("Fergeteges esemény az Alle-ban",Group.Group.ordinal(),Location.Indoors.ordinal(), Price.Free.ordinal(), "Alle",true);
         if(!titleList.contains(newEvent.getName())){
             eventsList.add(newEvent);
         }
-        newEvent = new Event("Fergeteges esemény otthon",false,Location.Indoors.ordinal(),Price.Free.ordinal(), "",false);
+        newEvent = new Event("Fergeteges esemény otthon",Group.Any.ordinal(),Location.Indoors.ordinal(),Price.Free.ordinal(), "",false);
         if(!titleList.contains(newEvent.getName())){
             eventsList.add(newEvent);
         }
-        newEvent = new Event("Közepesen jó esemény az egész családnak",true,Location.Outdoors.ordinal(),Price.Paid.ordinal(), "Budapest",true);
+        newEvent = new Event("Közepesen jó esemény az egész családnak",Group.Group.ordinal(),Location.Outdoors.ordinal(),Price.Paid.ordinal(), "Budapest",true);
         if(!titleList.contains(newEvent.getName())){
             eventsList.add(newEvent);
         }
-        newEvent = new Event("Rendkívüli esemény egy főre",false,Location.Indoors.ordinal(),Price.Free.ordinal(), "Toilet",true);
+        newEvent = new Event("Rendkívüli esemény egy főre",Group.Alone.ordinal(),Location.Indoors.ordinal(),Price.Free.ordinal(), "Toilet",true);
         if(!titleList.contains(newEvent.getName())){
             eventsList.add(newEvent);
         }
@@ -72,14 +69,7 @@ public class EventManager {
         //LinkedList<EventClass> randomEventPool = new LinkedList<EventClass>(eventsList);
         LinkedList<Event> randomEventPool = new LinkedList<Event>(eventsList);
 
-        if(searchForGroup) {
-            for (int i = 0; i < eventsList.size(); i++) {
-                if (!eventsList.get(i).isIs_group()) {
-                    randomEventPool.remove(eventsList.get(i));
-                }
-            }
-        }
-
+        FilterGroup(randomEventPool);
         FilterLocation(randomEventPool);
         FilterPrice(randomEventPool);
 
@@ -91,9 +81,24 @@ public class EventManager {
             //return new Event(result.getName(),result.getGroup(),result.getLocation().ordinal(),result.getPrice().ordinal(),result.getMapsData(),result.getShowMap());
             return result;
         }else{
-            result = new Event("No idea found.",false,0,0,null,false);
+            result = new Event("No idea found.",0,0,0,null,false);
             //return new Event(result.getName(),result.getGroup(),result.getLocation().ordinal(),result.getPrice().ordinal(),result.getMapsData(),result.getShowMap());
             return result;
+        }
+    }
+
+    /**
+     * Filters the given list of events according to what was set in the options menu
+     * relating to the group status
+     *
+     * @param randomEventPool This list of events will be filtered
+     */
+    public void FilterGroup(List<Event> randomEventPool){
+        if(selectedGroup.equals(Group.Any)) return;
+        for (int i = 0; i < eventsList.size(); i++) {
+            if (!(eventsList.get(i).isIs_group() == selectedGroup.ordinal()) && !(eventsList.get(i).isIs_group() == Group.Any.ordinal())) {
+                randomEventPool.remove(eventsList.get(i));
+            }
         }
     }
 
@@ -151,15 +156,26 @@ public class EventManager {
         return Price.valueOf(selected);
     }
 
+    /**
+     * Converts a string to a Group
+     *
+     * @param selected This is the string that was chosen from the spinner
+     * @return Price returns the valueOf conversion of the string,
+     * except in the case of "Any", when it returns Group.Any
+     */
+    public Group StringToGroup(String selected) {
+        if(selected.equals("Any")) return Group.Any; //if we change the Group enums we need to be careful to see it this still works
+        return Group.valueOf(selected);
+    }
+
     //getters
-    public boolean getSearchForGroup() {return searchForGroup;}
+    public Group getSelectedGroup() {return selectedGroup;}
     public Location getSelectedLocation() {return selectedLocation;}
     public Price getSelectedPrice() {return selectedPrice;}
     public List<Event> getEventsList() {return eventsList;}
     //setters
-    public void setSearchForGroup(boolean selected) {searchForGroup = selected;}
-    public void setSelectedLocation(Location selected) {
-        selectedLocation = selected;}
+    public void setSelectedGroup(Group selected) {selectedGroup = selected;}
+    public void setSelectedLocation(Location selected) { selectedLocation = selected;}
     public void setSelectedPrice(Price selected) {selectedPrice = selected;}
     //other
     /**

@@ -37,4 +37,10 @@
         <item>Outdoors</item>
     </string-array>
 
+    <string-array name="isGroupArray">
+        <item>Any</item>
+        <item>Alone</item>
+        <item>Group</item>
+    </string-array>
+
 </resources>
