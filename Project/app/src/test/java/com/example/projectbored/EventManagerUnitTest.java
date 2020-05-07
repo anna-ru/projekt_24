@@ -29,14 +29,17 @@ public class EventManagerUnitTest {
     public void getRandomElementOfEventsListByParametersTestIsGroup() {
         eventManager.clearEventsList();
         eventManager.addEventToList(new Event("test1",2,1, 1, null, false));
-        eventManager.addEventToList(new Event("test2",1,0, 0, null, false));
+        eventManager.addEventToList(new Event("test2",0,0, 0, null, false));
 
         eventManager.setSelectedLocation(Location.Any);
         eventManager.setSelectedPrice(Price.Any);
-        eventManager.setSelectedGroup(Group.Any);
+        eventManager.setSelectedGroup(Group.Group);
 
         Event random = eventManager.getRandomElementOfEventsListByParameters();
-        assertEquals("isGroup property not checked properly",1, random.isIs_group());
+        if(random.isIs_group() != Group.Any.ordinal() && random.isIs_group() != Group.Group.ordinal()){
+            fail("Expected: Group or Any, but actual was something else");
+        }
+
     }
 
     @Test
