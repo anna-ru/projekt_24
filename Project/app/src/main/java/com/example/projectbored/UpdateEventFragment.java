@@ -105,7 +105,7 @@ public class UpdateEventFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selected = locationSpinner.getSelectedItem().toString();
-                currentEvent.setIs_indoor(MainFragment.eventManager.StringToLocation(selected).ordinal());
+                currentEvent.setIs_indoor(Location.valueOf(selected).ordinal());
             }
 
             @Override
@@ -118,7 +118,7 @@ public class UpdateEventFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selected = priceSpinner.getSelectedItem().toString();
-                currentEvent.setIs_free(MainFragment.eventManager.StringToPrice(selected).ordinal());
+                currentEvent.setIs_free(Price.valueOf(selected).ordinal());
             }
 
             @Override
@@ -131,7 +131,7 @@ public class UpdateEventFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selected = isGroupSpinner.getSelectedItem().toString();
-                currentEvent.setIs_group(MainFragment.eventManager.StringToGroup(selected).ordinal());
+                currentEvent.setIs_group(Group.valueOf(selected).ordinal());
             }
 
             @Override

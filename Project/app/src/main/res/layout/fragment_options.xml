@@ -33,44 +33,87 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:shadowRadius="2"
+        android:shadowDy="2" />
+
+    <Spinner
+        android:id="@+id/spinner_isGroup"
+        android:textColor="?attr/textColor"
+        android:backgroundTint="?attr/textColor"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label_isGroup"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        app:fontFamily="@font/dual_300"
+        android:textSize="20sp"
+        tools:ignore="UnusedAttribute"/>
+
+    <TextView
+        android:id="@+id/label_isGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/separator_under_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:shadowDy="2"
-        />
+        android:shadowRadius="2"
+        android:text="@string/group"
+        android:textColor="?attr/textColor"
+        android:textSize="24sp"
+        app:fontFamily="@font/dual_300" />
 
-        <Spinner
-            android:id="@+id/spinner_isGroup"
+    <Spinner
+        android:id="@+id/spinner_location"
+        android:textColor="?attr/textColor"
+        android:backgroundTint="?attr/textColor"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/label_location"
+        app:fontFamily="@font/dual_300"
+        tools:ignore="UnusedAttribute"/>
+
+    <TextView
+        android:id="@+id/label_location"
+        android:textColor="?attr/textColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinner_isGroup"
+        android:text="@string/location"
+        app:fontFamily="@font/dual_300"
+        android:shadowRadius="2"
+        android:shadowDy="2"
+        android:textSize="24sp"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true" />
+
+    <Spinner
+        android:id="@+id/spinner_price"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/label_price"
+        android:backgroundTint="?attr/textColor"
+        android:textColor="?attr/textColor"
+        app:fontFamily="@font/dual_300"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        tools:ignore="UnusedAttribute" />
+
+    <TextView
+            android:id="@+id/label_price"
             android:textColor="?attr/textColor"
-            android:backgroundTint="?attr/textColor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/separator_under_title"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            app:fontFamily="@font/dual_300"
-            android:textSize="20sp"
-            tools:ignore="UnusedAttribute"/>
-
-        <Spinner
-            android:id="@+id/spinner_location"
-            android:textColor="?attr/textColor"
-            android:backgroundTint="?attr/textColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:layout_below="@id/spinner_isGroup"
-            app:fontFamily="@font/dual_300"
-            tools:ignore="UnusedAttribute"/>
-
-        <Spinner
-            android:id="@+id/spinner_price"
-            android:textColor="?attr/textColor"
-            android:backgroundTint="?attr/textColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
             android:layout_below="@id/spinner_location"
+            android:text="@string/price"
             app:fontFamily="@font/dual_300"
-            tools:ignore="UnusedAttribute"/>
+            android:shadowRadius="2"
+            android:shadowDy="2"
+            android:textSize="24sp"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

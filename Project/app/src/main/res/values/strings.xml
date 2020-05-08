@@ -6,7 +6,7 @@
     <string name="show_in_map">Show in Map</string>
 
     <string-array name="price">
-        <item>Any price</item>
+        <item>Any</item>
         <item>Free</item>
         <item>Paid</item>
     </string-array>
@@ -34,9 +34,12 @@
     <string name="reset_database">Reset Database</string>
     <string name="Reset_database_description">WARNING: This will erase all your data and reset the database to the default events.</string>
     <string name="reset_database_are_u_sure">Are you sure you want to reset the databse?</string>
+    <string name="group">Group:</string>
+    <string name="price">Price:</string>
+    <string name="location">Location:</string>
 
     <string-array name="locationArray">
-        <item>Anywhere</item>
+        <item>Any</item>
         <item>Indoors</item>
         <item>Outdoors</item>
     </string-array>

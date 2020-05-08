@@ -1,41 +1,22 @@
 package com.example.projectbored;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Debug;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.AbsListView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.projectbored.adapters.EventAdapter;
 import com.example.projectbored.database.Event;
 import com.example.projectbored.viewmodel.EventViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-
-import static android.app.Activity.RESULT_OK;
 
 public class EventListFragment extends Fragment {
 
@@ -81,37 +62,27 @@ public class EventListFragment extends Fragment {
                 MainActivity.fragmentManager.beginTransaction().replace(R.id.fragment_container, new AddNewEventFragment(),null).addToBackStack(null).commit();
             }
         });
-        /*
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
-        final EventAdapter adapter = new EventAdapter(getContext());
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        mEventViewModel = new ViewModelProvider(this).get(EventViewModel.class);
-        mEventViewModel.getAllEvents().observe(getViewLifecycleOwner(), new Observer<List<Event>>() {
+        lView.setOnScrollListener(new AbsListView.OnScrollListener() {
+
             @Override
-            public void onChanged(@Nullable final List<Event> events) {
-                // Update the cached copy of the words in the adapter.
-                adapter.addEventList(events);
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE
+                        && (lView.getLastVisiblePosition() - lView.getHeaderViewsCount() -
+                        lView.getFooterViewsCount()) >= (adapter.getCount() - 1)) {
+
+                    add_new_event_button.setVisibility(View.GONE);
+                }else{
+                    add_new_event_button.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
             }
         });
-    }
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == NEW_EVENT_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
-            Toast.makeText(
-                    getContext(),
-                    "OK",
-                    Toast.LENGTH_LONG).show();
-        }
-        else {
-            Toast.makeText(
-                    getContext(),
-                    "Can't save data",
-                    Toast.LENGTH_LONG).show();
-        }
-     */
     }
 
 }

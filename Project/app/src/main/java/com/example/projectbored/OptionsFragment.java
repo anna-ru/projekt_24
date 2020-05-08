@@ -101,7 +101,7 @@ public class OptionsFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selected = locationSpinner.getSelectedItem().toString();
-                MainFragment.eventManager.setSelectedLocation(MainFragment.eventManager.StringToLocation(selected));
+                MainFragment.eventManager.setSelectedLocation(Location.valueOf(selected));
             }
 
             @Override
@@ -114,7 +114,7 @@ public class OptionsFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selected = priceSpinner.getSelectedItem().toString();
-                MainFragment.eventManager.setSelectedPrice(MainFragment.eventManager.StringToPrice(selected));
+                MainFragment.eventManager.setSelectedPrice(Price.valueOf(selected));
             }
 
             @Override
@@ -127,7 +127,7 @@ public class OptionsFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selected = isGroupSpinner.getSelectedItem().toString();
-                MainFragment.eventManager.setSelectedGroup(MainFragment.eventManager.StringToGroup(selected));
+                MainFragment.eventManager.setSelectedGroup(Group.valueOf(selected));
             }
 
             @Override

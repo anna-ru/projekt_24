@@ -132,42 +132,6 @@ public class EventManager {
         }
     }
 
-    /**
-     * Converts a string to a location
-     *
-     * @param selected This is the string that was chosen from the spinner
-     * @return Location returns the valueOf conversion of the string,
-     * except in the case of "Anywhere", when it returns Location.Any
-     */
-    public Location StringToLocation(String selected) {
-        if(selected.equals("Anywhere")) return Location.Any; //if we change the Location enums we need to be careful to see it this still works
-        return Location.valueOf(selected);
-    }
-
-    /**
-     * Converts a string to a Price
-     *
-     * @param selected This is the string that was chosen from the spinner
-     * @return Price returns the valueOf conversion of the string,
-     * except in the case of "Any price", when it returns Price.Any
-     */
-    public Price StringToPrice(String selected) {
-        if(selected.equals("Any price")) return Price.Any; //if we change the Price enums we need to be careful to see it this still works
-        return Price.valueOf(selected);
-    }
-
-    /**
-     * Converts a string to a Group
-     *
-     * @param selected This is the string that was chosen from the spinner
-     * @return Price returns the valueOf conversion of the string,
-     * except in the case of "Any", when it returns Group.Any
-     */
-    public Group StringToGroup(String selected) {
-        if(selected.equals("Any")) return Group.Any; //if we change the Group enums we need to be careful to see it this still works
-        return Group.valueOf(selected);
-    }
-
     //getters
     public Group getSelectedGroup() {return selectedGroup;}
     public Location getSelectedLocation() {return selectedLocation;}
