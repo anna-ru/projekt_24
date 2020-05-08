@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/layout_bg"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <TextView
+        android:id="@+id/reset_dialog_message"
+        android:textColor="#FFFFFF"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="50dp"
+        android:layout_gravity="center"
+        style="?android:attr/buttonBarStyle"
+        android:text="@string/reset_database_are_u_sure"
+        android:textSize="30sp"
+        android:textAlignment="center"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/reset_dialog_message"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/reset_no_button"
+            android:background="#00000000"
+            android:textColor="#FFFFFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/no"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/reset_yes_button"
+            android:background="#00000000"
+            android:textColor="#FFFFFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            style="?android:attr/buttonBarButtonStyle"
+            android:text="@string/yes"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

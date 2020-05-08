@@ -1,21 +1,22 @@
 package com.example.projectbored;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatDelegate;
-import androidx.fragment.app.Fragment;
-
-import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.Switch;
+import android.widget.Toast;
 
-import com.example.projectbored.viewmodel.SharedPref;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.example.projectbored.database.EventsData;
 
 /**
  * This is the settings page of the app, it sets listeners to two switches
@@ -74,6 +75,43 @@ public class SettingsFragment extends Fragment {
                 else {
                     ((MainActivity)getActivity()).sharedPrefs.setPowerUserState(false);
                 }
+            }
+        });
+
+        Button resetButton = view.findViewById(R.id.reset_button);
+        resetButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onButtonShowPopupWindowClick(view);
+
+            }
+        });
+    }
+
+    public void onButtonShowPopupWindowClick(View view){
+        final View popupView = LayoutInflater.from(this.getActivity()).inflate(R.layout.popup_dialog_reset, null);
+
+        int width = LinearLayout.LayoutParams.MATCH_PARENT;
+        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
+        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, true);
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        Button noButton = popupView.findViewById(R.id.reset_no_button);
+        noButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popupWindow.dismiss();
+            }
+        });
+
+        Button yesButton = popupView.findViewById((R.id.reset_yes_button));
+        yesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.appDatabase.eventDao().clearEvents();
+                MainActivity.appDatabase.eventDao().populateDatabase(EventsData.populateEventsData());
+                Toast.makeText(getActivity(),"Database reset was successful.",Toast.LENGTH_LONG).show();
+                popupWindow.dismiss();
             }
         });
 

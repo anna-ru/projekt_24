@@ -31,6 +31,9 @@
     <string name="delete">Delete</string>
     <string name="Add_idea">Add idea</string>
     <string name="power_user_description">As a Power User you are able to add Google Maps search parameters to your events</string>
+    <string name="reset_database">Reset Database</string>
+    <string name="Reset_database_description">WARNING: This will erase all your data and reset the database to the default events.</string>
+    <string name="reset_database_are_u_sure">Are you sure you want to reset the databse?</string>
 
     <string-array name="locationArray">
         <item>Anywhere</item>
