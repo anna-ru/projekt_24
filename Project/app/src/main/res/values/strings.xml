@@ -30,6 +30,7 @@
     <string name="yes">Yes</string>
     <string name="delete">Delete</string>
     <string name="Add_idea">Add idea</string>
+    <string name="power_user_description">As a Power User you are able to add Google Maps search parameters to your events</string>
 
     <string-array name="locationArray">
         <item>Anywhere</item>

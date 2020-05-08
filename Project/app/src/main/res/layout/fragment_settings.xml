@@ -68,5 +68,20 @@
         app:fontFamily="@font/dual_300"
         android:textSize="15sp"/>
 
+    <TextView
+        android:id="@+id/settings_power_user_description"
+        android:textColor="?attr/textColor"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/power_user_switch"
+        android:layout_marginTop="10dp"
+        android:textSize="16sp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:justificationMode="inter_word"
+        android:text="@string/power_user_description"
+        app:fontFamily="@font/dual_300"
+        tools:ignore="UnusedAttribute"/>
+
 
 </RelativeLayout>

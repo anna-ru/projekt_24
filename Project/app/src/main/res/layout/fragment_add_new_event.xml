@@ -76,17 +76,16 @@
         android:layout_below="@id/options_title"
         android:layout_centerHorizontal="true"/>
 
-    <CheckBox
-        android:id="@+id/checkbox_isGroup"
+    <Spinner
+        android:id="@+id/spinner_isGroup"
         android:textColor="?attr/textColor"
-        android:buttonTint="?attr/checkboxColor"
+        android:backgroundTint="?attr/textColor"
         android:fontFamily="@font/dual_300"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/separator_under_title"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="@string/group_activity"
         tools:ignore="UnusedAttribute"/>
 
     <Spinner
@@ -98,7 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/checkbox_isGroup"
+        android:layout_below="@id/spinner_isGroup"
         tools:ignore="UnusedAttribute"/>
 
     <Spinner

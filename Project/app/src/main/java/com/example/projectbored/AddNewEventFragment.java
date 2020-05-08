@@ -131,7 +131,7 @@ public class AddNewEventFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selected = isGroupSpinner.getSelectedItem().toString();
-                newEvent.setIs_group(MainFragment.eventManager.StringToPrice(selected).ordinal());
+                newEvent.setIs_group(MainFragment.eventManager.StringToGroup(selected).ordinal());
             }
 
             @Override
@@ -154,7 +154,7 @@ public class AddNewEventFragment extends Fragment {
                 }
 
                 MainFragment.eventManager.getEventsList().add(newEvent);
-                Toast.makeText(getActivity(),"Event added successfully" + newEvent.getName() + ", " + newEvent.isIs_group() + ", " + newEvent.getIs_indoor() + ", " + newEvent.getIs_free() + ", " + newEvent.getSearch_map(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"Event added successfully",Toast.LENGTH_LONG).show();
 
                 MainActivity.appDatabase.eventDao().addEvent(newEvent);
                 titleInputField.setText("");
