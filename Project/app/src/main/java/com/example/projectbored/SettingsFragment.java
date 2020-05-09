@@ -1,5 +1,6 @@
 package com.example.projectbored;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -88,6 +89,7 @@ public class SettingsFragment extends Fragment {
         });
     }
 
+    @SuppressLint("InflateParams")
     public void onButtonShowPopupWindowClick(View view){
         final View popupView = LayoutInflater.from(this.getActivity()).inflate(R.layout.popup_dialog_reset, null);
 

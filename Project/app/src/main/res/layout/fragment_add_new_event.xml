@@ -44,7 +44,9 @@
             android:layout_height="wrap_content"
             app:fontFamily="@font/dual_300"
             android:maxLength="150"
-            android:maxLines="2"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:maxLines="1"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -76,6 +78,143 @@
         android:layout_below="@id/options_title"
         android:layout_centerHorizontal="true"/>
 
+    <RelativeLayout
+        android:id="@+id/relative_layout_add_new_event_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/separator_under_title"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="80sp"
+        android:layout_marginStart="80sp"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/label_isGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/spinner_isGroup"
+            android:layout_toStartOf="@+id/spinner_isGroup"
+            android:layout_marginRight="10sp"
+            android:layout_marginEnd="10sp"
+            android:shadowDy="2"
+            android:shadowRadius="2"
+            android:text="@string/group"
+            android:textColor="?attr/textColor"
+            android:textSize="24sp"
+            app:fontFamily="@font/dual_300"/>
+
+        <Spinner
+            android:id="@+id/spinner_isGroup"
+            android:textColor="?attr/textColor"
+            android:backgroundTint="?attr/textColor"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50sp"
+            android:layout_marginLeft="10sp"
+            app:fontFamily="@font/dual_300"
+            android:textSize="24sp"
+            tools:ignore="UnusedAttribute"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50sp"
+            android:layout_marginStart="10sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_layout_add_new_event_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_layout_add_new_event_1"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="80sp"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="80sp">
+
+        <TextView
+            android:id="@+id/label_location"
+            android:textColor="?attr/textColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/spinner_location"
+            android:layout_marginRight="10sp"
+            android:text="@string/location"
+            app:fontFamily="@font/dual_300"
+            android:shadowRadius="2"
+            android:shadowDy="2"
+            android:textSize="24sp"
+            android:layout_toStartOf="@+id/spinner_location"
+            android:layout_marginEnd="10sp" />
+
+        <Spinner
+            android:id="@+id/spinner_location"
+            android:textColor="?attr/textColor"
+            android:backgroundTint="?attr/textColor"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50sp"
+            android:layout_marginLeft="10sp"
+            app:fontFamily="@font/dual_300"
+            android:textSize="24sp"
+            tools:ignore="UnusedAttribute"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50sp"
+            android:layout_marginStart="10sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relative_layout_add_new_event_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relative_layout_add_new_event_2"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="80sp"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="80sp">
+
+        <TextView
+            android:id="@+id/label_price"
+            android:textColor="?attr/textColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/spinner_price"
+            android:layout_marginRight="10sp"
+            android:text="@string/price"
+            app:fontFamily="@font/dual_300"
+            android:shadowRadius="2"
+            android:shadowDy="2"
+            android:textSize="24sp"
+            android:layout_toStartOf="@+id/spinner_price"
+            android:layout_marginEnd="10sp" />
+
+        <Spinner
+            android:id="@+id/spinner_price"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50sp"
+            android:layout_marginLeft="10sp"
+            android:backgroundTint="?attr/textColor"
+            android:textColor="?attr/textColor"
+            app:fontFamily="@font/dual_300"
+            android:layout_centerHorizontal="true"
+            android:textSize="24sp"
+            tools:ignore="UnusedAttribute"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="50sp"
+            android:layout_marginStart="10sp" />
+
+    </RelativeLayout>
+
+    <!--
     <Spinner
         android:id="@+id/spinner_isGroup"
         android:textColor="?attr/textColor"
@@ -110,12 +249,13 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:layout_below="@id/spinner_location"
-        tools:ignore="UnusedAttribute"/>
+        tools:ignore="UnusedAttribute"/> -->
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/google_maps_search_input_layout"
         android:textColorHint="?attr/textColor"
-        android:layout_below="@+id/spinner_price"
+        android:layout_below="@+id/relative_layout_add_new_event_3"
+        android:layout_marginTop="30sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
@@ -130,7 +270,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLength="100"
-            android:maxLines="2"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:maxLines="1"
             />
     </com.google.android.material.textfield.TextInputLayout>
 

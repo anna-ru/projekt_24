@@ -67,13 +67,13 @@ public class EventListFragment extends Fragment {
 
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
-                if (scrollState == AbsListView.OnScrollListener.SCROLL_STATE_IDLE
-                        && (lView.getLastVisiblePosition() - lView.getHeaderViewsCount() -
-                        lView.getFooterViewsCount()) >= (adapter.getCount() - 1)) {
-
-                    add_new_event_button.setVisibility(View.GONE);
+                if (lView.getLastVisiblePosition() - lView.getHeaderViewsCount() - lView.getFooterViewsCount() >= adapter.getCount() - 1) {
+                    add_new_event_button.animate().alpha(0f).setDuration(300).withEndAction(() -> {
+                        add_new_event_button.setVisibility(View.GONE);
+                    }).start();
                 }else{
                     add_new_event_button.setVisibility(View.VISIBLE);
+                    add_new_event_button.animate().alpha(1f).setDuration(300).start();
                 }
             }
 

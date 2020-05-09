@@ -11,11 +11,9 @@
         <item>Paid</item>
     </string-array>
 
-    <string name="group_activity">Group activity</string>
     <string name="bored">Bored</string>
     <string name="options">Options</string>
     <string name="app_settings">App Settings</string>
-    <string name="Settings_sample_text">Here you can change the application\'s settings, like Dark mode and\n\"Power User\" mode.</string>
     <string name="settings">Settings</string>
     <string name="dark_theme">Dark Theme</string>
     <string name="power_user">Power User</string>

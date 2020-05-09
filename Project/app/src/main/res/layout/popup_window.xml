@@ -1,44 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:minWidth="400sp"
+    android:minHeight="250sp"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_gravity="center"
     android:background="@drawable/layout_bg">
 
-    <TextView
-        android:id="@+id/chosenIdea"
-        android:textColor="#FFFFFF"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="50dp"
-        android:layout_gravity="center"
-        android:textSize="30sp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintWidth_max="340sp"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/chosenIdea"
+            android:textColor="#FFFFFF"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="28sp"
+            />
+
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <Button
             android:id="@+id/popupBackButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
             android:layout_alignParentLeft="true"
-            android:layout_gravity="center_vertical"
-            android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:background="@drawable/ic_arrow_back_white_18dp"
             android:text=""
             android:textColor="#FFFFFF"
-            android:typeface="normal" />
+            android:typeface="normal"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp" />
 
         <Button
             android:id="@+id/showInMapButton"
@@ -48,13 +58,13 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
-            android:layout_gravity="center_vertical"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:text="@string/show_in_map"
             android:typeface="normal"
-            tools:ignore="RelativeOverlap"/>
+            android:textSize="16sp"
+            tools:ignore="RelativeOverlap"
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
