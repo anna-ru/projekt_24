@@ -25,6 +25,9 @@ public interface EventDao {
     @Delete
     public void deleteEvent(Event event);
 
+    @Query("DELETE FROM events")
+    public void clearEvents();
+
     @Update
     public void updateEvent(Event event);
 

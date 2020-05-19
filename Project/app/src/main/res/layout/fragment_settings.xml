@@ -22,7 +22,18 @@
         android:layout_centerHorizontal="true"
         app:fontFamily="@font/dual_300"/>
 
-    <TextView
+    <View
+        android:id="@+id/separator_below_settings_title"
+        android:layout_width="260sp"
+        android:layout_height="1dp"
+        android:background="?attr/separatorColor"
+        android:layout_below="@id/settings_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:shadowRadius="2"
+        android:shadowDy="2" />
+
+    <!--<TextView
         android:id="@+id/settings_sample_text"
         android:textColor="?attr/textColor"
         android:layout_width="250dp"
@@ -36,7 +47,7 @@
         android:text="@string/Settings_sample_text"
         android:textAlignment="center"
         app:fontFamily="@font/dual_300"
-        tools:ignore="UnusedAttribute"/>
+        tools:ignore="UnusedAttribute"/> -->
 
     <Switch
         android:id="@+id/dark_theme_switch"
@@ -44,7 +55,7 @@
         android:theme="@style/SwitchCompatTheme"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/settings_sample_text"
+        android:layout_below="@id/separator_below_settings_title"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         android:switchPadding="8dp"
@@ -68,5 +79,63 @@
         app:fontFamily="@font/dual_300"
         android:textSize="15sp"/>
 
+    <TextView
+        android:id="@+id/settings_power_user_description"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/power_user_switch"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:justificationMode="inter_word"
+        android:text="@string/power_user_description"
+        android:textColor="?attr/textColor"
+        android:textSize="14sp"
+        app:fontFamily="@font/dual_300"
+        tools:ignore="UnusedAttribute" />
+
+    <View
+        android:id="@+id/separator_above_reset_button"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="?attr/separatorColor"
+        android:layout_above="@id/reset_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:shadowRadius="2"
+        android:shadowDy="2" />
+
+    <Button
+        android:id="@+id/reset_button"
+        android:background="@android:color/holo_red_dark"
+        android:textColor="#FFF"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/settings_reset_database_description"
+        android:layout_marginBottom="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fontFamily="@font/dual_300"
+        android:text="@string/reset_database"
+        android:paddingLeft="10dp"
+        android:paddingStart="10dp"
+        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/settings_reset_database_description"
+        android:textColor="?attr/textColor"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:textSize="14sp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:justificationMode="inter_word"
+        android:text="@string/Reset_database_description"
+        app:fontFamily="@font/dual_300"
+        tools:ignore="UnusedAttribute"/>
 
 </RelativeLayout>

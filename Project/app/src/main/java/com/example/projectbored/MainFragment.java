@@ -173,7 +173,8 @@ public class MainFragment extends Fragment {
                 }
             });
         }else{
-            showInMapButton.setVisibility(View.GONE);
+            showInMapButton.setAlpha(0f);
+            //showInMapButton.setVisibility(View.GONE);
         }
     }
 }

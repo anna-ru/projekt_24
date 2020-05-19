@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -26,7 +24,7 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class AddNewEventFragment extends Fragment {
 
-    private Event newEvent = new Event("",false,0,0,null,false);
+    private Event newEvent = new Event("",0,0,0,null,false);
 
     public AddNewEventFragment() {
         // Required empty public constructor
@@ -49,7 +47,13 @@ public class AddNewEventFragment extends Fragment {
         saveButton.setEnabled(false);
         saveButton.setAlpha(0.5f);
 
-        final CheckBox isGroupCheckBox = view.findViewById(R.id.checkbox_isGroup);
+        final Spinner isGroupSpinner = view.findViewById(R.id.spinner_isGroup);
+
+        ArrayAdapter<CharSequence> isGroupAdapter = ArrayAdapter.createFromResource(getContext(),
+                R.array.isGroupArray,R.layout.color_spinner_layout);
+        isGroupAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        isGroupSpinner.setAdapter(isGroupAdapter);
+
         final Spinner locationSpinner = view.findViewById(R.id.spinner_location);
 
         ArrayAdapter<CharSequence> locationAdapter = ArrayAdapter.createFromResource(getContext(),
@@ -101,7 +105,7 @@ public class AddNewEventFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selected = locationSpinner.getSelectedItem().toString();
-                newEvent.setIs_indoor(MainFragment.eventManager.StringToLocation(selected).ordinal());
+                newEvent.setIs_indoor(Location.valueOf(selected).ordinal());
             }
 
             @Override
@@ -114,7 +118,7 @@ public class AddNewEventFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selected = priceSpinner.getSelectedItem().toString();
-                newEvent.setIs_free(MainFragment.eventManager.StringToPrice(selected).ordinal());
+                newEvent.setIs_free(Price.valueOf(selected).ordinal());
             }
 
             @Override
@@ -123,10 +127,16 @@ public class AddNewEventFragment extends Fragment {
             }
         });
 
-        isGroupCheckBox.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
+        isGroupSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                newEvent.setIs_group(isGroupCheckBox.isChecked());
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selected = isGroupSpinner.getSelectedItem().toString();
+                newEvent.setIs_group(Group.valueOf(selected).ordinal());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 
@@ -144,11 +154,11 @@ public class AddNewEventFragment extends Fragment {
                 }
 
                 MainFragment.eventManager.getEventsList().add(newEvent);
-                Toast.makeText(getActivity(),"Event added successfully" + newEvent.getName() + ", " + newEvent.isIs_group() + ", " + newEvent.getIs_indoor() + ", " + newEvent.getIs_free() + ", " + newEvent.getSearch_map(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"Event added successfully",Toast.LENGTH_LONG).show();
 
                 MainActivity.appDatabase.eventDao().addEvent(newEvent);
                 titleInputField.setText("");
-                isGroupCheckBox.setChecked(false);
+                isGroupSpinner.setSelection(0);
                 locationSpinner.setSelection(0);
                 priceSpinner.setSelection(0);
                 ((MainActivity)getActivity()).onBackPressed();

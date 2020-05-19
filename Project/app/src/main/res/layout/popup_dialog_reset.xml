@@ -8,7 +8,7 @@
     android:layout_gravity="center">
 
     <TextView
-        android:id="@+id/dialog_message"
+        android:id="@+id/reset_dialog_message"
         android:textColor="#FFFFFF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         android:layout_marginBottom="50dp"
         android:layout_gravity="center"
         style="?android:attr/buttonBarStyle"
-        android:text="@string/are_you_sure_you_want_to_delete_this_idea"
+        android:text="@string/reset_database_are_u_sure"
         android:textSize="30sp"
         android:textAlignment="center"/>
 
@@ -28,11 +28,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/dialog_message"
+        android:layout_below="@id/reset_dialog_message"
         android:layout_centerHorizontal="true">
 
         <Button
-            android:id="@+id/yes_button"
+            android:id="@+id/reset_no_button"
             android:background="#00000000"
             android:textColor="#FFFFFF"
             android:layout_width="wrap_content"
@@ -40,12 +40,11 @@
             android:layout_marginEnd="30dp"
             android:layout_marginRight="30dp"
             style="?android:attr/buttonBarButtonStyle"
-            android:text="@string/yes"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:text="@string/no"
+            android:textStyle="bold" />
 
         <Button
-            android:id="@+id/no_button"
+            android:id="@+id/reset_yes_button"
             android:background="#00000000"
             android:textColor="#FFFFFF"
             android:layout_width="wrap_content"
@@ -53,9 +52,8 @@
             android:layout_marginStart="30dp"
             android:layout_marginLeft="30dp"
             style="?android:attr/buttonBarButtonStyle"
-            android:text="@string/no"
-            android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:text="@string/yes"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

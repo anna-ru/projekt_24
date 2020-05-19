@@ -13,8 +13,12 @@ public class Event {
     @ColumnInfo(name = "eventName")
     private String name;
 
+    public int getIs_group() {
+        return is_group;
+    }
+
     @ColumnInfo(name = "eventIsGroup")
-    private boolean is_group;
+    private int is_group;
 
     @ColumnInfo(name = "eventIsIndoor")
     private int is_indoor;
@@ -28,7 +32,7 @@ public class Event {
     @ColumnInfo(name = "eventShowMap")
     private boolean show_map;
 
-    public Event(String name, boolean is_group, int is_indoor, int is_free,
+    public Event(String name, int is_group, int is_indoor, int is_free,
                  String search_map, boolean show_map) {
         //this.id = id;
         this.name = name;
@@ -55,11 +59,11 @@ public class Event {
         this.name = name;
     }
 
-    public boolean isIs_group() {
+    public int isIs_group() {
         return is_group;
     }
 
-    public void setIs_group(boolean is_group) {
+    public void setIs_group(int is_group) {
         this.is_group = is_group;
     }
 

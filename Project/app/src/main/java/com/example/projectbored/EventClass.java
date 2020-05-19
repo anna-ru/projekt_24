@@ -15,10 +15,10 @@ public class EventClass {
     private String name;
     private String mapsData;
     private boolean showMap;
-    private boolean isGroup;
+    private Group isGroup;
     private Location location;
     private Price price;
-    private List<Categories> categories;
+    private List<Group> categories;
 
     /**
      * A simple constructor for EventClass
@@ -30,32 +30,32 @@ public class EventClass {
      * @param location The location of the event, that can either be indoors or outdoors
      * @param price The price of the event, that can either be free or paid
      */
-    public EventClass(String name, String mapsData, boolean showMap, boolean isGroup, Location location, Price price){
+    public EventClass(String name, String mapsData, boolean showMap, Group isGroup, Location location, Price price){
         this.name = name;
         this.mapsData = mapsData;
         this.showMap = showMap;
         this.isGroup = isGroup;
         this.location = location;
         this.price = price;
-        this.categories = new LinkedList<Categories>();
+        this.categories = new LinkedList<Group>();
     }
 //getters
 
     public String getName() { return name; }
     public String getMapsData() { return mapsData; }
     public boolean getShowMap() { return showMap; }
-    public boolean getGroup() { return isGroup; }
+    public Group getGroup() { return isGroup; }
     public Location getLocation() { return location; }
     public Price getPrice() { return price; }
-    public List<Categories> getCategories() { return categories; }
+    public List<Group> getCategories() { return categories; }
 
 //setters
     public void setName(String name) { this.name = name; }
     public void setMapsData(String mapsData) { this.mapsData = mapsData; }
     public void setShowMap(boolean showMap) { this.showMap = showMap; }
-    public void setGroup(boolean group) { isGroup = group; }
+    public void setGroup(Group group) { isGroup = group; }
     public void setLocation(Location location) { this.location = location; }
     public void setPrice(Price price) { this.price = price; }
-    public void setCategories(List<Categories> categories) { this.categories = categories; }
+    public void setCategories(List<Group> categories) { this.categories = categories; }
 
 }

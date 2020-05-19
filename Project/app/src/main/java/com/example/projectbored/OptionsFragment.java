@@ -1,20 +1,16 @@
 package com.example.projectbored;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.Spinner;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 /**
  * This is the options page of the app, it sets listeners to spinners and a checkbox
@@ -48,7 +44,13 @@ public class OptionsFragment extends Fragment {
 
         //MainFragment.eventManager.fillEventsListWithSampleData(); //ez addig kell csak amíg nincs adatbázis
 
-        final CheckBox isGroupCheckBox = view.findViewById(R.id.checkbox_isGroup);
+        final Spinner isGroupSpinner = view.findViewById(R.id.spinner_isGroup);
+
+        ArrayAdapter<CharSequence> isGroupAdapter = ArrayAdapter.createFromResource(getContext(),
+                R.array.isGroupArray,R.layout.color_spinner_layout);
+        isGroupAdapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
+        isGroupSpinner.setAdapter(isGroupAdapter);
+
         final Spinner locationSpinner = view.findViewById(R.id.spinner_location);
 
         ArrayAdapter<CharSequence> locationAdapter = ArrayAdapter.createFromResource(getContext(),
@@ -64,7 +66,15 @@ public class OptionsFragment extends Fragment {
         priceSpinner.setAdapter(priceAdapter);
 
         //set the default value of spinners and checkbox
-        isGroupCheckBox.setChecked(MainFragment.eventManager.getSearchForGroup());
+        if(MainFragment.eventManager.getSelectedGroup().equals(Group.Any)){
+            isGroupSpinner.setSelection(0);
+        }
+        if(MainFragment.eventManager.getSelectedGroup().equals(Group.Alone)){
+            isGroupSpinner.setSelection(1);
+        }
+        if(MainFragment.eventManager.getSelectedGroup().equals(Group.Group)){
+            isGroupSpinner.setSelection(2);
+        }
 
         if(MainFragment.eventManager.getSelectedLocation().equals(Location.Any)){
             locationSpinner.setSelection(0);
@@ -91,7 +101,7 @@ public class OptionsFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selected = locationSpinner.getSelectedItem().toString();
-                MainFragment.eventManager.setSelectedLocation(MainFragment.eventManager.StringToLocation(selected));
+                MainFragment.eventManager.setSelectedLocation(Location.valueOf(selected));
             }
 
             @Override
@@ -104,7 +114,7 @@ public class OptionsFragment extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String selected = priceSpinner.getSelectedItem().toString();
-                MainFragment.eventManager.setSelectedPrice(MainFragment.eventManager.StringToPrice(selected));
+                MainFragment.eventManager.setSelectedPrice(Price.valueOf(selected));
             }
 
             @Override
@@ -113,10 +123,16 @@ public class OptionsFragment extends Fragment {
             }
         });
 
-        isGroupCheckBox.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
+        isGroupSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                MainFragment.eventManager.setSearchForGroup(isGroupCheckBox.isChecked());
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selected = isGroupSpinner.getSelectedItem().toString();
+                MainFragment.eventManager.setSelectedGroup(Group.valueOf(selected));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
 

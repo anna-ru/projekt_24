@@ -10,14 +10,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EventListFragment" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashScreen">
+            <!-- android:theme="@style/AppTheme.SplashTheme" ha a képet akarjátok használni-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".EventListFragment" />
+        <activity
+            android:name=".MainActivity"
+            android:windowSoftInputMode="adjustPan"/>
     </application>
 
 </manifest>

@@ -6,11 +6,13 @@
       <module fileurl="file://$PROJECT_DIR$/Desktop-repo-projekt_24-ProjectBored~1.iml" filepath="$PROJECT_DIR$/Desktop-repo-projekt_24-ProjectBored~1.iml" group="ProjectBored" />
       <module fileurl="file://$PROJECT_DIR$/Desktop-repo-projekt_24-ProjectBored~2.iml" filepath="$PROJECT_DIR$/Desktop-repo-projekt_24-ProjectBored~2.iml" group="ProjectBored" />
       <module fileurl="file://$PROJECT_DIR$/app/Project-app.iml" filepath="$PROJECT_DIR$/app/Project-app.iml" group="ProjectBored/app" />
-      <module fileurl="file://$PROJECT_DIR$/ProjectBored.iml" filepath="$PROJECT_DIR$/ProjectBored.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjectBored.iml" filepath="$PROJECT_DIR$/ProjectBored.iml" group="ProjectBored" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ProjectBored/app" />
+      <module fileurl="file://$PROJECT_DIR$/app/git-Project-app.iml" filepath="$PROJECT_DIR$/app/git-Project-app.iml" group="ProjectBored/app" />
       <module fileurl="file://$PROJECT_DIR$/git-ProjectBored.iml" filepath="$PROJECT_DIR$/git-ProjectBored.iml" group="ProjectBored" />
       <module fileurl="file://$PROJECT_DIR$/app/projekt-Project-app.iml" filepath="$PROJECT_DIR$/app/projekt-Project-app.iml" group="ProjectBored/app" />
       <module fileurl="file://$PROJECT_DIR$/projekt-ProjectBored.iml" filepath="$PROJECT_DIR$/projekt-ProjectBored.iml" group="ProjectBored" />
+      <module fileurl="file://$PROJECT_DIR$/projekt-git-ProjectBored.iml" filepath="$PROJECT_DIR$/projekt-git-ProjectBored.iml" group="ProjectBored" />
       <module fileurl="file://$PROJECT_DIR$/app/projekt_24-Project-app.iml" filepath="$PROJECT_DIR$/app/projekt_24-Project-app.iml" group="ProjectBored/app" />
       <module fileurl="file://$PROJECT_DIR$/projekt_24-ProjectBored.iml" filepath="$PROJECT_DIR$/projekt_24-ProjectBored.iml" group="ProjectBored" />
       <module fileurl="file://$PROJECT_DIR$/projekt_24-develop-ProjectBored.iml" filepath="$PROJECT_DIR$/projekt_24-develop-ProjectBored.iml" group="ProjectBored" />
