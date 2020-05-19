@@ -13,7 +13,7 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-            sleep(1500);
+            sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
