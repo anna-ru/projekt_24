@@ -10,10 +10,11 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5e531c97-9d11-4e31-a863-cb68fd4f552b" name="Default Changelist" comment="Fixed NewEvent Options and Options (hopefully)">
+    <list default="true" id="5e531c97-9d11-4e31-a863-cb68fd4f552b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_new_event.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_add_new_event.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_options.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_options.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/projectbored/SplashScreen.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,7 +64,7 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-05-06T14:34:20.925Z" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="C:/AndroidStudio" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/layout" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -71,8 +72,9 @@
     <property name="settings.editor.selected.configurable" value="editor.breadcrumbs" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Bence\Desktop\ProjectBored\projekt_24-develop\Project\app\src\main\res\drawable" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ruszn\Documents\egyetem\6\PrEszk\projekt\git\Project\app\src\main\res\drawable" />
+      <recent name="C:\Users\Gergely\Desktop\Project Bored\projekt_24\Project\app\src\main\res\layout" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.projectbored" />
@@ -80,8 +82,8 @@
     <key name="android.template.packageName">
       <recent name="com.example.projectbored" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Gergely\Desktop\Project Bored\projekt_24\Project\app\src\main\res\layout" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Bence\Desktop\ProjectBored\projekt_24-develop\Project\app\src\main\res\drawable" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -448,9 +450,9 @@
       <item itemvalue="Android App.projekt_24-Project-app" />
       <item itemvalue="Android App.app" />
       <item itemvalue="Android App.Project-app" />
+      <item itemvalue="Android App.git-Project-app" />
       <item itemvalue="Android JUnit.EventManagerUnitTest" />
       <item itemvalue="Android JUnit.EventManagerUnitTest (1)" />
-      <item itemvalue="Android App.git-Project-app" />
     </list>
     <recent_temporary>
       <list>
@@ -540,7 +542,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589897833714</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fixed NewEvent Options and Options (hopefully)">
+      <created>1589900251739</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1589900251739</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
