@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ProjectBored/app" />
       <module fileurl="file://$PROJECT_DIR$/app/git-Project-app.iml" filepath="$PROJECT_DIR$/app/git-Project-app.iml" group="ProjectBored/app" />
       <module fileurl="file://$PROJECT_DIR$/git-ProjectBored.iml" filepath="$PROJECT_DIR$/git-ProjectBored.iml" group="ProjectBored" />
+      <module fileurl="file://$PROJECT_DIR$/app/null.iml" filepath="$PROJECT_DIR$/app/null.iml" group="ProjectBored/app" />
       <module fileurl="file://$PROJECT_DIR$/app/projekt-Project-app.iml" filepath="$PROJECT_DIR$/app/projekt-Project-app.iml" group="ProjectBored/app" />
       <module fileurl="file://$PROJECT_DIR$/projekt-ProjectBored.iml" filepath="$PROJECT_DIR$/projekt-ProjectBored.iml" group="ProjectBored" />
       <module fileurl="file://$PROJECT_DIR$/projekt-git-ProjectBored.iml" filepath="$PROJECT_DIR$/projekt-git-ProjectBored.iml" group="ProjectBored" />
