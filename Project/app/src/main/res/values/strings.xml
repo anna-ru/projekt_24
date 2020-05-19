@@ -5,13 +5,8 @@
     <string name="give_me_an_idea">Give me an idea</string>
     <string name="show_in_map">Show in Map</string>
 
-    <string-array name="price">
-        <item>Any</item>
-        <item>Free</item>
-        <item>Paid</item>
-    </string-array>
-
     <string name="bored">Bored</string>
+
     <string name="options">Options</string>
     <string name="app_settings">App Settings</string>
     <string name="settings">Settings</string>
@@ -35,6 +30,11 @@
     <string name="group">Group:</string>
     <string name="price">Price:</string>
     <string name="location">Location:</string>
+    <string-array name="price">
+        <item>Any</item>
+        <item>Free</item>
+        <item>Paid</item>
+    </string-array>
 
     <string-array name="locationArray">
         <item>Any</item>
