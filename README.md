@@ -29,6 +29,8 @@ Az alkalmazás előre fel van töltve tevékenységekkel amikből véletlenszer�
 
 Ha saját tevékenységeket szeretne hozzáadni a programhoz, vagy törölni/módosítani szeretne egy már meglévő tevékenységet akkor kattintson az "All Ideas" gombra. Az applikáció színvilágát a "Settings" menüpontban állíthatja át Light illetve Dark témára. Ugyanitt bekapcsolhatja a "Power User" módot, amivel nagyobb szabadságot nyerhet a saját tevékenységek hozzáadásakor.
 
+Demo: <Project_Bored_demo.pdf>
+
 ## Készítette
 
 Ez az applikáció 2020 első felében készült az ELTE IK Projekt eszközök tantárgy elvégzése közben, projekt feladat gyanánt.
